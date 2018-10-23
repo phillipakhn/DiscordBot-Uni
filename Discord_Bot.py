@@ -24,14 +24,14 @@ async def on_message(message):
 		greetings = pickle.load(rfp)
 	with open("url.txt",'rb') as rfp:
 		url = pickle.load(rfp)
-		
+
 	print(message.content)
-	
+
 	if message.author == client.user:
 		return 
-		
+
     a.greetings(message)
-	
+
 	if message.content.startswith('!URL'):
 		i = 0
 		while i <= (len(url)-1):	
