@@ -1,5 +1,5 @@
 import discord, logging, time, random, pickle
-
+import alastair as a
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 global greetings
@@ -30,11 +30,8 @@ async def on_message(message):
 	if message.author == client.user:
 		return 
 		
-	for i in greetings:	
-		if i in message.content:
-			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
-			await client.send_message(message.channel, msg)	
-			return
+    a.greetings(message)
+	
 	if message.content.startswith('!URL'):
 		i = 0
 		while i <= (len(url)-1):	
