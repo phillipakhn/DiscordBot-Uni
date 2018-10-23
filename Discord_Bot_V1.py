@@ -15,20 +15,6 @@ client = discord.Client()
 
 #print("502223039912476692".get_channel())
 
-#def Code():
-	
-
-
-
-
-
-
-
-
-
-
-
-
 @client.event
 async def on_message(message):
 	
@@ -58,7 +44,7 @@ async def on_message(message):
 		return
 			
 	if message.content.startswith('!Code'):
-		C = open("/home/alastair/Documents/Discord_Bot.py", "r")
+		C = open("/home/alastair/Desktop/Discord/Discord_Bot_V1.py", "r")
 		msg = ('{0.author.mention}'.format(message) + " - Here is the code: \n" + C.read())
 		await client.send_message(message.channel, msg)
 		C.close()
@@ -67,6 +53,37 @@ async def on_message(message):
 		while True:
 			msg = 'Dab'
 			await client.send_message(message.channel, msg)
+	if message.content.startswith('!help'):
+		msg = '---CLONE GIT---'
+		await client.send_message(message.channel, msg)
+		msg = '1) git clone https://github.coventry.ac.uk/hollan84/DiscordBot'
+		await client.send_message(message.channel, msg)
+		msg = '2) (Put in Username and Password) \n'
+		await client.send_message(message.channel, msg)
+		msg = '---PUSH GIT---'
+		await client.send_message(message.channel, msg)
+		msg = '1) cd DiscordBot'
+		await client.send_message(message.channel, msg)	
+		msg = '2) git init'
+		await client.send_message(message.channel, msg)	
+		msg = '3) git add .'
+		await client.send_message(message.channel, msg)
+		msg = "4) git commit -m 'Discord'"
+		await client.send_message(message.channel, msg)	
+		msg = '5) git remote add origin https://github.coventry.ac.uk/hollan84/DiscordBot'
+		await client.send_message(message.channel, msg)		
+		msg = '6) git push -u origin master'
+		await client.send_message(message.channel, msg)
+		msg = '7) (Put in Username and Password)'
+		await client.send_message(message.channel, msg)
+		msg = '---PULL GIT---'
+		await client.send_message(message.channel, msg)
+		msg = '1) git pull'
+		await client.send_message(message.channel, msg)
+		msg = '2) (Put in Username and Password) \n'
+		await client.send_message(message.channel, msg)
+		return
+	
 	if message.content.startswith('!addurl'):
 		#global lstmsg
 		url.append(lstmsg)
