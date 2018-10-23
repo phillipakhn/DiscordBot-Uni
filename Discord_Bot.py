@@ -47,7 +47,7 @@ async def on_message(message):
 		return
 			
 	if message.content.startswith('!Code'):
-		C = open("/home/alastair/Desktop/Discord/Discord_Bot_V1.py", "r")
+		C = open("/home/pi/DiscordBot/Discord_Bot_V1.py", "r")
 		msg = ('{0.author.mention}'.format(message) + " - Here is the code: \n" + C.read())
 		await client.send_message(message.channel, msg)
 		C.close()
