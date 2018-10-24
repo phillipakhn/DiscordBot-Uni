@@ -6,6 +6,8 @@ global greetings
 greetings = ["Hello", "Hi", "Yo"]
 url = ["https://github.coventry.ac.uk/hollan84/DiscordBot"]
 
+#Update test
+
 #print(greetings)
 
 #pickle.dump(url, open("url.txt",'wb') )
