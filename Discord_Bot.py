@@ -57,9 +57,8 @@ async def on_message(message):
 		
 	if message.content.startswith('!Update'):
 		os.system('cd ~ \n ./update.sh')
-		#exit()
 		await client.send_message(message.channel, "Git Updated")
-		return
+		exit()
 
 	if message.content.startswith('!dab4eva'):
 		while True:
