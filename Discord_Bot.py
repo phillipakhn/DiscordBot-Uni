@@ -1,4 +1,4 @@
-import discord, logging, time, random, pickle
+import discord, logging, time, random, pickle, os
 import alastair as a
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
@@ -51,6 +51,13 @@ async def on_message(message):
 		msg = ('{0.author.mention}'.format(message) + " - Here is the code: \n" + C.read())
 		await client.send_message(message.channel, msg)
 		C.close()
+		
+	if message.content.startswith('!Exit'):
+		exit()
+		
+	if message.content.startswith('!GitUpdate'):
+		os.system('cd ~ \n ./update.sh')
+		#exit()
 
 	if message.content.startswith('!dab4eva'):
 		while True:
