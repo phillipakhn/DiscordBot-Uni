@@ -31,6 +31,9 @@ async def on_message(message):
 
 	if message.author == client.user:
 		return 
+		
+	if message.content.startswith('!Human'):
+		return
 
     #a.greetings(message)
     	
@@ -48,8 +51,7 @@ async def on_message(message):
 			i = i + 1
 		return
 	
-	if message.content.startswith('!Human'):
-		return
+	
 			
 	if message.content.startswith('!Code'):
 		C = open("/home/pi/DiscordBot/Discord_Bot.py", "r")
