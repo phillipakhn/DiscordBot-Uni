@@ -47,6 +47,9 @@ async def on_message(message):
 			await client.send_message(message.channel, msg)	
 			i = i + 1
 		return
+	
+	if message.content.startswith('!Human'):
+		return
 			
 	if message.content.startswith('!Code'):
 		C = open("/home/pi/DiscordBot/Discord_Bot.py", "r")
