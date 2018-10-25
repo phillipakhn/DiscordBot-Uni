@@ -36,7 +36,7 @@ async def on_message(message):
 		return
 		
 	if message.content.startswith('!Show'):
-		msg = 'The update works'
+		msg = 'This is working'
 		await client.send_message(message.channel, msg)
 		return
 
