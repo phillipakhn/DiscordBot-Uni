@@ -65,6 +65,7 @@ async def on_message(message):
 		C.close()
 		
 	if message.content.startswith('!Exit'):
+		os.system('python3 StartPi.py')
 		exit()
 		
 	if message.content.startswith('!Update'):
