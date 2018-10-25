@@ -34,6 +34,11 @@ async def on_message(message):
 		
 	if message.content.startswith('!Human'):
 		return
+		
+	if message.content.startswith('!Show'):
+		msg = 'The update works'
+		await client.send_message(message.channel, msg)
+		return
 
     #a.greetings(message)
     	
