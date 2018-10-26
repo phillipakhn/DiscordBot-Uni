@@ -1,5 +1,10 @@
 import discord, logging, time, random, pickle, os
 import alastair as a
+#import karl as k
+#import tomas as t
+#import mateusz as m
+#import mango as mngo
+#import earth
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 global greetings
