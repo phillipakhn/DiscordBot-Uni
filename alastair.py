@@ -60,6 +60,7 @@ def temperature(message):
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
 		t = (tree.xpath('//h1/text()'))
+		t = str(t)
 		t = t.strip("[' ', '")
 		t = t.strip('Â')
 		t = t.strip("', ' ']")
