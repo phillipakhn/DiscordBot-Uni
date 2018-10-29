@@ -53,6 +53,15 @@ def add(lstmsg, message):
 		pickle.dump(greetings, open("greetings.txt",'wb') )
 		return
 		
+def temperature(message):
+	if message.content.startswith('!Temp'):
+		from lxml import html
+		import requests
+		page = requests.get('http://100.90.93.150')
+		tree = html.fromstring(page.content)
+		return(tree.xpath('//h1/text()'))
+
+		
 def code(message):
 	if message.content.startswith('!Code'):
 		C = open("/home/pi/DiscordBot/Discord_Bot.py", "r")
