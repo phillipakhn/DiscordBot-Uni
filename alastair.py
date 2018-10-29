@@ -62,7 +62,7 @@ def temperature(message):
 		t = (tree.xpath('//h1/text()'))
 		t = str(t)
 		t = t.strip("[' ', '")
-		t = t.strip("Â")
+		t = t.replace("Â", "")
 		t = t.strip("', ' ']")
 		t = "The Current Temperature at Godiva Place is " + t
 		return t
