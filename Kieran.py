@@ -12,6 +12,7 @@ async def kieran(message):
 		return
 	msg = ""
 	msg = msg + str(e.Google(message))
+	msg = msg.strip('None')
 	await client.send_message(message.channel, msg) # send message to discord
 	
 

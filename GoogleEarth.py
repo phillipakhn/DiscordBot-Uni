@@ -1,8 +1,12 @@
 # Google Earth
+import webbrowser
 import discord
 
 def Google(message):
 	if message.content.startswith('!GoogleEarth'):
-		msg = 'This is working'
+		webbrowser.open('https://earth.google.com/web/')
+		msg = 'Working'
 		return msg
 #
+
+
