@@ -1,5 +1,5 @@
 # Google Earth
-import Discord
+import discord
 
 def Google(message):
 	if message.content.startswith('!GoogleEarth'):
