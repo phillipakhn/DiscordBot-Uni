@@ -4,7 +4,7 @@ import alastair as a
 #import tomas as t
 #import mateusz as m
 #import mango as mngo
-from Kieran import earth as e
+from Kieran import GoogleEarth as e
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 global greetings
