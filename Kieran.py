@@ -1,4 +1,6 @@
 import discord, logging, time, random, pickle, os
+import GoogleEarth as e
+
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 
