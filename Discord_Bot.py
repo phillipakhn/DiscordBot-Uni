@@ -4,7 +4,7 @@ import alastair as a
 #import tomas as t
 #import mateusz as m
 #import mango as mngo
-#import earth
+from Kieran import earth as e
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 global greetings
@@ -39,6 +39,7 @@ async def alastair(message):
 	msg = msg + str(a.code(message))
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
+	msg = msg + str(e.Google(message))
 	msg = msg.strip('None')
 	print("MESSAGE" + msg)
 	#if not msg:
