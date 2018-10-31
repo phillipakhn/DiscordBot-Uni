@@ -56,6 +56,14 @@ def add(lstmsg, message):
 def temperature(message):
 	from lxml import html
 	import requests
+	if message.content.startswith('!TempInfo'):
+		page = requests.get('http://100.90.93.150/about')
+		tree = html.fromstring(page.content)
+		t = (tree.xpath('//p/text()'))
+		t = str(t)
+		t = t.replace("[' ', ' ', ' ", "")
+		t = t.replace(" ']", "")
+		return t
 	if message.content.startswith('!Temp'):
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
@@ -68,14 +76,6 @@ def temperature(message):
 			t = "The Current Temperature at Godiva Place is " + t
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
-		return t
-	if message.content.startswith('!TempInfo'):
-		page = requests.get('http://100.90.93.150/about')
-		tree = html.fromstring(page.content)
-		t = (tree.xpath('//p/text()'))
-		t = str(t)
-		t = t.replace("[' ', ' ', ' ", "")
-		t = t.replace(" ']", "")
 		return t
 		
 def code(message):
