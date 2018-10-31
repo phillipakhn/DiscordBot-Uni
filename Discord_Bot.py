@@ -1,4 +1,4 @@
-import discord, logging, time, random, pickle, os
+import discord, logging, time, random, pickle, os, datetime
 import alastair as a
 #import karl as k
 #import tomas as t
