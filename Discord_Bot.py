@@ -22,6 +22,8 @@ client = discord.Client()
 
 #print("502223039912476692".get_channel())
 
+startup = datetime.datetime.now()
+
 @client.event
 async def alastair(message):
 	if message.author == client.user:
@@ -40,7 +42,10 @@ async def alastair(message):
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
 	msg = msg.strip('None')
-	print("MESSAGE" + msg)
+	#print("MESSAGE" + msg)
+	if message.content.startswith('!BotInfo'):
+		uptime = datetime.datetime.now() - startup
+		msg = "Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
 	#if not msg:
 	await client.send_message(message.channel, msg)
 	
