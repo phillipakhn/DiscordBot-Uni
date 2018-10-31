@@ -9,7 +9,6 @@ client = discord.Client()
 
 
 def Trigonometry(message):
-
 	if message.content.startswith('!Trigonometry'):
 
 		return
