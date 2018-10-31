@@ -68,6 +68,7 @@ def temperature(message):
 			t = "The Current Temperature at Godiva Place is " + t
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
+		return t
 	if message.content.startswith('!TempInfo'):
 		page = requests.get('http://100.90.93.150/about')
 		tree = html.fromstring(page.content)
@@ -75,7 +76,7 @@ def temperature(message):
 		t = str(t)
 		t = t.replace("[' ', ' ', ' ", "")
 		t = t.replace(" ']", "")
-	return t
+		return t
 		
 def code(message):
 	if message.content.startswith('!Code'):
