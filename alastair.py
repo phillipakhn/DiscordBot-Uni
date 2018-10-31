@@ -73,6 +73,8 @@ def temperature(message):
 		tree = html.fromstring(page.content)
 		t = (tree.xpath('//p/text()'))
 		t = str(t)
+		t = t.replace("[' ', ' ', ' ", "")
+		t = t.replace(" ']", "")
 	return t
 		
 def code(message):
