@@ -60,15 +60,14 @@ def temperature(message):
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
 		t = (tree.xpath('//h1/text()'))
-		if t != "w1thermsensor.errors.SensorNotReadyError":
-			#ta = (tree.xpath('//h3/text()'))
-			t = str(t)
+		t = str(t)
+		if t == "w1thermsensor.errors.SensorNotReadyError":
+			t = "There is currently an error with the weather station. Please try again later"
+		else:
 			t = t.strip("[' ', '")
 			t = t.replace("Â", "")
 			t = t.strip("', ' ']")
 			t = "The Current Temperature at Godiva Place is " + t
-		else:
-			t = "There is currenly an error with the weather station. Please try agin later"
 		return t
 
 		
