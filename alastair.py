@@ -60,11 +60,12 @@ def temperature(message):
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
 		t = (tree.xpath('//h1/text()'))
+		ta = (tree.xpath('//h3/text()'))
 		t = str(t)
 		t = t.strip("[' ', '")
 		t = t.replace("Â", "")
 		t = t.strip("', ' ']")
-		t = "The Current Temperature at Godiva Place is " + t
+		t = "The Current Temperature at Godiva Place is " + t + "(" + ta + ")"
 		return t
 
 		
