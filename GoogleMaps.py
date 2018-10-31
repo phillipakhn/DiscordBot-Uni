@@ -12,8 +12,8 @@ def Google(message):
 			msg = "That postcode is impossible!"
 			return msg
 		else:
-			w.Maps(Postcode)
-			msg = "Here you go "
+			msg = w.Maps(Postcode)
+			msg = "Here you go " + str(msg)
 			return msg	
 		
 def Validate(Postcode):
