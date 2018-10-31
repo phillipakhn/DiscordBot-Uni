@@ -44,7 +44,7 @@ async def alastair(message):
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
 	if message.content.startswith('!BotInfo'):
-		uptime = datetime.datetime.now() - startup
+		Uptime = datetime.datetime.now() - startup
 		msg = "Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
 	#if not msg:
 	await client.send_message(message.channel, msg)
