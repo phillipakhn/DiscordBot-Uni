@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 
 
-
+'''Innput: String (Postcode), Output: String (msg)'''
 def Maps(Postcode):
 	# Using Chrome to access web
 	driver = webdriver.Chrome(executable_path=r'C:\Users\Kieran\Desktop\A.L.L Project\ChatBot\DiscordBot-master/chromedriver.exe')
@@ -15,5 +15,8 @@ def Maps(Postcode):
 	Search_button = driver.find_element_by_id('searchbox-searchbutton')
 	Search_button.click()
 	time.sleep(3)
-	msg = driver.current_url
+	msg = driver.current_url # Sets the Url to "msg"
 	return msg
+
+
+#urllib 
