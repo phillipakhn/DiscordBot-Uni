@@ -1,5 +1,5 @@
 import discord
-import Postcode as maps
+import Location as maps
 
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' # The Discord Bot's token
 
