@@ -39,9 +39,11 @@ def update(message):
 def pyStart(message):
 	if message.content.startswith('!PyStart'):
 		t = str(message) 
-		t = t.replace("!PyStart ", "")
-		m = "python3 " + t
-		os.system(m)
+		#t = t.replace("!PyStart ", "")
+		#m = "python3 " + t
+		#os.system(m)
+		sys.argv = [t, 'arg']  # argv[0] should still be the script name
+		execfile(t)
 		return "Started Program"
 		
 def exitBot(message):
