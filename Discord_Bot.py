@@ -32,6 +32,7 @@ async def alastair(message):
 #	if not lstmsg:
 #		lstmsg = ""
 	#a.dab(message)
+	a.pyStart(message)
 	msg = ""
 	msg = msg + str(a.human(message))
 	msg = msg + str(a.greetings(message))
