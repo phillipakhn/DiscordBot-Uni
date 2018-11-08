@@ -36,6 +36,14 @@ def update(message):
 		os.system('cd ~ \n ./update.sh')
 		exit()
 		
+def pythonStart(message):
+	if message.content.startswith('!PyStart'):
+		t = message 
+		t = t.replace("!PyStart ", "")
+		m = "python3 " + t
+		os.system(m)
+		exit()
+		
 def exitBot(message):
 	if message.content.startswith('!Exit'):
 		exit()
