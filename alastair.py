@@ -36,7 +36,7 @@ def update(message):
 		os.system('cd ~ \n ./update.sh')
 		exit()
 		
-def pythonStart(message):
+def pyStart(message):
 	if message.content.startswith('!PyStart'):
 		t = message 
 		t = t.replace("!PyStart ", "")
