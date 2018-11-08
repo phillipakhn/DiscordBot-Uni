@@ -43,7 +43,7 @@ def pyStart(message):
 		#m = "python3 " + t
 		#os.system(m)
 		sys.argv = [t, 'arg']  # argv[0] should still be the script name
-		exec(compile(open(t, "rb").read(), filename, 'exec'), globals, locals)
+		exec(compile(open(t, "rb").read(), t, 'exec'), globals, locals)
 		return "Started Program"
 		
 def exitBot(message):
