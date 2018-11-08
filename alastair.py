@@ -38,7 +38,7 @@ def update(message):
 		
 def pyStart(message):
 	if message.content.startswith('!PyStart'):
-		t = str(message) 
+		t = str(message.content) 
 		t = t.replace("!PyStart ", "")
 		#m = "python3 " + t
 		#os.system(m)
