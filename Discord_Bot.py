@@ -34,6 +34,7 @@ async def alastair(message):
 	#a.dab(message)
 	a.pyStart(message)
 	msg = ""
+	msg = msg + str(a.pyStart(message))
 	msg = msg + str(a.human(message))
 	msg = msg + str(a.greetings(message))
 	msg = msg + str(a.url(message))
