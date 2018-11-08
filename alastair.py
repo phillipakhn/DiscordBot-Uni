@@ -42,7 +42,7 @@ def pyStart(message):
 		t = t.replace("!PyStart ", "")
 		m = "python3 " + t
 		os.system(m)
-		return
+		return "Started Program"
 		
 def exitBot(message):
 	if message.content.startswith('!Exit'):
