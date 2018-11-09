@@ -45,7 +45,7 @@ async def modules(message):
 	msg = msg + str(a.code(message))
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
-	msg = msg + p.primeN(message) #Karl
+	msg = msg + str(p.primeN(message)) #Karl
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
 	if message.content.startswith('!BotInfo'):
