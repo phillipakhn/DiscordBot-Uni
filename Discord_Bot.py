@@ -63,7 +63,9 @@ async def alastair(message):
 #		return
 #	await client.send_message(message.channel, msg)
 	
-def karl(message):
+
+@client.event
+async def karl(message):
 	msg = ""
 	msg = msg + p.primeN(message)
 	if not msg:
