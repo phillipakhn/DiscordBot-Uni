@@ -51,8 +51,8 @@ async def alastair(message):
 		extip = get('https://api.ipify.org').text
 		Uptime = datetime.datetime.now() - startup
 		msg = extip + " - Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
-	if not msg:
-		return
+	#if not msg:
+	#	return
 	await client.send_message(message.channel, msg)
 	
 @client.event
