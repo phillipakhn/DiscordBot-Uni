@@ -80,7 +80,7 @@ async def on_message(message):
 		
 	await alastair(message)
 	#await kieran(message)
-	await karl(message)
+	#await karl(message)
 	#await 
 
 
