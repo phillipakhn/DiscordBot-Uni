@@ -71,9 +71,9 @@ async def on_message(message):
 
 	print(message.content)
 		
-	await alastair(message)
+	await modules(message)
 	#await kieran(message)
-	await karl(message)
+	#await karl(message)
 	#await 
 
 
