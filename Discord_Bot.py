@@ -27,7 +27,7 @@ client = discord.Client()
 startup = datetime.datetime.now()
 
 @client.event
-async def alastair(message):
+async def modules(message):
 	if message.author == client.user:
 		return
 #	if not lstmsg:
@@ -45,6 +45,7 @@ async def alastair(message):
 	msg = msg + str(a.code(message))
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
+	msg = msg + p.primeN(message) #Karl
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
 	if message.content.startswith('!BotInfo'):
@@ -63,15 +64,6 @@ async def alastair(message):
 #		return
 #	await client.send_message(message.channel, msg)
 	
-
-@client.event
-async def karl(message):
-	msg = ""
-	msg = msg + p.primeN(message)
-	if not msg:
-		return
-	await client.send_message(message.channel, msg)
-
 @client.event
 async def on_message(message):
 	
