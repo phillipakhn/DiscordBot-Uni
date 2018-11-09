@@ -63,13 +63,12 @@ async def alastair(message):
 #		return
 #	await client.send_message(message.channel, msg)
 	
-#@client.event
-#async def karl(message):
-#	msg = ""
-#	msg = msg + p.primeN(message)
-#	if not msg:
-#		return
-#	await client.send_message(message.channel, msg)
+def karl(message):
+	msg = ""
+	msg = msg + p.primeN(message)
+	if not msg:
+		return
+	await client.send_message(message.channel, msg)
 
 @client.event
 async def on_message(message):
@@ -80,7 +79,7 @@ async def on_message(message):
 		
 	await alastair(message)
 	#await kieran(message)
-	#await karl(message)
+	await karl(message)
 	#await 
 
 
