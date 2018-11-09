@@ -1,7 +1,7 @@
 import discord, logging, time, random, pickle, os, datetime
-import alastair as a
 from requests import get
-#import karl as k
+import alastair as a
+import kieran as k
 #import tomas as t
 #import mateusz as m
 #import mango as mngo
@@ -53,6 +53,9 @@ async def alastair(message):
 	#if not msg:
 	await client.send_message(message.channel, msg)
 	
+@client.event
+async def kieran(message):
+	k.server(message)
 
 @client.event
 async def on_message(message):
@@ -62,7 +65,7 @@ async def on_message(message):
 	print(message.content)
 		
 	await alastair(message)
-	#await kieran
+	await kieran(message)
 	#await 
 
 
