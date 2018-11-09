@@ -2,7 +2,7 @@ import discord, logging, time, random, pickle, os, datetime
 from requests import get
 import alastair as a
 #import Kieran as k
-#import Prime as p
+import Prime as p
 #import tomas as t
 #import mateusz as m
 #import mango as mngo
