@@ -2,6 +2,7 @@ import discord, logging, time, random, pickle, os, datetime
 from requests import get
 import alastair as a
 import Kieran as k
+import Prime as p
 #import tomas as t
 #import mateusz as m
 #import mango as mngo
@@ -61,6 +62,14 @@ async def kieran(message):
 	if not msg:
 		return
 	await client.send_message(message.channel, msg)
+	
+@client.event
+async def karl(message):
+	msg = ""
+	msg = msg + p.primeN(message)
+	if not msg:
+		return
+	await client.send_message(message.channel, msg)
 
 @client.event
 async def on_message(message):
@@ -71,6 +80,7 @@ async def on_message(message):
 		
 	await alastair(message)
 	await kieran(message)
+	await karl(message)
 	#await 
 
 
