@@ -62,7 +62,7 @@ async def modules(message):
 		Uptime = datetime.datetime.now() - startup
 		msg = extip + " - Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
 	a.add(oldmsg, message)
-	oldmsg = str(message)
+	oldmsg = str(message.content)
 	await client.send_message(message.channel, msg)
 	
 #@client.event
