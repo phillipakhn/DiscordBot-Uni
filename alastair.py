@@ -20,7 +20,7 @@ def fQuestion(message):
 		fQuestion = pickle.load(rfp)
 	for i in fQuestion:	
 		if i in message.content:
-			msg = Pretty good, how are you {0.author.mention}?'.format(message)
+			msg = 'Pretty good, how are you {0.author.mention}?'.format(message)
 			return msg
 			
 def url(message):
