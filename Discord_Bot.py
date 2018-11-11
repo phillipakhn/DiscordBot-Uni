@@ -48,12 +48,13 @@ async def modules(message):
 	#msg = msg + str(p.primeN(message)) #Karl
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
+	if not msg:
+		msg = str(a.notInMem(message))
 	if message.content.startswith('!BotInfo'):
 		extip = get('https://api.ipify.org').text
 		Uptime = datetime.datetime.now() - startup
 		msg = extip + " - Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
-	#if not msg:
-	#	return
+	oldmsg = str(message)
 	await client.send_message(message.channel, msg)
 	
 #@client.event
