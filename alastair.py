@@ -52,15 +52,25 @@ def exitBot(message):
 		
 def add(lstmsg, message):
 	if message.content.startswith('!addurl'):
-		#global lstmsg
+		with open("url.txt",'rb') as rfp:
+			url = pickle.load(rfp)
 		url.append(lstmsg)
 		print(url)
 		pickle.dump(url, open("url.txt",'wb'))
 		return
 	if message.content.startswith('!greeting'):
+		with open("greetings.txt",'rb') as rfp:
+			greetings = pickle.load(rfp)
 		greetings.append(lstmsg)
 		print(greetings)
 		pickle.dump(greetings, open("greetings.txt",'wb') )
+		return
+	if message.content.startswith('!friendlyQuestion'):
+		with open("fQuestion.txt",'rb') as rfp:
+			fQuestion = pickle.load(rfp)
+		fQuestion.append(lstmsg)
+		print(fQuestion)
+		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
 		return
 		
 def temperature(message):
