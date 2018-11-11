@@ -65,21 +65,21 @@ def add(lstmsg, message):
 		url.append(lstmsg)
 		print(url)
 		pickle.dump(url, open("url.txt",'wb'))
-		return
+		return "Added URL"
 	if message.content.startswith('!greeting'):
 		with open("greetings.txt",'rb') as rfp:
 			greetings = pickle.load(rfp)
 		greetings.append(lstmsg)
 		print(greetings)
 		pickle.dump(greetings, open("greetings.txt",'wb') )
-		return
+		return "Added Greeting"
 	if message.content.startswith('!friendlyQuestion'):
 		with open("fQuestion.txt",'rb') as rfp:
 			fQuestion = pickle.load(rfp)
 		fQuestion.append(lstmsg)
 		print(fQuestion)
 		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
-		return
+		return "Added Friendly Question"
 		
 def temperature(message):
 	from lxml import html
