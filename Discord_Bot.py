@@ -9,14 +9,17 @@ import alastair as a
 #from Kieran import GoogleEarth as e
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
-global greetings
-greetings = ["Hello", "Hi", "Yo"]
-url = ["https://github.coventry.ac.uk/hollan84/DiscordBot"]
+#global greetings
+#greetings = ["Hello", "Hi", "Yo"]
+#url = ["https://github.coventry.ac.uk/hollan84/DiscordBot"]
 
 #Update test
 
 #print(greetings)
 
+
+fQuestion = ["How are you?", "How are you doing?"]
+pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
 #pickle.dump(url, open("url.txt",'wb') )
 #pickle.dump(greetings, open("greetings.txt",'wb') )
 
