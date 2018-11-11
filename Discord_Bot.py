@@ -31,6 +31,7 @@ startup = datetime.datetime.now()
 
 @client.event
 async def modules(message):
+	global oldmsg
 	if message.author == client.user:
 		return
 #	if not lstmsg:
