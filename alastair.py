@@ -113,7 +113,7 @@ def code(message):
 		
 def notInMem(message):
 	lstmsg = message.content
-	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl"
+	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl, !friendlyQuestion"
 	return msg
 	
 def gitHelp(message):
