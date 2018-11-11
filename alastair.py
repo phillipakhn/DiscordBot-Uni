@@ -15,6 +15,14 @@ def greetings(message):
 			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
 			return msg
 			
+def fQuestion(message):
+	with open("fQuestion.txt",'rb') as rfp:
+		fQuestion = pickle.load(rfp)
+	for i in fQuestion:	
+		if i in message.content:
+			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
+			return msg
+			
 def url(message):
 	if message.content.startswith('!URL'):
 		i = 0
