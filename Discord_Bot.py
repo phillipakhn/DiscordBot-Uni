@@ -24,6 +24,9 @@ client = discord.Client()
 
 #print("502223039912476692".get_channel())
 
+global oldmsg
+oldmsg = ""
+
 startup = datetime.datetime.now()
 
 @client.event
@@ -54,6 +57,7 @@ async def modules(message):
 		extip = get('https://api.ipify.org').text
 		Uptime = datetime.datetime.now() - startup
 		msg = extip + " - Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
+	a.add(oldmsg, message)
 	oldmsg = str(message)
 	await client.send_message(message.channel, msg)
 	
