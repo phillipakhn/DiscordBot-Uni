@@ -52,7 +52,7 @@ async def modules(message):
 	msg = msg + str(a.code(message))
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
-	#msg = msg + str(p.primeN(message)) #Karl
+	msg = msg + str(a.fQuestion(message))
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
 	if not msg:
