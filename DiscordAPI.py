@@ -12,8 +12,12 @@ async def Server(message):
 		return
 	msg = ""
 	if message.content.startswith('!GoogleMaps'):
-		msg = msg + str(maps.Google(message)) # Calls function "Google" from GoogleMaps.py
-	if not msg: # To prevent an empty message being sent
+		run = 0
+		msg = msg + str(maps.Google(message,run)) # Calls function "Google" from GoogleMaps.py
+	elif message.content.startswith('!Timezone'):
+		run = 1
+		msg = msg + str(maps.Google(message,run))
+	elif not msg: # To prevent an empty message being sent
 		return
 	await client.send_message(message.channel, msg) # Send "msg" to discord
 	
