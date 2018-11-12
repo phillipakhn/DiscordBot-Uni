@@ -98,6 +98,6 @@ async def on_message(message):
 async def on_ready():
 	print('Logged in as ' + client.user.name)
 	msg = "Bot Started at " + str(startup) + " on " + str(get('https://api.ipify.org').text)
-	await client.send_message(client.get_channel('502223039912476694'), "Bot Started")
+	await client.send_message(client.get_channel('502223039912476694'), msg)
 
 client.run(TOKEN)
