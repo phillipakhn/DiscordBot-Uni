@@ -40,7 +40,7 @@ def fQuestion(message):
 	for i in fquestion:
 		question = str(message)
 		if i in question:
-			msg = fqestion[random.randint(0, len(fquestion)-1)] + ' {0.author.mention}'.format(message)
+			msg = fquestion[random.randint(0, len(fquestion)-1)] + ' {0.author.mention}'.format(message)
 			return msg
 			
 def url(message):
