@@ -57,6 +57,8 @@ async def modules(message):
 	msg = msg + str(a.add(oldmsg, message))
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
+	if msg == "RETURN":
+		return
 	if not msg:
 		msg = str(a.notInMem(message))
 	if message.content.startswith('!BotInfo'):
