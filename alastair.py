@@ -5,7 +5,7 @@ client = discord.Client()
 
 def human(message):
 	if message.content.startswith('!Human'):
-		return
+		return "RETURN"
 			
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
