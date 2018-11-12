@@ -17,6 +17,7 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 #print(greetings)
 
+extip = get('https://api.ipify.org').text
 
 #fQuestion = ["How are you?", "How are you doing?"]
 #pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
@@ -98,7 +99,7 @@ async def on_message(message):
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-	msg = "Bot Started at " + startup " on " + get('https://api.ipify.org').text
+	msg = "Bot Started at " + startup + " on " + get('https://api.ipify.org').text
 	await client.send_message(client.get_channel('502223039912476694'), "Bot Started")
 
 client.run(TOKEN)
