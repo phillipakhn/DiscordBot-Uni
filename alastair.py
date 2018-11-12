@@ -24,6 +24,14 @@ def fQuestion(message):
 		if i in message.content:
 			msg = 'Pretty good, how are you {0.author.mention}?'.format(message)
 			return msg
+		
+def fQuestion2(message):
+	with open("fQuestion.txt",'rb') as rfp:
+		fQuestion = pickle.load(rfp)
+	for i in fQuestion:	
+		if i in message:
+			msg = 'Pretty good, how are you {0.author.mention}?'.format(message)
+			return msg
 			
 def url(message):
 	if message.content.startswith('!URL'):
