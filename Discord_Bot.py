@@ -92,14 +92,12 @@ async def on_message(message):
 
 
 
-async def send_all():
-    for channel in client.get_all_channels()
-        await client.send_message(channel, "Bot Started")
+
 
 
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-	send_all()
+	await client.send_message("502223039912476694", "Bot Started")
 
 client.run(TOKEN)
