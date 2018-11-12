@@ -28,7 +28,7 @@ def greetings(message):
 def fResponse(message):
 	with open("fResponse.txt",'rb') as rfp:
 		fresponse = pickle.load(rfp)
-	for i in fqesponse:
+	for i in fresponse:
 		response = str(message)
 		if i in response:
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
