@@ -27,20 +27,20 @@ def greetings(message):
 
 def fResponse(message):
 	with open("fResponse.txt",'rb') as rfp:
-		fResponse = pickle.load(rfp)
-	for i in fResponse:
+		fresponse = pickle.load(rfp)
+	for i in fqesponse:
 		response = str(message)
 		if i in response:
-			msg = fResponse[random.randint(0, len(fResponse)-1)] + ' {0.author.mention}'.format(message)
+			msg = fresponse[random.randint(0, len(fresponse)-1)] + ' {0.author.mention}'.format(message)
 			return msg
 		
 def fQuestion(message):
 	with open("fQuestion.txt",'rb') as rfp:
-		fQuestion = pickle.load(rfp)
-	for i in fQuestion:
+		fquestion = pickle.load(rfp)
+	for i in fquestion:
 		question = str(message)
 		if i in question:
-			msg = fResponse[random.randint(0, len(fResponse)-1)] + ' {0.author.mention}'.format(message)
+			msg = fqestion[random.randint(0, len(fquestion)-1)] + ' {0.author.mention}'.format(message)
 			return msg
 			
 def url(message):
