@@ -31,7 +31,7 @@ def fResponse(message):
 	for i in fqesponse:
 		response = str(message)
 		if i in response:
-			msg = fresponse[random.randint(0, len(fresponse)-1)] + ' {0.author.mention}'.format(message)
+			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
 		
 def fQuestion(message):
@@ -40,7 +40,7 @@ def fQuestion(message):
 	for i in fquestion:
 		question = str(message)
 		if i in question:
-			msg = fquestion[random.randint(0, len(fquestion)-1)] + ' {0.author.mention}'.format(message)
+			msg = fquestion[random.randint(0, len(fquestion)-1)]
 			return msg
 			
 def url(message):
