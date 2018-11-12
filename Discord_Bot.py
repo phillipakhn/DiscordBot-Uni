@@ -98,5 +98,6 @@ async def on_message(message):
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
+	await client.send_message("Bot Started")
 
 client.run(TOKEN)
