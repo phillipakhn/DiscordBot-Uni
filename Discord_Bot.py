@@ -53,6 +53,7 @@ async def modules(message):
 	msg = msg + str(a.gitHelp(message))
 	msg = msg + str(a.temperature(message))
 	msg = msg + str(a.fQuestion(message))
+	msg = msg + str(a.fResponse(message))
 	msg = msg + str(a.add(oldmsg, message))
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
