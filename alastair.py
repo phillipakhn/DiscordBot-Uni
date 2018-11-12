@@ -13,6 +13,8 @@ def greetings(message):
 	for i in greetings:	
 		if i in message.content:
 			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
+			if 70 < random.randint(0, 100, 1):
+				msg = msg + "\n " + fQuestion("How are you?")
 			return msg
 			
 def fQuestion(message):
