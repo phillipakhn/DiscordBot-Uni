@@ -17,19 +17,29 @@ def greetings(message):
 				msg = msg + "\n" + fQuestion2("How are you?")
 			return msg
 			
+#def fQuestion(message):
+#	with open("fQuestion.txt",'rb') as rfp:
+#		fQuestion = pickle.load(rfp)
+#	for i in fQuestion:	
+#		if i in message.content:
+#			msg = 'How are you {0.author.mention}?'.format(message)
+#			return msg
+
+def fResponse(message):
+	with open("fResponse.txt",'rb') as rfp:
+		fResponse = pickle.load(rfp)
+	for i in fResponse:
+		response = str(message)
+		if i in response:
+			msg = fResponse[random.randint(0, len(fResponse)-1)] + ' {0.author.mention}'.format(message)
+			return msg
+		
 def fQuestion(message):
 	with open("fQuestion.txt",'rb') as rfp:
 		fQuestion = pickle.load(rfp)
-	for i in fQuestion:	
-		if i in message.content:
-			msg = 'Pretty good, how are you {0.author.mention}?'.format(message)
-			return msg
-		
-def fQuestion2(message):
-	with open("fQuestion.txt",'rb') as rfp:
-		fQuestion = pickle.load(rfp)
-	for i in fQuestion:	
-		if i in message:
+	for i in fQuestion:
+		question = str(message)
+		if i in question:
 			msg = "How are you?"
 			return msg
 			
