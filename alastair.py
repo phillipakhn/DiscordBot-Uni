@@ -13,6 +13,7 @@ def ignore(message):
 	for i in ignore:	
 		if message.content.startswith(i):
 			return "RETUR"
+	return
 			
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
@@ -23,6 +24,7 @@ def greetings(message):
 			if 100 > random.randint(0, 100):
 				msg = msg + "\n" + askQuestion()
 			return msg
+	return
 			
 #def fQuestion(message):
 #	with open("fQuestion.txt",'rb') as rfp:
@@ -40,6 +42,7 @@ def fResponse(message):
 		if response in i:
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
+	return
 		
 def fQuestion(message):
 	question = str(message)
@@ -51,6 +54,7 @@ def fQuestion(message):
 		if question in i:
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
+	return
 			
 def askQuestion():
 	with open("fQuestion.txt",'rb') as rfp:
@@ -68,16 +72,19 @@ def url(message):
 			msg = msg + "\n" + url[i]
 			i = i + 1
 		return msg
+	return
 			
 def test(message):
 	if message.content.startswith('!Test'):
 		msg = 'This is working'
 		return msg
+	return
 		
 def update(message):
 	if message.content.startswith('!Update'):
 		os.system('cd ~ \n ./update.sh')
 		exit()
+	return
 		
 def pyStart(message):
 	if message.content.startswith('!PyStart'):
@@ -88,6 +95,7 @@ def pyStart(message):
 		sys.argv = [t, 'arg']  # argv[0] should still be the script name
 		exec(compile(open(t, "rb").read(), t, 'exec'))
 		return "Started Program"
+	return
 		
 def exitBot(message):
 	if message.content.startswith('!Exit'):
@@ -130,6 +138,7 @@ def add(lstmsg, message):
 		pickle.dump(ignore, open("ignore.txt",'wb') )
 		msg = "Added '" + lstmsg + "' to ignore "
 		return msg
+	return
 		
 def temperature(message):
 	from lxml import html
@@ -155,6 +164,7 @@ def temperature(message):
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
 		return t
+	return
 		
 def code(message):
 	if message.content.startswith('!Code'):
@@ -162,6 +172,7 @@ def code(message):
 		msg = ('{0.author.mention}'.format(message) + " - Here is the code: \n" + C.read())
 		C.close()
 		return msg
+	return
 		
 #def dab(message):
 #	if message.content.startswith('!dab4eva'):
@@ -191,6 +202,7 @@ def gitHelp(message):
 		msg = msg + '1) git pull \n'
 		msg = msg + '2) (Put in Username and Password) \n'
 		return msg
+	return
 			
 def testInput(message):
 	print(message)
