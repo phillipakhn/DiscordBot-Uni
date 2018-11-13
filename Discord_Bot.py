@@ -19,8 +19,8 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 #
 
-ignore = ["!GoogleMaps"]
-pickle.dump(ignore, open("ignore.txt",'wb') )
+#ignore = ["!GoogleMaps"]
+#pickle.dump(ignore, open("ignore.txt",'wb') )
 #pickle.dump(url, open("url.txt",'wb') )
 #pickle.dump(greetings, open("greetings.txt",'wb') )
 
@@ -102,6 +102,6 @@ async def on_ready():
 	print('Logged in as ' + client.user.name)
 	msg = "Bot Started at " + str(startup) + " on " + str(get('https://api.ipify.org').text)
 	await client.send_message(client.get_channel('502223039912476694'), msg)
-	await client.change_presence(name='test', type=2)
+	#await client.change_presence(name='test', type=2)
 
 client.run(TOKEN)
