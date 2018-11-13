@@ -6,6 +6,7 @@ client = discord.Client()
 def human(message):
 	if message.content.startswith('!Human'):
 		return "RETUR"
+	return
 		
 def ignore(message):
 	with open("ignore.txt",'rb') as rfp:
