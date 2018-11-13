@@ -18,7 +18,7 @@ def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
 		greetings = pickle.load(rfp)
 	for i in greetings:	
-		if i in message.content:
+		if message.content.startswith(i):
 			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
 			if 70 > random.randint(0, 100):
 				msg = msg + "\n" + fQuestion("How are you?")
