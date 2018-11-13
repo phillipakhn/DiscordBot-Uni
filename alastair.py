@@ -55,7 +55,7 @@ def fQuestion(message):
 def askQuestion():
 	with open("fQuestion.txt",'rb') as rfp:
 		fquestion = pickle.load(rfp)
-	msg = fresponse[random.randint(0, len(fresponse)-1)]
+	msg = fquestion[random.randint(0, len(fresponse)-1)]
 	return msg
 			
 def url(message):
