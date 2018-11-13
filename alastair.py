@@ -5,14 +5,14 @@ client = discord.Client()
 
 def human(message):
 	if message.content.startswith('!Human'):
-		return "RETURN"
+		return "RETUR"
 		
 def ignore(message):
 	with open("ignore.txt",'rb') as rfp:
 		ignore = pickle.load(rfp)
 	for i in ignore:	
 		if message.content.startswith(i):
-			return "RETURN"
+			return "RETUR"
 			
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
