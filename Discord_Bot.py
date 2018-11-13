@@ -17,8 +17,8 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 #print(greetings)
 
-#fQuestion = ["How are you?", "How are you doing?"]
-#pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
+ignore = ["!GoogleMaps"]
+pickle.dump(ignore, open("ignore.txt",'wb') )
 #pickle.dump(url, open("url.txt",'wb') )
 #pickle.dump(greetings, open("greetings.txt",'wb') )
 
