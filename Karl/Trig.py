@@ -11,7 +11,7 @@ async def SineCalAngle(message):
     if message.content.startswith('!SineCalAngle'):
         Sinemsg = str(message.content)
         Sinemsg = Sinemsg.strip('!SineCalAngle ')
-        Sinemsg = int(Sinemsg)
+        Sinemsg = str(Sinemsg)
         SinemsgH = await client.send_message(message.channel,"What is the length of the Hypotenuse?")
         SinemsgO = await client.send_message(message.channel,"What is the length of the opposite?")
         SinemsgA = await client.send_message(message.channel,"What is the size of the angle?")
