@@ -1,6 +1,5 @@
-#Trigonometry
-
-import math 
+import math
+import discord
 
 
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
@@ -9,21 +8,29 @@ client = discord.Client()
 
 @client.event
 async def SineCalAngle(message): 
-	if message.content.startswith('!SineCalAngle'):
-        Sinemsg = str(message.content)#
-        Sinemsg = Sinemsg.strip('!SineCalAngle ')#This is what the user will have to type in on discord so that it can detect work out the sum for the sine
-        Sinemsg = float(Sinemsg)
-        SineHyp = int(input("What is the length of the Hypotenuse?"))#This asks what the size of the Hypotenuse.
-        SineOpp = int(input("What is the length of the opposite?"))#This asks what the size of the opposite.
-        SineAngle = int(input("What is the angle size of the angle?"))#This asks what the size of the opposite.
-        AngleWithS = math.sin(math.radians(SineAngle))
-        Sine = AngleWithS * SineOpp / SineHyp 
-        SineCalculation = math.sin-1(math.radians(Sine))             
-        print("The answer for your sine finding missing angle calculation to the nearest 3 Decimal places is " + str(round(3)(SineCalculation) ))
-        await client.send_message(message.channel, "The answer for your sine calculation to the nearest 3 Decimal places is " + str(round(3)(SineCalculation) ))
-       # This is to find out a missing angle for a question using sine.
-		# Function not working just yet.
-
+    if message.content.startswith('!SineCalAngle'):
+        Sinemsg = str(message.content)
+        Sinemsg = Sinemsg.strip('!SineCalAngle ')
+        Sinemsg = int(Sinemsg)
+        SinemsgH = int(input("What is the length of the Hypotenuse?"))
+        SinemsgO = int(input("What is the length of the opposite?"))
+        SinemsgA = int(input("What is the size of the angle?"))
+        print(Sinemsg)
+        print(SinemsgH)
+        print(SinemsgO)
+        print(SinemsgA)
+        if type(SinemsgH) and type(SinemsgO) and type(SinemsgA)== int:
+            AngleWithS = math.sin(math.radians(SineAngle))
+            Sine = SinemsgA * SinemsgO / SinemsgH 
+            SineCalculation = math.degrees(math.asin(Sine)) 
+            SineCalculation2 = (round(SineCalculation, 2))
+            return(SineCalculation2)
+            await client.send_message(message.channel, "The answer for your sine calculation to the nearest 2 Decimal places is " + str(SineCalAngle(0)) + "°" )
+        else:
+            await client.send_message(message.channel, "You have not inputted integers.")
+            return False
+    # function for calulating the missing angle using inverse sin working.
+    
         
 @client.event
 async def on_message(message):
@@ -37,23 +44,29 @@ async def on_ready():
 client.run(TOKEN)
 
 
-
+pass
 @client.event
 async def SineCalLength(message): 
-	if message.content.startswith('!SineCalLength'):
-        Sinemsg = str(message.content)#
-        Sinemsg = Sinemsg.strip('!SineCalLength ')#This is what the user will have to type in on discord so that it can detect work out the sum for the sine
+    if message.content.startswith('!SineCalLength'):
+        Sinemsg = str(message.content)
+        Sinemsg = Sinemsg.strip('!SineCalLength ')
         Sinemsg = float(Sinemsg)
         Length1 = float(input("What is the length of the first side?"))
         SineAngle1 = int(input("What is the angle size of the 1st angle?"))
         SineAngle2 = int(input("What is the angle size of the second angle?"))     
-        Angle1 = math.sin(math.radians(SineAngle1))
-        Angle2 = math.sin(math.radians(SineAngle2))
-        Sine  = Length1 * Angle1 / Angle2
-        SineCalculation = (round(Sine, 3))
-        print(SineCalculation)
-      #  print("The answer for your sine calculation to 3 signifcant figures is " + str(round(3)(SineCalculation) ))
-        await client.send_message(message.channel, "The answer for your sine calculation to 3 signifcant figures is " + str(round(3)(SineCalculation) ))
+        print(Length1)
+        print(SineAngle1)
+        print(SineAngle2)
+        if type(Length1) or type(SineAngle1) or type(SineAngle2)==int:
+            Angle1 = math.sin(math.radians(SineAngle1))
+            Angle2 = math.sin(math.radians(SineAngle2))
+            Sine = Length1 * Angle1 / Angle2
+            SineCalculation = (round(Sine, 3))
+            return(SineCalculation)
+            await client.send_message(message.channel, "The answer for your sine calculation to 3 signifcant figures is " + str(SineCalLength(0)) + " cm" )
+        else:
+            await client.send_message(message.channel, "You have not inputted integers.")
+            return False
        #This is to find out the missing side for a question using sine.
      
                           
@@ -70,23 +83,31 @@ client.run(TOKEN)
 
 
 @client.event
-async def CosineCalLength(message)
-	if message.content.startswith('!CosineCalLength'):
-        Cosinemsg = str(message.content)#
+async def CosineCalLength(message):
+    if message.content.startswith('!CosineCalLength'):
+        Cosinemsg = str(message.content)
         Cosinemsg = Sinemsg.strip('!CosineCalLength ')
         Cosinemsg = float(Cosinemsg)
         Side1 = float(input("What is the length of the smaller side?"))
         Side2 = float(input("What is the length of the longer side?"))
         Angle = int(input("What is the size of the angle?"))
-        Powers = (Side1**2) + (Side2**2)
-        CosineAngle = math.cos(math.radians(Angle))
-        Cosine = (2 * Side1 * Side2) * CosineAngle
-        CosineCalculation = Powers - (2 * Side1 * Side2 * CosineAngle) 
-        SquaredCosine = math.sqrt(CosineCalculation)
-        print(SquaredCosine)
-        RSCosine = print(round(SquaredCosine, 2))
-        await client.send_message(message.channel, "The answer for your Cosine calculation to 3 signifcant figures is " + str(RSCosine) )
-                           
+        print(Cosinemsg)
+        print(Side1)
+        print(Side2)
+        print(Angle)
+        if type(Side1) or type(Side2) or (Angle) == int:
+            Powers = (Side1**2) + (Side2**2)
+            CosineAngle = math.cos(math.radians(Angle))
+            Cosine = (2 * Side1 * Side2) * CosineAngle
+            CosineCalculation = Powers - (2 * Side1 * Side2 * CosineAngle) 
+            SquaredCosine = math.sqrt(CosineCalculation)
+            RSCosine = (round(SquaredCosine, 2))
+            return(RSCosine)
+            await client.send_message(message.channel, "The answer for your Cosine calculation to 2 signifcant figures is " + str(CosineCalLength(0)) + " cm" )
+        else:
+            await client.send_message(message.channel, "You have not inputted any numbers.")
+            return False
+        #this is for finding out the missing length using cosine.                  
                                       
 @client.event
 async def on_message(message):
@@ -110,14 +131,22 @@ async def CosineCalAngle(message):
         Side1 = float(input("What is the length of the smaller side?"))
         Side2 = float(input("What is the length of the longer side?"))
         Side3 = float(input("What is the length of the other side?"))
-        Powers = ((Side1**2) + (Side2**2)) - (Side3**2)
-        Angle = 2 * (Side1) * (Side2) 
-        Cosine = Powers / Angle
-        InCosine = math.degrees(math.acos(Cosine))
-        print(InCosine)
-                                                      
-               
-                                                   
+        print(Cosinemsg)
+        print(Side1)
+        print(Side2)
+        print(Side3)
+        if type(Side1) and type(Side2) and type(Side3) == float:
+            Powers = ((Side1**2) + (Side2**2)) - (Side3**2) 
+            Angle = 2 * (Side1) * (Side2) 
+            Cosine = Powers / Angle
+            InCosine = math.degrees(math.acos(Cosine))
+            InCosineCal = (round(InCosine, 1))
+            return(InCosineCal)
+            await client.send_message(message.channel, "The answer for your Cosine calculation to 1 decimal place is " + str(CosineCalAngle(0)) + "°")                                          
+            return(InCosine)
+        else:
+            await client.send_message(message.channel, "You have not inputted a valid value.")
+            return False
 @client.event
 async def on_message(message):
     print(message.content)
@@ -134,16 +163,24 @@ client.run(TOKEN)
 
 @client.event
 async def TanCalAngle(message):
-if message.content.startswith('!TanCalAngle'):
-    Tanmsg = str(message.content)#
-Tanmsg = Tanmsg.strip('!TanCalAngle ')
-Tanmsg = float(Tanmsg)
-TanOpp = int(input("What is the size of the opposite length?"))
-TanAdj = int(input("What is the size of the Adjacent length?"))
-Angle = TanOpp / TanAdj
-TanAngleCalc= math.degrees(math.atan(Angle))
-print(TanAngleCalc)
-
+    if message.content.startswith('!TanCalAngle'):
+        Tanmsg = str(message.content)
+        Tanmsg = Tanmsg.strip('!TanCalAngle ')
+        Tanmsg = float(Tanmsg)
+        TanOpp = int(input("What is the size of the opposite length?"))
+        TanAdj = int(input("What is the size of the Adjacent length?"))
+    print(Tanmsg)
+    print(TanOpp)
+    print(TanAdj)
+    if type(TanOpp) and type(TanAdj) == int:
+        Angle = TanOpp / TanAdj
+        TanAngleCalc= math.degrees(math.atan(Angle))
+        TanAngleCalcR = (round(TanAngleCalc, 1))
+        return(TanAngleCalcR)
+        await client.send_message(message.channel, "The answer for your Tan calculation to one Decimal place is " + str(TanCalAngle(0)) + "°")
+    else:
+        await client.send_message(message.channel, "The value you have inputted isn't a integer.")
+        return False
 
 
 @client.event
@@ -169,9 +206,18 @@ async def TanCalLength(message):
         Tanmsg = float(Tanmsg)
         Length1 = int(input("What is the size of the length of the Adjacent?"))
         Angle = int(input("What is the size of the angle?"))
-        TanAngle = math.tan(math.radians(Angle))
-        Calculation = Length1 * TanAngle 
-        print (Calculation)
+        print(Tanmsg)
+        print(Length1)
+        print(Angle)
+        if type(Length1) and type(Angle) == int:
+            TanAngle = math.tan(math.radians(Angle))
+            Calculation = Length1 * TanAngle 
+            TanCalculation = (round(Calculation, 2))
+            return (TanCalculation)
+            await client.send_message(message.channel, "The answer for your Tan calculation to 2 decimal places is " + str(TanCalLength(0)) + " cm" )
+        else:
+            await client.send_message(message.channel, "The value you have inputted is not a integer.")
+            return False
 # using Tan to find the opposite length of the triangle.
 
 
