@@ -33,21 +33,23 @@ def greetings(message):
 #			return msg
 
 def fResponse(message):
+	response = str(message)
 	with open("fResponse.txt",'rb') as rfp:
 		fresponse = pickle.load(rfp)
 	for i in fresponse:
-		response = str(message)
-		if i in response:
+		if response in i:
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
 		
 def fQuestion(message):
+	question = str(message)
 	with open("fQuestion.txt",'rb') as rfp:
 		fquestion = pickle.load(rfp)
+	with open("fResponse.txt",'rb') as rfp:
+		fresponse = pickle.load(rfp)
 	for i in fquestion:
-		question = str(message)
-		if i in question:
-			msg = fquestion[random.randint(0, len(fquestion)-1)]
+		if question in i:
+			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
 			
 def url(message):
