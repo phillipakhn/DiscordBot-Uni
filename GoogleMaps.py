@@ -1,8 +1,7 @@
-# Google Earth
-import webbrowser
-import discord
+# Google Maps
 import WebSite as w
 
+'''Input:Object (message), Output: String (msg)'''
 def Google(message):
 		Postcode = str(message.content) # converting the discord message to a string
 		Postcode = Postcode.replace("!GoogleMaps","")
@@ -12,10 +11,12 @@ def Google(message):
 			msg = "That postcode is impossible!"
 			return msg
 		else:
-			w.Maps(Postcode)
-			msg = "Here you go "
+			msg = w.Maps(Postcode)
+			msg = "Here you go " + str(msg)
 			return msg	
-		
+
+
+'''Input: String (Postcode) , Output: Boolean'''		
 def Validate(Postcode):
 	length = len(Postcode)		
 	if length > 7 or length < 5:

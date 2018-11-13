@@ -1,11 +1,18 @@
-import discord, time, random, pickle, os
+import discord, time, random, pickle, os, sys
 
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 client = discord.Client()
 
 def human(message):
 	if message.content.startswith('!Human'):
-		return
+		return "RETUR"
+		
+def ignore(message):
+	with open("ignore.txt",'rb') as rfp:
+		ignore = pickle.load(rfp)
+	for i in ignore:	
+		if message.content.startswith(i):
+			return "RETUR"
 			
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
@@ -13,6 +20,34 @@ def greetings(message):
 	for i in greetings:	
 		if i in message.content:
 			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
+			if 70 > random.randint(0, 100):
+				msg = msg + "\n" + fQuestion("How are you?")
+			return msg
+			
+#def fQuestion(message):
+#	with open("fQuestion.txt",'rb') as rfp:
+#		fQuestion = pickle.load(rfp)
+#	for i in fQuestion:	
+#		if i in message.content:
+#			msg = 'How are you {0.author.mention}?'.format(message)
+#			return msg
+
+def fResponse(message):
+	with open("fResponse.txt",'rb') as rfp:
+		fresponse = pickle.load(rfp)
+	for i in fresponse:
+		response = str(message)
+		if i in response:
+			msg = fresponse[random.randint(0, len(fresponse)-1)]
+			return msg
+		
+def fQuestion(message):
+	with open("fQuestion.txt",'rb') as rfp:
+		fquestion = pickle.load(rfp)
+	for i in fquestion:
+		question = str(message)
+		if i in question:
+			msg = fquestion[random.randint(0, len(fquestion)-1)]
 			return msg
 			
 def url(message):
@@ -36,38 +71,81 @@ def update(message):
 		os.system('cd ~ \n ./update.sh')
 		exit()
 		
+def pyStart(message):
+	if message.content.startswith('!PyStart'):
+		t = str(message.content) 
+		t = t.replace("!PyStart ", "")
+		#m = "python3 " + t
+		#os.system(m)
+		sys.argv = [t, 'arg']  # argv[0] should still be the script name
+		exec(compile(open(t, "rb").read(), t, 'exec'))
+		return "Started Program"
+		
 def exitBot(message):
 	if message.content.startswith('!Exit'):
 		exit()
 		
 def add(lstmsg, message):
 	if message.content.startswith('!addurl'):
-		#global lstmsg
+		with open("url.txt",'rb') as rfp:
+			url = pickle.load(rfp)
 		url.append(lstmsg)
 		print(url)
 		pickle.dump(url, open("url.txt",'wb'))
-		return
+		return "Added URL"
 	if message.content.startswith('!greeting'):
+		with open("greetings.txt",'rb') as rfp:
+			greetings = pickle.load(rfp)
 		greetings.append(lstmsg)
 		print(greetings)
 		pickle.dump(greetings, open("greetings.txt",'wb') )
-		return
+		return "Added Greeting"
+	if message.content.startswith('!friendlyQuestion'):
+		with open("fQuestion.txt",'rb') as rfp:
+			fQuestion = pickle.load(rfp)
+		fQuestion.append(lstmsg)
+		print(fQuestion)
+		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
+		return "Added Friendly Question"
+	if message.content.startswith('!friendlyResponse'):
+		with open("fResponse.txt",'rb') as rfp:
+			fresponse = pickle.load(rfp)
+		fresponse.append(lstmsg)
+		pickle.dump(fresponse, open("fResponse.txt",'wb') )
+		return "Added Friendly Response"
+	if message.content.startswith('!ignore'):
+		if lstmsg == "!ignore":
+			return "Can't add !ignore"
+		with open("ignore.txt",'rb') as rfp:
+			ignore = pickle.load(rfp)
+		ignore.append(lstmsg)
+		pickle.dump(ignore, open("ignore.txt",'wb') )
+		return "Added Ignore "
 		
 def temperature(message):
+	from lxml import html
+	import requests
+	if message.content.startswith('!TempInfo'):
+		page = requests.get('http://100.90.93.150/about')
+		tree = html.fromstring(page.content)
+		t = (tree.xpath('//p/text()'))
+		t = str(t)
+		t = t.replace("[' ', ' ', ' ", "")
+		t = t.replace(" ']", "")
+		return t
 	if message.content.startswith('!Temp'):
-		from lxml import html
-		import requests
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
 		t = (tree.xpath('//h1/text()'))
-		#ta = (tree.xpath('//h3/text()'))
 		t = str(t)
-		t = t.strip("[' ', '")
-		t = t.replace("Â", "")
-		t = t.strip("', ' ']")
-		t = "The Current Temperature at Godiva Place is " + t
+		if "°C" in t:
+			t = t.strip("[' ', '")
+			t = t.replace("Â", "")
+			t = t.strip("', ' ']")
+			t = "The Current Temperature at Godiva Place is " + t
+		else:
+			t = "There is currently an error with the weather station. Please try again later"
 		return t
-
 		
 def code(message):
 	if message.content.startswith('!Code'):
@@ -84,7 +162,7 @@ def code(message):
 		
 def notInMem(message):
 	lstmsg = message.content
-	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl"
+	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl, !friendlyQuestion, !friendlyQuestion or !ignore"
 	return msg
 	
 def gitHelp(message):
