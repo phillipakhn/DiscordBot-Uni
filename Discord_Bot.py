@@ -17,6 +17,8 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 #print(greetings)
 
+await test_bot.change_presence(game=discord.Game(name='test'))
+
 #ignore = ["!GoogleMaps"]
 #pickle.dump(ignore, open("ignore.txt",'wb') )
 #pickle.dump(url, open("url.txt",'wb') )
