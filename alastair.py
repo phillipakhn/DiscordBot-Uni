@@ -94,27 +94,27 @@ def add(lstmsg, message):
 		url.append(lstmsg)
 		print(url)
 		pickle.dump(url, open("url.txt",'wb'))
-		return "Added URL"
+		return "Added URL    "
 	if message.content.startswith('!greeting'):
 		with open("greetings.txt",'rb') as rfp:
 			greetings = pickle.load(rfp)
 		greetings.append(lstmsg)
 		print(greetings)
 		pickle.dump(greetings, open("greetings.txt",'wb') )
-		return "Added Greeting"
+		return "Added Greeting    "
 	if message.content.startswith('!friendlyQuestion'):
 		with open("fQuestion.txt",'rb') as rfp:
 			fQuestion = pickle.load(rfp)
 		fQuestion.append(lstmsg)
 		print(fQuestion)
 		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
-		return "Added Friendly Question"
+		return "Added Friendly Question     "
 	if message.content.startswith('!friendlyResponse'):
 		with open("fResponse.txt",'rb') as rfp:
 			fresponse = pickle.load(rfp)
 		fresponse.append(lstmsg)
 		pickle.dump(fresponse, open("fResponse.txt",'wb') )
-		return "Added Friendly Response"
+		return "Added Friendly Response     "
 	if message.content.startswith('!ignore'):
 		if lstmsg == "!ignore":
 			return "Can't add !ignore"
