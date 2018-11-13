@@ -19,7 +19,7 @@ async def Arithmetics(message):
         if operator == :
             operator.add
         if operator == Sub:
-            operator.
+            operator.sub
             
             
             
