@@ -43,9 +43,11 @@ async def modules(message):
 	#a.dab(message)
 	a.pyStart(message)
 	msg = ""
-	msg = msg + str(a.pyStart(message))
+	#msg = msg + str(a.pyStart(message))
 	msg = msg + str(a.human(message))
 	msg = msg + str(a.ignore(message))
+	if "RETUR" in msg:
+		return
 	msg = msg + str(a.greetings(message))
 	msg = msg + str(a.url(message))
 	msg = msg + str(a.test(message))
@@ -59,8 +61,6 @@ async def modules(message):
 	msg = msg + str(a.add(oldmsg, message))
 	msg = msg.strip('None')
 	#print("MESSAGE" + msg)
-	if msg == "RETUR":
-		return
 	if not msg:
 		msg = str(a.notInMem(message))
 	if message.content.startswith('!BotInfo'):
