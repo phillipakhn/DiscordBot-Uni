@@ -20,8 +20,8 @@ def greetings(message):
 	for i in greetings:	
 		if message.content.startswith(i):
 			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
-			if 70 > random.randint(0, 100):
-				msg = msg + "\n" + fQuestion("How are you?")
+			if 100 > random.randint(0, 100):
+				msg = msg + "\n" + askQuestion()
 			return msg
 			
 #def fQuestion(message):
@@ -51,6 +51,13 @@ def fQuestion(message):
 		if question in i:
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
+			
+def askQuestion():
+	question = str(message)
+	with open("fQuestion.txt",'rb') as rfp:
+		fquestion = pickle.load(rfp)
+	msg = fresponse[random.randint(0, len(fresponse)-1)]
+	return msg
 			
 def url(message):
 	if message.content.startswith('!URL'):
