@@ -118,7 +118,7 @@ def add(lstmsg, message):
 			ignore = pickle.load(rfp)
 		ignore.append(lstmsg)
 		pickle.dump(ignore, open("ignore.txt",'wb') )
-		return "Added Ignore"
+		return "Added Ignore "
 		
 def temperature(message):
 	from lxml import html
