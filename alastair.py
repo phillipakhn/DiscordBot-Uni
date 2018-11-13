@@ -114,6 +114,10 @@ def add(lstmsg, message):
 		pickle.dump(fresponse, open("fResponse.txt",'wb') )
 		return "Added Friendly Response"
 	if message.content.startswith('!ignore'):
+		if lstmsg == "!ignore":
+			return "Can't add !ignore"
+		else:
+			pass
 		with open("ignore.txt",'rb') as rfp:
 			ignore = pickle.load(rfp)
 		ignore.append(lstmsg)
