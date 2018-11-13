@@ -59,7 +59,7 @@ async def modules(message):
 	msg = msg + str(a.fQuestion(message.content))
 	msg = msg + str(a.fResponse(message.content))
 	msg = msg + str(a.add(oldmsg, message))
-	#msg = msg.strip('None')
+	msg = msg.replace('None', '')
 	#print("MESSAGE" + msg)
 	if not msg:
 		msg = str(a.notInMem(message))
