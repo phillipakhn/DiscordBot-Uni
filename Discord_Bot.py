@@ -102,6 +102,6 @@ async def on_ready():
 	print('Logged in as ' + client.user.name)
 	msg = "Bot Started at " + str(startup) + " on " + str(get('https://api.ipify.org').text)
 	await client.send_message(client.get_channel('502223039912476694'), msg)
-	await client.change_presence(game=discord.Game(name='test', type=2))
+	await client.change_presence(name='test', type=2)
 
 client.run(TOKEN)
