@@ -43,6 +43,7 @@ async def modules(message):
 	msg = ""
 	msg = msg + str(a.pyStart(message))
 	msg = msg + str(a.human(message))
+	msg = msg + str(a.ignore(message))
 	msg = msg + str(a.greetings(message))
 	msg = msg + str(a.url(message))
 	msg = msg + str(a.test(message))
