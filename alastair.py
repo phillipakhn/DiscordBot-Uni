@@ -116,8 +116,6 @@ def add(lstmsg, message):
 	if message.content.startswith('!ignore'):
 		if lstmsg == "!ignore":
 			return "Can't add !ignore"
-		else:
-			continue
 		with open("ignore.txt",'rb') as rfp:
 			ignore = pickle.load(rfp)
 		ignore.append(lstmsg)
