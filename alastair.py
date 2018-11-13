@@ -6,6 +6,13 @@ client = discord.Client()
 def human(message):
 	if message.content.startswith('!Human'):
 		return "RETURN"
+		
+def ignore(message):
+	with open("ignore.txt",'rb') as rfp:
+		ignore = pickle.load(rfp)
+	for i in ignore:	
+		if message.content.startswith(i):
+			return "RETURN"
 			
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
@@ -100,6 +107,18 @@ def add(lstmsg, message):
 		print(fQuestion)
 		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
 		return "Added Friendly Question"
+	if message.content.startswith('!friendlyResponse'):
+		with open("fResponse.txt",'rb') as rfp:
+			fresponse = pickle.load(rfp)
+		fresponse.append(lstmsg)
+		pickle.dump(fresponse, open("fResponse.txt",'wb') )
+		return "Added Friendly Response"
+	if message.content.startswith('!ignore'):
+		with open("ignore.txt",'rb') as rfp:
+			ignore = pickle.load(rfp)
+		ignore.append(lstmsg)
+		pickle.dump(ignore, open("ignore.txt",'wb') )
+		return "Added Ignore"
 		
 def temperature(message):
 	from lxml import html
@@ -141,7 +160,7 @@ def code(message):
 		
 def notInMem(message):
 	lstmsg = message.content
-	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl, !friendlyQuestion"
+	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl, !friendlyQuestion, !friendlyQuestion or !ignore"
 	return msg
 	
 def gitHelp(message):
