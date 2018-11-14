@@ -1,7 +1,10 @@
 import discord, random, sys, openpyxl
 
 
-TOKEN = 'NTA1MTAzMjg4MzcxNTExMzA2.DrkK6A.91Vlom28r5Zgb-6P2vyUHI9psbo'
+#TOKEN = 'NTA1MTAzMjg4MzcxNTExMzA2.DrkK6A.91Vlom28r5Zgb-6P2vyUHI9psbo' 
+#Personal Server
+TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' 
+#Computer Science Server
 
 client = discord.Client()
 
