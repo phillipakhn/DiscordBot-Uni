@@ -162,7 +162,7 @@ def temperature(message):
 			webContent = webContent.strip("b'")
 			webContent = webContent[:-1]
 			webContent = webContent.replace("\\n", " \\n ")
-		f = open('sourcecode.html', 'w')
+		f = open('sourcecode.txt', 'w')
 		f.write(webContent)
 		f.close()
 		return
