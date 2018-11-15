@@ -196,7 +196,7 @@ def display(message):
 			with open(files,'rb') as rfp:
 				listDisplay = pickle.load(rfp)
 			msg = msg + files.replace(".txt", " - ")
-			msg = msg + (*listDisplay, sep=", ")
+			msg = msg + listDisplay
 			msg = msg + "\n"
 		return msg
 		
