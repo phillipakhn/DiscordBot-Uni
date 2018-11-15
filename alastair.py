@@ -163,7 +163,8 @@ def remove(message):
 			with open(fileName,'rb') as rfp:
 				listRemove = pickle.load(rfp)
 		if toRemove in listRemove:
-			listRemove.remove(toRemove)
+			while toRemove in listRemove:
+				listRemove.remove(toRemove)
 			pickle.dump(listRemove, open(fileName,'wb'))
 			msg = "Removed " + toRemove + " from " + removeFrom
 			return msg
