@@ -159,6 +159,7 @@ def temperature(message):
 		with urllib.request.urlopen(url) as url:
 			webContent = url.read()
 			webContent = str(webContent.splitlines())
+			webContent = webContent.replace("\n", " \n ")
 		f = open('sourcecode.py', 'w')
 		f.write(webContent)
 		f.close()
