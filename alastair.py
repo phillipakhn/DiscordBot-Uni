@@ -210,9 +210,10 @@ def displayCommands(message):
 		commandToAdd = str(message.content)
 		commandToAdd = commandToAdd.replace("!addCommand ", "")
 		commands = open("commands.txt", "a")
+		commandToAdd = "\n " + commandToAdd
 		commands.write(commandToAdd)
 		commands.close()
-		msg = commandToAdd + " was added to commands"
+		msg = "'" + commandToAdd + "' was added to commands"
 		return msg
 		
 def removeDuplicates():
