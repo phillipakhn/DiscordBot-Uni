@@ -60,6 +60,7 @@ async def modules(message):
 	msg = msg + str(a.fResponse(message.content))
 	msg = msg + str(a.add(oldmsg, message))
 	msg = msg + str(a.remove(message))
+	msg = msg + str(a.display(message))
 	msg = msg.replace('None', '')
 	#print("MESSAGE" + msg)
 	if not msg:
