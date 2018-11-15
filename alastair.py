@@ -206,7 +206,7 @@ def removeDuplicates():
 	for files in fileNames:
 		with open(files,'rb') as rfp:
 			listDisplay = pickle.load(rfp)
-		listDisplay = listDisplay(set(listDisplay))
+		listDisplay = listDisplay(set[listDisplay])
 		pickle.dump(listDisplay, open(fileName,'wb'))
 		
 def temperature(message):
