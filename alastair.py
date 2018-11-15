@@ -148,6 +148,8 @@ def remove(message):
 		wordList = msg.split(" ")
 		toRemove = wordList[0]
 		removeFrom = wordList[2]
+		print(toRemove)
+		print(removeFrom)
 		if removeFrom == "greeting":
 			with open("greetings.txt",'rb') as rfp:
 				greetings = pickle.load(rfp)
