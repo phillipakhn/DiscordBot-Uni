@@ -145,7 +145,7 @@ def remove(message):
 	if message.content.startswith('!Remove'):
 		msg = str(message.content)
 		msg = msg.replace("!Remove", "")
-		wordList = msg.split(",")
+		wordList = msg.split(" ")
 		toRemove = wordList[0]
 		removeFrom = wordList[2]
 		if removeFrom == "greeting":
