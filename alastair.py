@@ -162,6 +162,14 @@ def remove(message):
 			fileName = "url.txt"
 			with open(fileName,'rb') as rfp:
 				listRemove = pickle.load(rfp)
+		elif removeFrom == "fResponse":
+			fileName = "fResponse.txt"
+			with open(fileName,'rb') as rfp:
+				listRemove = pickle.load(rfp)
+		elif removeFrom == "fQuestion":
+			fileName = "fQuestion.txt"
+			with open(fileName,'rb') as rfp:
+				listRemove = pickle.load(rfp)
 		if toRemove in listRemove:
 			while toRemove in listRemove:
 				listRemove.remove(toRemove)
