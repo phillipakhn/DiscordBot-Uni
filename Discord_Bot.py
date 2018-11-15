@@ -17,7 +17,7 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 
 #print(greetings)
 
-#
+a.removeDuplicates()
 
 #ignore = ["!GoogleMaps"]
 #pickle.dump(ignore, open("ignore.txt",'wb') )
