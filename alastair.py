@@ -200,6 +200,13 @@ def display(message):
 			msg = msg + "\n"
 		return msg
 		
+def displayCommands(message):
+	if message.content.startswith('!displayCommands'):
+		commands = open("commands.txt", "r")
+		msg = commands.read()
+		commands.close()
+		return msg
+		
 def removeDuplicates():
 	fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
 	msg = ""
