@@ -229,10 +229,10 @@ def displayCommands(message):
 			commands.write(commandFile)
 			commands.close()
 			if commandToRemove not in commandFile:
-				msg = "removed '" + commandToRemove + "' from the commands"
+				msg = "Removed '" + commandToRemove + "' from the commands"
 				return msg
 			else:
-				msg = "unable to remove '" + commandToRemove + "' from the commands"
+				msg = "Unable to remove '" + commandToRemove + "' from the commands"
 				return msg
 		else:
 			msg = commandFile + " is not in commands"
