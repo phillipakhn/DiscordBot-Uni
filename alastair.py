@@ -145,45 +145,30 @@ def remove(message):
 	if message.content.startswith('!Remove'):
 		msg = str(message.content)
 		msg = msg.replace("!Remove ", "")
-		wordList = msg.split(" ")
+		wordList = msg.split(" from ")
 		toRemove = wordList[0]
-		removeFrom = wordList[2]
+		removeFrom = wordList[1]
 		print(toRemove)
 		print(removeFrom)
 		if removeFrom == "greeting":
-			with open("greetings.txt",'rb') as rfp:
-				greetings = pickle.load(rfp)
-			if toRemove in greetings:
-				greetings.remove(toRemove)
-				pickle.dump(greetings, open("greetings.txt",'wb'))
-				msg = "Removed " + toRemove + " from " + removeFrom
-				return msg
-			else:
-				msg = toRemove + " is not in " + removeFrom
-				return msg
-		if removeFrom == "ignore":
-			with open("ignore.txt",'rb') as rfp:
-				ignore = pickle.load(rfp)
-			if toRemove in ignore:
-				ignore.remove(toRemove)
-				pickle.dump(ignore, open("ignore.txt",'wb'))
-				msg = "Removed " + toRemove + " from " + removeFrom
-				return msg
-			else:
-				msg = toRemove + " is not in " + removeFrom
-				return msg
-		if removeFrom == "url":
-			with open("url.txt",'rb') as rfp:
-				url = pickle.load(rfp)
-			if toRemove in url:
-				url.remove(toRemove)
-				pickle.dump(url, open("url.txt",'wb'))
-				msg = "Removed " + toRemove + " from " + removeFrom
-				return msg
-			else:
-				msg = toRemove + " is not in " + removeFrom
-				return msg
+			fileName = "greetings.txt"
+			with open(fileName,'rb') as rfp:
+				listRemove = pickle.load(rfp)
+		elif removeFrom == "ignore":
+			fileName = "ignore.txt"
+			with open(fileName,'rb') as rfp:
+				listRemove = pickle.load(rfp)
+		elif removeFrom == "url":
+			fileName = "url.txt"
+			with open(fileName,'rb') as rfp:
+				listRemove = pickle.load(rfp)
+		if toRemove in fileName:
+			listRemove.remove(toRemove)
+			pickle.dump(listRemove, open(fileName,'wb'))
+			msg = "Removed " + toRemove + " from " + removeFrom
+			return msg
 		else:
+			msg = toRemove + " is not in " + removeFrom
 			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
 			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
 			return msg
