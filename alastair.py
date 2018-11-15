@@ -187,6 +187,18 @@ def remove(message):
 		elif toRemove not in listRemove:
 			msg = "'" + toRemove + " is not in " + removeFrom
 			return msg
+			
+def display(message):
+	if message.content.startswith('!Display'):
+		fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
+		msg = ""
+		for files in fileNames:
+			with open(files,'rb') as rfp:
+				listDisplay = pickle.load(rfp)
+			msg = msg + files.replace(".txt", " - ")
+			msg = msg + (*listDisplay, sep=", ")
+			msg = msg + "\n"
+		return msg
 		
 def temperature(message):
 	from lxml import html
