@@ -162,13 +162,15 @@ def remove(message):
 			fileName = "url.txt"
 			with open(fileName,'rb') as rfp:
 				listRemove = pickle.load(rfp)
-		if toRemove in fileName:
+		if toRemove in listRemove:
 			listRemove.remove(toRemove)
 			pickle.dump(listRemove, open(fileName,'wb'))
 			msg = "Removed " + toRemove + " from " + removeFrom
 			return msg
-		else:
+		elif toRemove not in listRemove:
 			msg = toRemove + " is not in " + removeFrom
+			return msg
+		else:
 			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
 			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
 			return msg
