@@ -157,7 +157,7 @@ def temperature(message):
 		from urllib.request import urlopen
 		url = 'http://100.90.93.150/source'
 		with urllib.request.urlopen("http://www.python.org") as url:
-    			webContent = url.read()
+    			webContent = str(url.read())
 		f = open('sourcecode.html', 'w')
 		f.write(webContent)
 		f.close()
