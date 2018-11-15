@@ -61,6 +61,7 @@ async def modules(message):
 	msg = msg + str(a.add(oldmsg, message))
 	msg = msg + str(a.remove(message))
 	msg = msg + str(a.display(message))
+	msg = msg + str(displayCommands(message))
 	msg = msg.replace('None', '')
 	a.removeDuplicates()
 	#print("MESSAGE" + msg)
