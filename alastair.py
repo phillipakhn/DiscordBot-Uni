@@ -207,7 +207,7 @@ def removeDuplicates():
 		with open(files,'rb') as rfp:
 			listDisplay = pickle.load(rfp)
 		listDisplay = list(set(listDisplay))
-		pickle.dump(listDisplay, open(fileName,'wb'))
+		pickle.dump(listDisplay, open(files,'wb'))
 		
 def temperature(message):
 	from lxml import html
