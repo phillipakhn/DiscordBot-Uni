@@ -208,10 +208,12 @@ def displayCommands(message):
 		return msg
 	if message.content.startswith('!addCommand'):
 		commandToAdd = str(message.content)
-		commentToAdd = commandToAdd.replace("!addCommand ", "")
+		commandToAdd = commandToAdd.replace("!addCommand ", "")
 		commands = open("commands.txt", "a")
 		commands.write(commandToAdd)
 		commands.close()
+		msg = commandToAdd + " was added to commands"
+		return msg
 		
 def removeDuplicates():
 	fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
