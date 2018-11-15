@@ -153,7 +153,7 @@ def temperature(message):
 		t = t.replace(" ']", "")
 		return t
 	if message.content.startswith('!TempCode'):
-		import urllib2
+		import urllib
 		from urllib.request import urlopen
 		url = 'http://100.90.93.150/source'
 		response = urllib2.urlopen(url)
