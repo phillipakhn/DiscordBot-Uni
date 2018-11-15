@@ -210,10 +210,10 @@ def displayCommands(message):
 		commandToAdd = str(message.content)
 		commandToAdd = commandToAdd.replace("!addCommand ", "")
 		commands = open("commands.txt", "a")
-		commandToAdd = "\n " + commandToAdd
+		commandToAdd = "\n" + commandToAdd
 		commands.write(commandToAdd)
 		commands.close()
-		commandToAdd = commandToAdd.replace("\n ", "")
+		commandToAdd = commandToAdd.replace("\n", "")
 		msg = "'" + commandToAdd + "' was added to commands"
 		return msg
 		
