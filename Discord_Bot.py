@@ -62,6 +62,7 @@ async def modules(message):
 	msg = msg + str(a.remove(message))
 	msg = msg + str(a.display(message))
 	msg = msg.replace('None', '')
+	a.removeDuplicates()
 	#print("MESSAGE" + msg)
 	if not msg:
 		msg = str(a.notInMem(message))
