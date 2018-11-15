@@ -140,6 +140,51 @@ def add(lstmsg, message):
 		msg = "Added '" + lstmsg + "' to ignore "
 		return msg
 	return
+	
+def remove(message):
+	if message.content.startswith('!Remove'):
+		msg = str(message.content)
+		msg = msg.replace("!Remove")
+		wordList = msg.split(",")
+		toRemove = wordList[0]
+		removeFrom = wordList[2]
+		if removeFrom == "greeting":
+			with open("greetings.txt",'rb') as rfp:
+				greetings = pickle.load(rfp)
+			if toRemove in greetings:
+				greetings.remove(toRemove)
+				pickle.dump(ignore, open("greetings.txt",'wb'))
+				msg = "Removed " + toRemove + " from " + removeFrom
+				return msg
+			else:
+				msg = toRemove + " is not in " + removeFrom
+				return msg
+		if removeFrom == "ignore":
+			with open("ignore.txt",'rb') as rfp:
+				ignore = pickle.load(rfp)
+			if toRemove in ignore:
+				ignore.remove(toRemove)
+				pickle.dump(ignore, open("ignore.txt",'wb'))
+				msg = "Removed " + toRemove + " from " + removeFrom
+				return msg
+			else:
+				msg = toRemove + " is not in " + removeFrom
+				return msg
+		if removeFrom == "url":
+			with open("url.txt",'rb') as rfp:
+				url = pickle.load(rfp)
+			if toRemove in url:
+				url.remove(toRemove)
+				pickle.dump(ignore, open("url.txt",'wb'))
+				msg = "Removed " + toRemove + " from " + removeFrom
+				return msg
+			else:
+				msg = toRemove + " is not in " + removeFrom
+				return msg
+		else:
+			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
+			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
+			return msg
 		
 def temperature(message):
 	from lxml import html
