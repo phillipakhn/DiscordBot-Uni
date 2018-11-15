@@ -71,7 +71,7 @@ async def modules(message):
 	oldmsg = str(message.content)
 	msg = "                 " + msg + "                 "
 	if message.content == "!TempCode":
-		await client.send_file(message.channel, "sourcecode.html", filename="Source Code", "Here is the code")
+		await client.send_file(message.channel, "sourcecode.html")
 		return
 	else:
 		await client.send_message(message.channel, msg)
