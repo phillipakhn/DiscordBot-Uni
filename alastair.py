@@ -218,7 +218,7 @@ def displayCommands(message):
 		return msg
 	if message.content.startswith('!removeCommand'):
 		commandToRemove = str(message.content)
-		commandToRemove = commandToReplace.replace("!removeCommand ", "")
+		commandToRemove = commandToRemove.replace("!removeCommand ", "")
 		commands = open("commands.txt", "r")
 		commandFile = command.read()
 		commandToRemove = commandToRemove + "\n"
