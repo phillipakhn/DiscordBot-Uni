@@ -177,7 +177,7 @@ def remove(message):
 				url = pickle.load(rfp)
 			if toRemove in url:
 				url.remove(toRemove)
-				pickle.dump(ignore, open("url.txt",'wb'))
+				pickle.dump(url, open("url.txt",'wb'))
 				msg = "Removed " + toRemove + " from " + removeFrom
 				return msg
 			else:
