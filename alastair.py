@@ -227,6 +227,8 @@ def displayCommands(message):
 		commands = open("commands.txt", "w")
 		commands.write(commandFile)
 		commands.close()
+		msg = "removed '" + commandToRemove + "' from the commands"
+		return msg
 		
 def removeDuplicates():
 	fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
