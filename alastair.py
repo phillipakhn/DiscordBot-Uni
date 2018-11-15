@@ -155,7 +155,7 @@ def remove(message):
 				greetings = pickle.load(rfp)
 			if toRemove in greetings:
 				greetings.remove(toRemove)
-				pickle.dump(ignore, open("greetings.txt",'wb'))
+				pickle.dump(greetings, open("greetings.txt",'wb'))
 				msg = "Removed " + toRemove + " from " + removeFrom
 				return msg
 			else:
