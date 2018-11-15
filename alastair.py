@@ -208,7 +208,7 @@ def displayCommands(message):
 		return msg
 	if message.content.startswith('!addCommand'):
 		commandToAdd = str(message.content)
-		commentToAdd.replace("!addCommand ", "")
+		commentToAdd = commandToAdd.replace("!addCommand ", "")
 		commands = open("commands.txt", "w")
 		commands.write(commandToAdd)
 		commands.close()
