@@ -145,6 +145,10 @@ def remove(message):
 	if message.content.startswith('!Remove'):
 		msg = str(message.content)
 		msg = msg.replace("!Remove ", "")
+		if msg.lower() == "help":
+			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
+			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
+			return msg
 		wordList = msg.split(" from ")
 		toRemove = wordList[0]
 		removeFrom = wordList[1]
