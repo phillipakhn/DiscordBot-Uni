@@ -170,18 +170,18 @@ def remove(message):
 			fileName = "fQuestion.txt"
 			with open(fileName,'rb') as rfp:
 				listRemove = pickle.load(rfp)
+		else:
+			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
+			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
+			return msg
 		if toRemove in listRemove:
 			while toRemove in listRemove:
 				listRemove.remove(toRemove)
 			pickle.dump(listRemove, open(fileName,'wb'))
-			msg = "Removed " + toRemove + " from " + removeFrom
+			msg = "Removed '" + toRemove + "' from " + removeFrom
 			return msg
 		elif toRemove not in listRemove:
-			msg = toRemove + " is not in " + removeFrom
-			return msg
-		else:
-			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
-			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
+			msg = "'" + toRemove + " is not in " + removeFrom
 			return msg
 		
 def temperature(message):
