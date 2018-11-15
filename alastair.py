@@ -152,6 +152,16 @@ def temperature(message):
 		t = t.replace("[' ', ' ', ' ", "")
 		t = t.replace(" ']", "")
 		return t
+	if message.content.startswith('!TempCode'):
+		import urllib2
+		from urllib.request import urlopen
+		url = 'http://100.90.93.150/source'
+		response = urllib2.urlopen(url)
+		webContent = response.read()
+		f = open('sourcecode.html', 'w')
+		f.write(webContent)
+		f.close()
+		return
 	if message.content.startswith('!Temp'):
 		page = requests.get('http://100.90.93.150')
 		tree = html.fromstring(page.content)
