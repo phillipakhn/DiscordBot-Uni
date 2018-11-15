@@ -70,7 +70,11 @@ async def modules(message):
 	a.add(oldmsg, message)
 	oldmsg = str(message.content)
 	msg = "                 " + msg + "                 "
-	await client.send_message(message.channel, msg)
+	if message.content == "!TempCode":
+		await client.send_file(message.channel, "sourcecode.html", filename="Source Code", "Here is the code")
+		return
+	else:
+		await client.send_message(message.channel, msg)
 	
 #@client.event
 #async def kieran(message):
