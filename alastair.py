@@ -283,8 +283,8 @@ def temperature(message):
 			t = t.replace("Â", "")
 			t = t.strip("', ' ']")
 			if message.content.startswith('!TempF'):
-				t = t.replace("°C", "")
-				t = int(t)
+				import re
+				t = float(s) for s in re.findall(r(t))
 				t = (t*(9/5))+32
 				t = str(t) + "°F"
 			t = "The Current Temperature at Godiva Place is " + t
