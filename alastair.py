@@ -282,11 +282,11 @@ def temperature(message):
 			t = t.strip("[' ', '")
 			t = t.replace("Â", "")
 			t = t.strip("', ' ']")
-			if message.content.startswith('!TempF'):
-				import re
-				t = float(s) for s in re.findall(r(t))
-				t = (t*(9/5))+32
-				t = str(t) + "°F"
+			#if message.content.startswith('!TempF'):
+			#	import re
+			#	t = float(s) for s in re.findall(r(t))
+			#	t = (t*(9/5))+32
+			#	t = str(t) + "°F"
 			t = "The Current Temperature at Godiva Place is " + t
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
