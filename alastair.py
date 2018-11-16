@@ -77,7 +77,7 @@ def url(message):
 			
 def test(message):
 	if message.content.startswith('!Test'):
-		msg = 'This is working'
+		msg = 'This is proof that it is working'
 		return msg
 	return
 		
