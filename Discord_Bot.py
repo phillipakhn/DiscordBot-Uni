@@ -79,6 +79,8 @@ async def modules(message):
 		await client.send_file(message.channel, "sourcecode.html")
 		return
 	if message.content.startswith("!Webcam"):
+		msg = "This photo was taken at " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+		await client.send_message(message.channel, msg)
 		await client.send_file(message.channel, "webcam.jpg")
 		return
 	else:
@@ -113,7 +115,7 @@ async def on_message(message):
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-	msg = "Bot Started at " + str(startup) + " on " + str(get('https://api.ipify.org').text)
+	msg = "Bot Started at " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " on " + str(get('https://api.ipify.org').text)
 	await client.send_message(client.get_channel('502223039912476694'), msg)
 	#await client.change_presence(name='test', type=2)
 
