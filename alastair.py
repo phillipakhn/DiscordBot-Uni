@@ -308,6 +308,14 @@ def webcam(message):
 			f.write(msg)
 			f.close()
 			return msg
+		if "ullswater" in msg.lower():
+			import urllib.request
+			urllib.request.urlretrieve("images/webcam/ispy.jpg", "webcam.jpg")
+			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Ullswater"
+			f = open("OldWebcam.txt", "w")
+			f.write(msg)
+			f.close()
+			return msg
 		f = open("OldWebcam.txt", "r")
 		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
 		f.close()
