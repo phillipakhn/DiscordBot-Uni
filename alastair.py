@@ -300,7 +300,7 @@ def webcam(message):
 	if message.content.startswith('!Webcam'):
 		import datetime
 		msg = message.content
-		if "Godiva" in msg:
+		if "godiva" in msg.lower():
 			import urllib.request
 			urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
