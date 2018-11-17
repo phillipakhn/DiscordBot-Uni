@@ -300,11 +300,12 @@ def webcam(message):
 	#	msg = message.content
 	#	msg = msg.replace('!Webcam ', '')
 	if message.content.startswith("!Webcam Godiva"):
-		import urllib
-		resource = urllib.urlopen("http://100.90.113.111:8080/photo.jpg")
-		output = open("webcam.jpg","wb")
-		output.write(resource.read())
-		output.close()
+		import urllib.request
+		with urllib.request.urlopen("http://100.90.113.111:8080/photo.jpg") as url:
+    			webContent = url.read()
+		image = open("webcam.jpg","wb")
+		image.write(url.read())
+		image.close()
 		return
 		
 def code(message):
