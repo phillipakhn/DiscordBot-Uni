@@ -290,6 +290,7 @@ def temperature(message):
 				t = (t*(9/5)) + 32
 				t = str(t) + "°F (" + c + ")"
 			t = "The Current Temperature at Godiva Place is " + t
+			t = t + " \n If you want to see a live image of the weather use !Webcam Godiva"
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
 		return t
