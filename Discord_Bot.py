@@ -77,6 +77,9 @@ async def modules(message):
 	if message.content == "!TempCode":
 		await client.send_file(message.channel, "sourcecode.html")
 		return
+	if message.content.startswith("!Webcam"):
+		await client.send_file(message.channel, "webcam.html")
+		return
 	else:
 		await client.send_message(message.channel, msg)
 	
