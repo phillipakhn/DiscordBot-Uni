@@ -308,11 +308,10 @@ def webcam(message):
 			f.write(msg)
 			f.close()
 			return msg
-		else:
-			f = open("OldWebcam.txt", "r")
-			msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
-			f.close()
-			return msg
+		f = open("OldWebcam.txt", "r")
+		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
+		f.close()
+		return msg
 		
 def code(message):
 	if message.content.startswith('!Code'):
