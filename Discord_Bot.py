@@ -66,6 +66,11 @@ async def modules(message):
 	a.removeDuplicates()
 	a.webcam(message)
 	#print("MESSAGE" + msg)
+	if message.content.startswith("!Webcam"):
+		#msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
+		await client.send_message(message.channel, msg)
+		await client.send_file(message.channel, "webcam.jpg")
+		return
 	if not msg:
 		msg = str(a.notInMem(message))
 	if message.content.startswith('!BotInfo'):
@@ -77,11 +82,6 @@ async def modules(message):
 	msg = "                 " + msg + "                 "
 	if message.content == "!TempCode":
 		await client.send_file(message.channel, "sourcecode.html")
-		return
-	if message.content.startswith("!Webcam"):
-		#msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
-		await client.send_message(message.channel, msg)
-		await client.send_file(message.channel, "webcam.jpg")
 		return
 	else:
 		await client.send_message(message.channel, msg)
