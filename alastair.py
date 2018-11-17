@@ -299,7 +299,7 @@ def webcam(message):
 	#if message.content.startswith('!Webcam'):
 	#	msg = message.content
 	#	msg = msg.replace('!Webcam ', '')
-	if msg == "!Webcam Godiva":
+	if message.content.startswith("!Webcam Godiva"):
 		import urllib
 		from urllib.request import urlopen
 		url = 'http://100.90.113.111:8080/photo.jpg'
