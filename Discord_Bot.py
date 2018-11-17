@@ -64,7 +64,7 @@ async def modules(message):
 	msg = msg + str(a.displayCommands(message))
 	msg = msg.replace('None', '')
 	a.removeDuplicates()
-	a.webcam(message)
+	msg = msg + str(a.webcam(message))
 	#print("MESSAGE" + msg)
 	if message.content.startswith("!Webcam"):
 		#msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
