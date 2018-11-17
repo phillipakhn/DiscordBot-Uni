@@ -302,7 +302,7 @@ def webcam(message):
 		msg = message.content
 		if "godiva" in msg.lower():
 			import urllib.request
-			urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("http://100.90.113.111:8080/photoaf.jpg", "webcam.jpg")
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
 			f = open("OldWebcam.txt", "w")
 			f.write(msg)
