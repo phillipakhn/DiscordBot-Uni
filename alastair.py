@@ -310,7 +310,7 @@ def webcam(message):
 			return msg
 		if "ullswater" in msg.lower():
 			import urllib.request
-			urllib.request.urlretrieve("images/webcam/ispy.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("https://www.ullswater-steamers.co.uk/images/webcam/ispy.jpg", "webcam.jpg")
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Ullswater"
 			f = open("OldWebcam.txt", "w")
 			f.write(msg)
