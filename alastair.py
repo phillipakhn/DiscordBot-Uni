@@ -287,7 +287,7 @@ def temperature(message):
 				t = re.findall(r'\b\d+\b', t)
 				t = float(t[0])
 				t = (t*(9/5)) + 32
-				t = t + "°F"
+				t = str(t) + "°F"
 			t = "The Current Temperature at Godiva Place is " + t
 		else:
 			t = "There is currently an error with the weather station. Please try again later"
