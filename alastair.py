@@ -300,7 +300,6 @@ def webcam(message):
 	if message.content.startswith('!Webcam'):
 		import datetime
 		msg = message.content
-		msg = msg.replace('!Webcam ', '')
 		if "Godiva" in msg:
 			import urllib.request
 			urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
