@@ -79,7 +79,7 @@ async def modules(message):
 		await client.send_file(message.channel, "sourcecode.html")
 		return
 	if message.content.startswith("!Webcam"):
-		await client.send_file(message.channel, "webcam.html")
+		await client.send_file(message.channel, "webcam.jpg")
 		return
 	else:
 		await client.send_message(message.channel, msg)
