@@ -304,7 +304,7 @@ def webcam(message):
 			from urllib.request import urlopen
 			url = 'http://100.90.113.111:8080/photo.jpg'
 			import urllib.request
-			webContenturllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "photo.jpg")
+			webContent = urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "photo.jpg")
 			f = open('webcam.jpg', 'w')
 			f.write(webContent)
 			f.close()
