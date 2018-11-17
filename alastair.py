@@ -305,6 +305,14 @@ def webcam(message):
 			import urllib.request
 			urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
+			f = open("OldWebcam.txt", "w")
+			f.write(msg)
+			f.close()
+			return msg
+		else:
+			f = open("OldWebcam.txt", "r")
+			msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
+			f.close()
 			return msg
 		
 def code(message):
