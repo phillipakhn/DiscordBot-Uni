@@ -64,6 +64,7 @@ async def modules(message):
 	msg = msg + str(a.displayCommands(message))
 	msg = msg.replace('None', '')
 	a.removeDuplicates()
+	a.webcam(message)
 	#print("MESSAGE" + msg)
 	if not msg:
 		msg = str(a.notInMem(message))
