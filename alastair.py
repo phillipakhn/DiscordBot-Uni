@@ -296,13 +296,13 @@ def temperature(message):
 	return
 
 def webcam(message):
-	#if message.content.startswith('!Webcam'):
-	#	msg = message.content
-	#	msg = msg.replace('!Webcam ', '')
-	if message.content.startswith("!Webcam Godiva"):
-		import urllib.request
-		urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
-		return
+	if message.content.startswith('!Webcam'):
+		msg = message.content
+		msg = msg.replace('!Webcam ', '')
+		if "Godiva" in msg:
+			import urllib.request
+			urllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "webcam.jpg")
+			return
 		
 def code(message):
 	if message.content.startswith('!Code'):
