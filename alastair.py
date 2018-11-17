@@ -294,6 +294,21 @@ def temperature(message):
 			t = "There is currently an error with the weather station. Please try again later"
 		return t
 	return
+
+def webcam(message):
+	if message.content.startswith('!Webcam'):
+		msg = message.content
+		msg = msg.replace('!Webcam ', '')
+		if msg == "Godiva":
+			import urllib
+			from urllib.request import urlopen
+			url = 'http://100.90.113.111:8080/photo.jpg'
+			import urllib.request
+			webContenturllib.request.urlretrieve("http://100.90.113.111:8080/photo.jpg", "photo.jpg")
+			f = open('webcam.jpg', 'w')
+			f.write(webContent)
+			f.close()
+			return
 		
 def code(message):
 	if message.content.startswith('!Code'):
