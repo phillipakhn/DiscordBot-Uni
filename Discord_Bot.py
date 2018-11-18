@@ -72,6 +72,7 @@ async def modules(message):
 			from os import listdir
 			allImages = os.listdir("Photos")
 			for i in allImages:
+				dir = "Photos/" + i 
 				await client.send_file(message.channel, i)
 			return
 		else:
