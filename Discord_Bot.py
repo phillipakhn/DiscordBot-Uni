@@ -95,7 +95,7 @@ async def modules(message):
 	else:
 		await client.send_message(message.channel, msg)
 		if message.content.startswith("!TempF"):
-			await client.send_file(message.channel, "celcius.html")
+			await client.send_file(message.channel, "celcius.png")
 	
 #@client.event
 #async def kieran(message):
