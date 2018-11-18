@@ -327,7 +327,7 @@ def webcam(message):
 		if "california" in msg.lower():
 			import urllib.request
 			urllib.request.urlretrieve("http://mk-webcam.net/MKB/mk-camB.jpg", "webcam.jpg")
-			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " in Warwick"
+			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " in Sequoia national park"
 			f = open("OldWebcam.txt", "w")
 			f.write(msg)
 			f.close()
