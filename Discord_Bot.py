@@ -73,7 +73,7 @@ async def modules(message):
 			allImages = os.listdir("Photos")
 			for i in allImages:
 				dir = "Photos/" + i 
-				await client.send_file(message.channel, i)
+				await client.send_file(message.channel, dir)
 			return
 		else:
 			await client.send_message(message.channel, msg)
