@@ -335,7 +335,7 @@ def webcam(message):
 		if "save" in msg.lower():
 			import sys
 			time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-			comm = "cp webcam.jpg " + time + ".jpg"
+			comm = "cp Photos/webcam.jpg " + time + ".jpg"
 			os.system(comm)
 			return "The following image has been saved to " + time + ".jpg"
 		f = open("OldWebcam.txt", "r")
