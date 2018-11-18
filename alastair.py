@@ -324,6 +324,14 @@ def webcam(message):
 			f.write(msg)
 			f.close()
 			return msg
+		if "california" in msg.lower():
+			import urllib.request
+			urllib.request.urlretrieve("http://mk-webcam.net/MKB/mk-camB.jpg", "webcam.jpg")
+			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " in Warwick"
+			f = open("OldWebcam.txt", "w")
+			f.write(msg)
+			f.close()
+			return msg
 		f = open("OldWebcam.txt", "r")
 		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
 		f.close()
