@@ -67,10 +67,17 @@ async def modules(message):
 	msg = msg + str(a.webcam(message))
 	#print("MESSAGE" + msg)
 	if message.content.startswith("!Webcam"):
-		#msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
-		await client.send_message(message.channel, msg)
-		await client.send_file(message.channel, "webcam.jpg")
-		return
+		msgcont = message.content
+		if "displayall" in msgcont:
+			from os import listdir
+			allImages = os.listdir(Photos)
+			for i in allImages:
+				await client.send_file(message.channel, i)
+			return
+		else:
+			await client.send_message(message.channel, msg)
+			await client.send_file(message.channel, "webcam.jpg")
+			return
 	if not msg:
 		msg = str(a.notInMem(message))
 	if message.content.startswith('!BotInfo'):
