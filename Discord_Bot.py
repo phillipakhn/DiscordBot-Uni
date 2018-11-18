@@ -62,7 +62,6 @@ async def modules(message):
 	msg = msg + str(a.remove(message))
 	msg = msg + str(a.display(message))
 	msg = msg + str(a.displayCommands(message))
-	msg = msg.replace('None', '')
 	a.removeDuplicates()
 	msg = msg + str(a.webcam(message))
 	#print("MESSAGE" + msg)
@@ -88,6 +87,7 @@ async def modules(message):
 		msg = extip + " - Uptime: " + str(Uptime.days)+ " day(s), " + str(Uptime.seconds//3600) + " hour(s), "+ str(int((Uptime.seconds//60)%60)) + " minute(s) and " + str(int(Uptime.seconds%60)) + " second(s)" 
 	a.add(oldmsg, message)
 	oldmsg = str(message.content)
+	msg = msg.replace('None', '')
 	msg = "                 " + msg + "                 "
 	if message.content == "!TempCode":
 		await client.send_file(message.channel, "sourcecode.html")
