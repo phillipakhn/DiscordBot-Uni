@@ -23,3 +23,4 @@
 !addCommand - [Command - Description]
 !leaderboards - Displays the minigame scoreboard
 !russia - Starts Russian Roulette
+!removeCommand - Removes Command
