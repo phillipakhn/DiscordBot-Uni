@@ -70,7 +70,7 @@ async def modules(message):
 		msgcont = message.content
 		if "displayall" in msgcont:
 			from os import listdir
-			allImages = os.listdir(Photos)
+			allImages = os.listdir(/Photos)
 			for i in allImages:
 				await client.send_file(message.channel, i)
 			return
