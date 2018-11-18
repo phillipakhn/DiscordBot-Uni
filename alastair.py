@@ -332,6 +332,12 @@ def webcam(message):
 			f.write(msg)
 			f.close()
 			return msg
+		if "save" in msg.lower():
+			import sys
+			time = datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S")
+			comm = "mv webcam.jpg " + time + ".jpg"
+			os.system(comm)
+			return "Previous Image Saved to " + time + ".jpg"
 		f = open("OldWebcam.txt", "r")
 		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
 		f.close()
