@@ -65,6 +65,7 @@ async def modules(message):
 	a.removeDuplicates()
 	msg = msg + str(a.webcam(message))
 	#print("MESSAGE" + msg)
+	msg = msg.replace('None', '')
 	if message.content.startswith("!Webcam"):
 		msgcont = message.content
 		if "displayall" in msgcont:
