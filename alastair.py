@@ -301,6 +301,10 @@ def webcam(message):
 		import datetime
 		msg = message.content
 		if "godiva" in msg.lower():
+			try:
+    				r = requests.get("http://100.90.113.111:8080/photoaf.jpg", timeout=10.0)
+			except requests.Timeout as err:
+    l				return "This webcam appears to be down"
 			import urllib.request
 			urllib.request.urlretrieve("http://100.90.113.111:8080/photoaf.jpg", "webcam.jpg")
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
