@@ -16,16 +16,11 @@ def ignore(message):
 			return "RETUR"
 	return
 			
-def greetings(message):
-	with open("greetings.txt",'rb') as rfp:
-		greetings = pickle.load(rfp)
-	for i in greetings:	
-		if message.content.startswith(i):
-			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
-			if 100 > random.randint(0, 100):
-				msg = msg + "\n" + askQuestion()
-			return msg
-	return
+def greetings(greetings):
+	msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
+	if 100 > random.randint(0, 100):
+		msg = msg + "\n" + askQuestion()
+	return msg
 			
 #def fQuestion(message):
 #	with open("fQuestion.txt",'rb') as rfp:
@@ -63,28 +58,18 @@ def askQuestion():
 	msg = fquestion[random.randint(0, len(fquestion)-1)]
 	return msg
 			
-def url(message):
-	if message.content.startswith('!URL'):
-		i = 0
-		with open("url.txt",'rb') as rfp:
-			url = pickle.load(rfp)
-		msg = ""
-		while i <= (len(url)-1):	
-			msg = msg + "\n" + url[i]
-			i = i + 1
-		return msg
-	return
+def url(url):
+	for i in url:	
+		msg = msg + "\n" + i
+	return msg
 			
-def test(message):
-	if message.content.startswith('!Test'):
-		msg = 'This is proof that it is working'
-		return msg
-	return
+def test():
+	msg = 'This is proof that it is working'
+	return msg
 		
-def update(message):
-	if message.content.startswith('!Update'):
-		os.system('cd ~ \n ./update.sh')
-		exit()
+def update():
+	os.system('cd ~ \n ./update.sh')
+	exit()
 	return
 		
 def pyStart(message):
@@ -188,8 +173,8 @@ def remove(message):
 			msg = "'" + toRemove + " is not in " + removeFrom
 			return msg
 			
-def display(message):
-	if message.content.startswith('!Display'):
+def display():
+	
 		fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
 		msg = ""
 		for files in fileNames:
