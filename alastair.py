@@ -1,4 +1,4 @@
-import discord, time, random, pickle, os, sys
+import discord, time, random, pickle, os, sys, requests
 
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 client = discord.Client()
