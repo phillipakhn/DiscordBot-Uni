@@ -1,6 +1,7 @@
 import discord, logging, time, random, pickle, os, datetime
 from requests import get
 import alastair as a
+import startLibrary as l
 #import Kieran as k
 #import Prime as p
 #import tomas as t
@@ -38,34 +39,12 @@ async def modules(message):
 	global oldmsg
 	if message.author == client.user:
 		return
-#	if not lstmsg:
-#		lstmsg = ""
-	#a.dab(message)
-	a.pyStart(message)
+	#a.pyStart(message)
 	msg = ""
-	#msg = msg + str(a.pyStart(message))
-	msg = msg + str(a.human(message))
-	msg = msg + str(a.ignore(message))
+	msg = msg + str(l.modules(message))
+	msg = msg.replace('None', '')
 	if "RETUR" in msg:
 		return
-	msg = msg + str(a.greetings(message))
-	msg = msg + str(a.url(message))
-	msg = msg + str(a.test(message))
-	msg = msg + str(a.update(message))
-	msg = msg + str(a.exitBot(message))
-	msg = msg + str(a.code(message))
-	msg = msg + str(a.gitHelp(message))
-	msg = msg + str(a.temperature(message))
-	msg = msg + str(a.fQuestion(message.content))
-	msg = msg + str(a.fResponse(message.content))
-	msg = msg + str(a.add(oldmsg, message))
-	msg = msg + str(a.remove(message))
-	msg = msg + str(a.display(message))
-	msg = msg + str(a.displayCommands(message))
-	a.removeDuplicates()
-	msg = msg + str(a.webcam(message))
-	#print("MESSAGE" + msg)
-	msg = msg.replace('None', '')
 	if message.content.startswith("!Webcam"):
 		msgcont = message.content
 		if "displayall" in msgcont:
