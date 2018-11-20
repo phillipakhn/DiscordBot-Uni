@@ -14,12 +14,28 @@ async def Server(message):
 	if message.content.startswith('!GoogleMaps'):
 		run = 0
 		msg = msg + str(maps.Google(message,run)) # Calls function "Google" from GoogleMaps.py
+		await client.send_message(message.channel, msg)
 	elif message.content.startswith('!Timezone'):
 		run = 1
 		msg = msg + str(maps.Google(message,run))
+		await client.send_message(message.channel, msg)
+	elif message.content.startswith('!Weather'):
+		run = 2
+		content = maps.Google(message,run)
+		Advice = str(content[2]) +"\n" + str(content[3])	
+		embed = discord.Embed()
+		embed.set_image(url=content[1])
+		while True:
+			try:
+				await client.send_message(message.channel,content[0],embed=embed)
+				await client.send_message(message.channel,Advice)
+				break		
+			except:
+				msg = "That location doesn't exist or it is not specific enough!"
+				await client.send_message(message.channel,msg)
+				break
 	elif not msg: # To prevent an empty message being sent
 		return
-	await client.send_message(message.channel, msg) # Send "msg" to discord
 	
 '''Input: Object (message), Output:Object (message)'''
 @client.event
