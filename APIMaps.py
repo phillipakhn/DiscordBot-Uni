@@ -8,7 +8,7 @@ Search_api = "https://maps.googleapis.com/maps/api/place/textsearch/json"
 Details_api ="https://maps.googleapis.com/maps/api/place/details/json"
 
 
-"""Input: String(Location), Output:String(url)"""
+"""Input: String(Location),Integer(run), Output: String(url,timez.Tzone(Lat,Lng)) Dictionary:(weather.Forecast(Lat,Lng)),"""
 def Results(Location,run):
 	Search_input = {"key":key, "query":Location} # My API key and the location
 	Search_req = requests.get(Search_api,Search_input) # Requests the location with my key
@@ -29,6 +29,7 @@ def Results(Location,run):
 		else:
 			return(weather.Forecast(Lat,Lng)) # Returns to Location.py
 
+"""Input: String(Location), Output: String(Address)"""
 def Format_Adr(Location):
 	Search_input = {"key":key, "query":Location} # My API key and the location
 	Search_req = requests.get(Search_api,Search_input) # Requests the location with my key

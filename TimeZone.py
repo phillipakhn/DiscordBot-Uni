@@ -1,4 +1,3 @@
-# Time Zones
 from flask import Flask, jsonify
 import requests
 from Key import key
@@ -7,7 +6,7 @@ import datetime
 
 Time_api = "https://maps.googleapis.com/maps/api/timezone/json?"
 
-"""Input: integer(Lat,Lng), Output:String()"""
+"""Input: integer(Lat,Lng), Output: String(Newtime,Time_Zone,Time_Name)"""
 def Tzone(Lat,Lng):
 	Timestamp = time.time() # Seconds since epoch 1st Jan 1970
 	Search_input = {'location': "%s,%s" % (Lat, Lng), "timestamp":Timestamp,"key":key,} # My API key and the location in longitude and latitude
@@ -22,16 +21,15 @@ def Tzone(Lat,Lng):
 	Newtime = Clock(Time_Time,Time_Daylight)
 	return(Newtime,Time_Zone,Time_Name) # Returns to APIMaps.py
 
-'''Input:Integer (Time_Time, Time_Daylight), Output: String(Newtime)'''
+'''Input:Integer (Time_Time,Time_Daylight), Output: String(Newtime)'''
 def Clock(Time_Time,Time_Daylight): 
-	now = datetime.datetime.now() # Adjusting time 
-	if now.hour+Time_Time>23: # In front  
-		Adjust = Time_Time-24
-	elif now.hour+Time_Time<0: # Behind
-		Adjust = Time_Time+24
-	else:
-		Adjust = 0
-	Newtime = datetime.time(now.hour+(Adjust)+Time_Time+Time_Daylight, now.minute, now.second) # adjusts time to location
+	now = datetime.datetime.now() # Adjusting time
+	Hour = now.hour + Time_Time + Time_Daylight  
+	if Hour>23: # In front  
+		Hour = Hour - 24
+	if Hour+Time_Time<0: # Behind
+		Hour = Hour + 24
+	Newtime = datetime.time(Hour, now.minute, now.second) # adjusts time to location
 	Newtime = str(Newtime)
 	return(Newtime) # Returns to APIMaps.py
 	

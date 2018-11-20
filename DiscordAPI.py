@@ -5,11 +5,11 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' # The Disc
 
 client = discord.Client()
 
-'''Input:Object (message), Output:String (msg)'''
+'''Input: Object(message), Output: String(msg,Advice,content[0]),Embed(embed) '''
 @client.event
 async def Server(message):
 	if message.author == client.user: # To prevent the bot from replying to itself
-		return
+		return5
 	msg = ""
 	if message.content.startswith('!GoogleMaps'):
 		run = 0
@@ -37,7 +37,7 @@ async def Server(message):
 	elif not msg: # To prevent an empty message being sent
 		return
 	
-'''Input: Object (message), Output:Object (message)'''
+'''Input: Object(message), Output: Object(message)'''
 @client.event
 async def on_message(message): # Must be called "on_message"
 	print(message.content)
