@@ -1,0 +1,26 @@
+!URL - Displays all useful URLs 
+!Test - To see if the bot is working 
+!Update - Update Discord_Bot.py 
+!Exit - Closes Discord_Bot.py 
+!addurl - Adds useful URL after given input 
+!greeting - Adds greeting after given input 
+!friendlyQuestion - Adds friendly question after given input 
+!friendlyResponse - Adds friendly response after given input 
+!ignore [command] - Add command to ignore after given input 
+!Remove [entry] from [list_name] - Remove entry from list 
+!Display - Display all stored content 
+!Temp - Displays local temperature at Godiva Place 
+!TempInfo - Displays weather station uptime 
+!TempCode - Gives the code for the weather station 
+!help - Displays github help for the bot
+!GoogleMaps [postcode/location] - Gives URL for location 
+!Weather [location] - Gives the weather at the given location 
+!Timezone [location] - Gives the time at that location
+!join - Allows the music bot to join the voice channel 
+!play [Music_Name] - Plays the music of the given name in voice channel 
+!leave - Makes the music bot leave the channel
+!coin [heads/tails] - Flips a coin and records your score
+!addCommand - [Command - Description]
+!leaderboards - Displays the minigame scoreboard
+!russia - Starts Russian Roulette
+!removeCommand - Removes Command
