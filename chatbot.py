@@ -1,10 +1,7 @@
-import discord, random, sys, openpyxl
+import discord, random, sys, openpyxl, time
 
-
-#TOKEN = 'NTA1MTAzMjg4MzcxNTExMzA2.DrkK6A.91Vlom28r5Zgb-6P2vyUHI9psbo' 
-#Personal Server
-TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' 
-#Computer Science Server
+TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
+#TOKEN = 'NTA1MTAzMjg4MzcxNTExMzA2.DrkK6A.91Vlom28r5Zgb-6P2vyUHI9psbo'
 
 client = discord.Client()
 
@@ -17,6 +14,9 @@ sheet['B1'].value = 'Matt'
 sheet['B2'].value = 'Alastair'
 sheet['B3'].value = 'Kieran'
 @client.event
+
+
+
 async def on_message(message):
     if message.author == client.user:
         return
@@ -29,7 +29,8 @@ async def on_message(message):
 #COIN TOSS#   
         
     if message.content.startswith('!coin heads'):
-        if author.id == "182146954384506880": #Tree
+        author = message.author
+        if author.id == "182146954384506880": #Tree 
             
         
             x = random.randint(0,1)
@@ -150,6 +151,7 @@ async def on_message(message):
 
 
     if message.content.startswith('!coin tails'):
+        author = message.author
         if author.id == "182146954384506880": #Tree
 
             x = random.randint(0,1)
@@ -313,14 +315,17 @@ async def on_message(message):
 #RUSSIAN ROULETTE#
 
     if message.content.startswith('!russia'):
+        author = message.author
         russia = random.randint(0,5)
-        if russia == 0:
+        if russia == 3:
             msg = ('You are dead')
             await client.send_message(message.channel, msg)
-            async def kick(ctx, userName: discord.User):
-                """Kick A User from server"""
+            @client.command(pass_context = True)
+            @commands.has_permissions(kick_members=True)
+            async def kick(ctx, userName: author.id):
                 await client.kick(userName)
-        elif russia > 0:
+                await client.say("__**Successfully User Has Been Kicked!**__")
+        else:
             msg = ('Lucky you')
             await client.send_message(message.channel, msg)
             
@@ -383,6 +388,21 @@ async def on_message(message):
       
         elif enemy == 2:
             await client.send_message(message.channel, "scissors vs scissors DRAW!")
+
+
+    if message.content.startswith("!reaction"):
+        player = message.author
+        await client.send_message(message.channel, "send q when you're ready")
+        await client.wait_for_message(author=message.author, content="q")
+        time.sleep(.5)
+        await client.send_message(message.channel, "Get ready!")
+        time.sleep(random.randint(1,4))
+        then = time.time()
+        await client.send_message(message.channel, "GO!")
+        await client.wait_for_message(author=message.author, content='q')
+        reaction_time = time.time()-then
+        msg = round(reaction_time*1000,2)
+        await client.send_message(message.channel, content = str(msg) + "ms")
 
 
         
