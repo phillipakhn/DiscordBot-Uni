@@ -11,10 +11,13 @@ async def SineCalAngle(message):
     if message.content.startswith('!SineCalAngle'):
         Sinemsg = str(message.content)
         Sinemsg = Sinemsg.strip('!SineCalAngle ')
-        Sinemsg = int(Sinemsg)
+        Sinemsg = str(Sinemsg)
         SinemsgH = await client.send_message(message.channel,"What is the length of the Hypotenuse?")
+        
         SinemsgO = await client.send_message(message.channel,"What is the length of the opposite?")
+        
         SinemsgA = await client.send_message(message.channel,"What is the size of the angle?")
+        
         print(Sinemsg)
         print(SinemsgH)
         print(SinemsgO)
@@ -50,10 +53,13 @@ async def SineCalLength(message):
     if message.content.startswith('!SineCalLength'):
         Sinemsg = str(message.content)
         Sinemsg = Sinemsg.strip('!SineCalLength ')
-        Sinemsg = float(Sinemsg)
+        Sinemsg = str(Sinemsg)
         Length1 = await client.send_message(message.channel,"What is the length of the first side?")
+        
         SineAngle1 = await client.send_message(message.channel,"What is the angle size of the 1st angle?")
+        
         SineAngle2 = await client.send_message(message.channel,"What is the angle size of the second angle?")     
+        
         print(Length1)
         print(SineAngle1)
         print(SineAngle2)
@@ -87,10 +93,14 @@ async def CosineCalLength(message):
     if message.content.startswith('!CosineCalLength'):
         Cosinemsg = str(message.content)
         Cosinemsg = Sinemsg.strip('!CosineCalLength ')
-        Cosinemsg = float(Cosinemsg)
+        Cosinemsg = str(Cosinemsg)
+        
         Side1 = await client.send_message(message.channel,"What is the length of the smaller side?")
+        
         Side2 = await client.send_message(message.channel,"What is the length of the longer side?")
+        
         Angle = await client.send_message(message.channel,"What is the size of the angle?")
+        
         print(Cosinemsg)
         print(Side1)
         print(Side2)
@@ -127,10 +137,14 @@ async def CosineCalAngle(message):
     if message.content.startswith('!CosineCalAngle'):
         Cosinemsg = str(message.content)#
         Cosinemsg = Sinemsg.strip('!CosineCalAngle ')
-        Cosinemsg = float(Cosinemsg)
+        Cosinemsg = str(Cosinemsg)
+        
         Side1 = await client.send_message(message.channel,"What is the length of the smaller side?")
+        
         Side2 = await client.send_message(message.channel,"What is the length of the longer side?")
+        
         Side3 = await client.send_message(message.channel,"What is the length of the other side?")
+        
         print(Cosinemsg)
         print(Side1)
         print(Side2)
@@ -166,12 +180,14 @@ async def TanCalAngle(message):
     if message.content.startswith('!TanCalAngle'):
         Tanmsg = str(message.content)
         Tanmsg = Tanmsg.strip('!TanCalAngle ')
-        Tanmsg = float(Tanmsg)
+        Tanmsg = str(Tanmsg)
+        
         TanOpp = await client.send_message(message.channel,"What is the size of the opposite length?")
+        
         TanAdj = await client.send_message(message.channel,"What is the size of the Adjacent length?")
-    print(Tanmsg)
-    print(TanOpp)
-    print(TanAdj)
+        print(Tanmsg)
+        print(TanOpp)
+        print(TanAdj)
     if type(TanOpp) and type(TanAdj) == int:
         Angle = TanOpp / TanAdj
         TanAngleCalc= math.degrees(math.atan(Angle))
@@ -203,9 +219,12 @@ async def TanCalLength(message):
     if message.content.startswith('!TanCalLength'):
         Tanmsg = str(message.content)#
         Tanmsg = Tanmsg.strip('!TanCalLength ')
-        Tanmsg = float(Tanmsg)
+        Tanmsg = str(Tanmsg)
+        
         Length1 = await client.send_message(message.channel,"What is the size of the length of the Adjacent?")
+        
         Angle = await client.send_message(message.channel,"What is the size of the angle?")
+        
         print(Tanmsg)
         print(Length1)
         print(Angle)
