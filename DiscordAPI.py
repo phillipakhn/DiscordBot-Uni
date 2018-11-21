@@ -1,36 +1,36 @@
 import discord
-import Location as maps
+import Location as location
 
-TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' # The Discord Bot's token
+TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' # The Discord Bot's token.
 
 client = discord.Client()
 
 '''Input: Object(message), Output: String(msg,Advice,content[0]),Embed(embed) '''
 @client.event
 async def Server(message):
-	if message.author == client.user: # To prevent the bot from replying to itself
-		return5
+	if message.author == client.user: # To prevent the bot from replying to itself.
+		return
 	msg = ""
 	if message.content.startswith('!GoogleMaps'):
-		run = 0
-		msg = msg + str(maps.Google(message,run)) # Calls function "Google" from GoogleMaps.py
-		await client.send_message(message.channel, msg)
+		Run = "Maps"
+		msg = msg + str(location.Google(message,Run)) # Calls function "Google" from GoogleMaps.py
+		await client.send_message(message.channel,msg)
 	elif message.content.startswith('!Timezone'):
-		run = 1
-		msg = msg + str(maps.Google(message,run))
+		Run = "Time"
+		msg = msg + str(location.Google(message,Run))
 		await client.send_message(message.channel, msg)
 	elif message.content.startswith('!Weather'):
-		run = 2
-		content = maps.Google(message,run)
-		Advice = str(content[2]) +"\n" + str(content[3])	
-		embed = discord.Embed()
-		embed.set_image(url=content[1])
+		Run = "Weather"
+		Content = location.Google(message,Run)
+		Advice = str(Content[2]) +"\n" + str(Content[3]) # Concatenates the Temp and Condition varibles that are returned. 	
+		embed = discord.Embed() # This allows for the icon image to be inputted into discord.
+		embed.set_image(url=Content[1]) # Sets the embed image to the url of the  Icon_Url variable returned.
 		while True:
 			try:
-				await client.send_message(message.channel,content[0],embed=embed)
-				await client.send_message(message.channel,Advice)
+				await client.send_message(message.channel,Content[0],embed=embed) # Sends the msg variable that is returned (current weather) and the icon.
+				await client.send_message(message.channel,Advice) # Sends the Advice string to the channel.
 				break		
-			except:
+			except: # If the place doesn't exist.
 				msg = "That location doesn't exist or it is not specific enough!"
 				await client.send_message(message.channel,msg)
 				break
@@ -39,9 +39,9 @@ async def Server(message):
 	
 '''Input: Object(message), Output: Object(message)'''
 @client.event
-async def on_message(message): # Must be called "on_message"
+async def on_message(message): # Must be called "on_message", detects a message in Discord.
 	print(message.content)
-	await Server(message) # "await" to allow print("message.content") to be executed
+	await Server(message) # "await" to allow print("message.content") to be executed.
 
 '''Prints to console'''
 @client.event
