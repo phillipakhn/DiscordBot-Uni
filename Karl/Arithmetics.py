@@ -96,7 +96,7 @@ async def Square(message):
         Squaremsg = Squaremsg.strip('!Squaremsg ')
 	Squaremsg = int(Squaremsg)
         print(Squaremsg)
-        SquaredNum = int(Squaremsg) * int(Squaremsg)
+        SquaredNum = int(message) * int(message)
         await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))
     else:
         await client.send_message(message.channel,"Square number has failed.")
