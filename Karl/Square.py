@@ -7,6 +7,14 @@ asnyc def Square(message):
         SquaredNum = int(message) * int(message)
         return True
         await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))
-    else:
-        return False
-        await client.send_message(message.channel,"Square number has failed.")
+        
+@client.event
+async def on_message(message):
+    print(message.content)
+    await Square(message)
+#This part of the code is not mine...    
+@client.event
+async def on_ready():
+	print('Logged in as ' + client.user.name)
+#This part of the code is not mine....
+client.run(TOKEN)
