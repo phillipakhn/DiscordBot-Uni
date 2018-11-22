@@ -2,36 +2,36 @@ import APIMaps as maps
 from PIL import Image
 import requests
 
-'''Input: Object(message), Integer(run), Output: String(msg,Icon_url,Temp,Condition)'''
-def Google(message,run):
+'''Input: Object(message),String(Run), Output: String(msg,Icon_url,Temp,Condition)'''
+def Google(message,Run):
 		while True:
 			try:
-				Location = str(message.content) # converting the discord message to a string
+				Location = str(message.content) # Converting the discord message to a string so it can be modified.
 				Location = Location.replace("!GoogleMaps","")
 				Location = Location.replace("!Timezone","")
 				Location = Location.replace("!Weather","")
-				Location = Location.lstrip(' ')
+				Location = Location.lstrip(' ') # Removes and white spacing on the left.
 				Location = Location.title()
-				content = maps.Results(Location,run)
-				if run == 0:
-					msg = "Here you go " + str(content)
+				Content = maps.Results(Location,Run) # Calls the Results function in APIMaps.py to get specific data, example Url or Weather dictionary.
+				if Run == "Maps":
+					msg = "Here you go " + str(Content) # Concatenates "Here you go" with the string Url.
 					return msg # Returns to Discord.py
-				elif run == 1:
-					msg = "The current time in " + maps.Format_Adr(Location) + " is "+ str(content[0]) + " " + str(content[2]) + " taken from " + str(content[1])
+				elif Run == "Time":
+					msg = "The current time in " + maps.Format_Adr(Location) + " is "+ str(Content[0]) + " " + str(Content[2]) + " taken from " + str(Content[1]) # Content[0] is the time, Content[1] is the timezone and Content[2] is the city it's referencing.
 					return msg # Returns to Discord.py
 				else:
-					Icon = content['weather'][0]['icon']
-					Icon_Url = "http://openweathermap.org/img/w/"+str(Icon)+".png"
-					msg = "The current weather in " + maps.Format_Adr(Location) + " is " + str(content['weather'][0]['description'])
-					Celsius = round((content['main']['temp'])- 273.15,1) # Coverting Kelvin to Celsius
+					Icon = Content['weather'][0]['icon']
+					Icon_Url = "http://openweathermap.org/img/w/"+str(Icon)+".png" # Creates the specific icon Url.
+					msg = "The current weather in " + maps.Format_Adr(Location) + " is " + str(Content['weather'][0]['description'])
+					Celsius = round((Content['main']['temp'])- 273.15,1) # Coverting Kelvin to Celsius
 					Temp = "The temperature is " + str(Celsius) + "ºC"
-					if content['weather'][0]['main'] == "Rain" or content['weather'][0]['main'] == 'Thunderstorm':
+					if Content['weather'][0]['main'] == "Rain" or Content['weather'][0]['main'] == 'Thunderstorm':
 						Rain = True
 					else:
 						Rain = False
 					Condition = Advice(Celsius,Rain)
 					return(msg,Icon_Url,Temp,Condition) # Returns to DiscordAPI.py
-			except IndexError: # When the location is out of range
+			except IndexError: # When the location is not in the api dictionary.
 				msg = "That location doesn't exist or it is not specific enough!"
 				return msg # Returns to Discord.py
 

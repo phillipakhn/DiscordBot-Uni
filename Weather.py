@@ -8,11 +8,11 @@ from Key import Weather_key
 def Forecast(Lat,Lng):
 	Lat = str(Lat)
 	Lng = str(Lng)
-	Weather_api = "http://api.openweathermap.org/data/2.5/weather?lat="+(Lat)+"&lon="+(Lng)
-	Search_input = { "APPID":Weather_key,}
-	Search_req = requests.get(Weather_api,Search_input) # Requests the data from the Open Weather API
-	Search_json = Search_req.json()
-	print(Search_json)
-	return(Search_json) # Returns to APIMaps.py
+	Weather_Api = "http://api.openweathermap.org/data/2.5/weather?lat="+(Lat)+"&lon="+(Lng) # The Open Weather api Url.
+	Search_Input = { "APPID":Weather_key,}
+	Search_Req = requests.get(Weather_Api,Search_Input) # Requests the specific dictionary from the Open Weather API
+	Search_Json = Search_Req.json() # Json representaion of dictionary returned. 
+	print("\n",Search_Json)
+	return(Search_Json) # Returns to APIMaps.py
 
 

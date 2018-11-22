@@ -4,37 +4,37 @@ from Key import key
 import TimeZone as timez
 import Weather as weather
 
-Search_api = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-Details_api ="https://maps.googleapis.com/maps/api/place/details/json"
+Search_Api = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+Details_Api ="https://maps.googleapis.com/maps/api/place/details/json"
 
 
-"""Input: String(Location),Integer(run), Output: String(url,timez.Tzone(Lat,Lng)) Dictionary:(weather.Forecast(Lat,Lng)),"""
-def Results(Location,run):
-	Search_input = {"key":key, "query":Location} # My API key and the location
-	Search_req = requests.get(Search_api,Search_input) # Requests the location with my key
-	Search_json = Search_req.json() # Json representaion of data returned
-	print(Search_json) 
-	if run == 0:
-		Place_id = Search_json["results"][0]["place_id"]# Searches Google's API for the Location
-		Details_input = {"key":key, "placeid":Place_id}
-		Details_req = requests.get(Details_api, params = Details_input)
-		Details_json = Details_req.json()
-		Url = Details_json["result"]["url"] # Fetches the URL of the Location
+"""Input: String(Location,Run), Output: String(url,timez.Tzone(Lat,Lng)) Dictionary:(weather.Forecast(Lat,Lng)),"""
+def Results(Location,Run):
+	Search_Input = {"key":key, "query":Location} # My API key and the location.
+	Search_Req = requests.get(Search_Api,Search_Input) # Requests the Search dictionary with my key and the api url.
+	Search_Json = Search_Req.json() # Json representaion of dictionary returned.
+	print(Search_Json) 
+	if Run == "Maps":
+		Place_Id = Search_Json["results"][0]["place_id"] # Sets "Place_Id" to be the value of "place_id" key in the specific api dictionary requested.
+		Details_Input = {"key":key, "placeid":Place_Id}
+		Details_Req = requests.get(Details_Api,Details_Input) # Requests the Deatils dictionary.
+		Details_Json = Details_Req.json()
+		Url = Details_Json["result"]["url"] # Sets "URl" to be the value of "url" key in the specific details api dictionary requested.
 		return Url # Returns to Location.py
 	else:
-		Lat = Search_json["results"][0]["geometry"]["location"]["lat"]
-		Lng = Search_json["results"][0]["geometry"]["location"]["lng"]
-		if run == 1:
+		Lat = Search_Json["results"][0]["geometry"]["location"]["lat"]
+		Lng = Search_Json["results"][0]["geometry"]["location"]["lng"]
+		if Run == "Time":
 			return(timez.Tzone(Lat,Lng)) # Returns to Location.py
 		else:
 			return(weather.Forecast(Lat,Lng)) # Returns to Location.py
 
 """Input: String(Location), Output: String(Address)"""
 def Format_Adr(Location):
-	Search_input = {"key":key, "query":Location} # My API key and the location
-	Search_req = requests.get(Search_api,Search_input) # Requests the location with my key
-	Search_json = Search_req.json() # Json representaion of data returned
-	Address = Search_json["results"][0]["formatted_address"]
+	Search_Input = {"key":key, "query":Location}
+	Search_Req = requests.get(Search_Api,Search_Input) 
+	Search_Json = Search_Req.json() 
+	Address = Search_Json["results"][0]["formatted_address"]
 	return Address
 	
 
