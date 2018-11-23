@@ -3,11 +3,13 @@ import discord, time, random, pickle, os, sys, requests
 TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 client = discord.Client()
 
+'''Allows people to send messages to the channel without the bot replying to them'''
 def human(message):
-	if message.content.startswith('!Human'):
+	if message.content.startswith('!Human'): 
 		return "RETUR"
 	return
 		
+'''Allows people to use their own commands without this bot replying to them'''
 def ignore(message):
 	with open("ignore.txt",'rb') as rfp:
 		ignore = pickle.load(rfp)
@@ -15,7 +17,8 @@ def ignore(message):
 		if message.content.startswith(i):
 			return "RETUR"
 	return
-			
+		
+'''Checks to see if the message recieved is a greeting and then replies back with a random greeting back'''
 def greetings(message):
 	with open("greetings.txt",'rb') as rfp:
 		greetings = pickle.load(rfp)
@@ -35,6 +38,7 @@ def greetings(message):
 #			msg = 'How are you {0.author.mention}?'.format(message)
 #			return msg
 
+'''Responds to a question with a random response stored in memory'''
 def fResponse(message):
 	response = str(message)
 	with open("fResponse.txt",'rb') as rfp:
@@ -45,6 +49,7 @@ def fResponse(message):
 			return msg
 	return
 		
+'''Asks a random question to the user'''
 def fQuestion(message):
 	question = str(message)
 	with open("fQuestion.txt",'rb') as rfp:
@@ -56,13 +61,15 @@ def fQuestion(message):
 			msg = fresponse[random.randint(0, len(fresponse)-1)]
 			return msg
 	return
-			
+		
+'''Asks a random question from the user with prompt from the greetings function'''
 def askQuestion():
 	with open("fQuestion.txt",'rb') as rfp:
 		fquestion = pickle.load(rfp)
 	msg = fquestion[random.randint(0, len(fquestion)-1)]
 	return msg
-			
+		
+'''Checks to see if the user is asking for the URL's and then displays all the stored URLs'''
 def url(message):
 	if message.content.startswith('!URL'):
 		i = 0
@@ -74,19 +81,22 @@ def url(message):
 			i = i + 1
 		return msg
 	return
-			
+	
+'''Tests to see if the bot is running'''			
 def test(message):
 	if message.content.startswith('!Test'):
 		msg = 'This is proof that it is working'
 		return msg
 	return
 		
+'''Starts a shell script stored on the Raspberry Pi that is running the bot'''
 def update(message):
 	if message.content.startswith('!Update'):
 		os.system('cd ~ \n ./update.sh')
 		exit()
 	return
 		
+'''Starts another program in the DiscordBot folder'''
 def pyStart(message):
 	if message.content.startswith('!PyStart'):
 		t = str(message.content) 
@@ -98,10 +108,12 @@ def pyStart(message):
 		return "Started Program"
 	return
 		
+'''Stops the bot'''
 def exitBot(message):
 	if message.content.startswith('!Exit'):
 		exit()
 		
+'''Adds the previous memory into storage'''
 def add(lstmsg, message):
 	if message.content.startswith('!addurl'):
 		with open("url.txt",'rb') as rfp:
@@ -141,6 +153,7 @@ def add(lstmsg, message):
 		return msg
 	return
 	
+'''Remove an entry in the memory'''
 def remove(message):
 	if message.content.startswith('!Remove'):
 		msg = str(message.content)
@@ -187,7 +200,8 @@ def remove(message):
 		elif toRemove not in listRemove:
 			msg = "'" + toRemove + " is not in " + removeFrom
 			return msg
-			
+		
+'''Display all entries stored in memory'''
 def display(message):
 	if message.content.startswith('!Display'):
 		fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
@@ -200,6 +214,7 @@ def display(message):
 			msg = msg + "\n"
 		return msg
 		
+'''Display commands stored in memory and can add and remove'''
 def displayCommands(message):
 	if message.content.startswith('!displayCommands'):
 		commands = open("commands.txt", "r")
@@ -238,6 +253,7 @@ def displayCommands(message):
 			msg = commandFile + " is not in commands"
 			return msg
 		
+'''Opens all memory files and looks for duplicates in the lists'''
 def removeDuplicates():
 	fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
 	msg = ""
@@ -247,6 +263,7 @@ def removeDuplicates():
 		listDisplay = list(set(listDisplay))
 		pickle.dump(listDisplay, open(files,'wb'))
 		
+'''Gets the temperature from a seperate Raspberry Pi on the local network'''
 def temperature(message):
 	from lxml import html
 	import requests
@@ -296,6 +313,7 @@ def temperature(message):
 		return t
 	return
 
+'''Gets a webcam image and stores it to memory'''
 def webcam(message):
 	if message.content.startswith('!Webcam'):
 		import datetime
@@ -346,7 +364,8 @@ def webcam(message):
 		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
 		f.close()
 		return msg
-		
+
+'''Displays the code for Discord_Bot.py'''
 def code(message):
 	if message.content.startswith('!Code'):
 		C = open("/home/pi/DiscordBot/Discord_Bot.py", "r")
@@ -360,12 +379,14 @@ def code(message):
 #		while True:
 #			msg = 'Dab'
 #			await client.send_message(message.channel, msg)
-		
+
+'''Displays an error code if the message is not recognised'''
 def notInMem(message):
 	lstmsg = message.content
 	msg = "I can't find that within my memory, type a category. \n Categories: \n !greeting, !addurl, !friendlyResponse, !friendlyQuestion or !ignore"
 	return msg
 	
+'''Displays all help due for the github'''
 def gitHelp(message):
 	if message.content.startswith('!help'):
 		msg = '---CLONE GIT--- \n'
@@ -384,7 +405,8 @@ def gitHelp(message):
 		msg = msg + '2) (Put in Username and Password) \n'
 		return msg
 	return
-			
+	
+'''Prints the message content'''
 def testInput(message):
-	print(message)
+	print(message.content)
 	
