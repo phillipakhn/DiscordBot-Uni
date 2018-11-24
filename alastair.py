@@ -6,27 +6,27 @@ client = discord.Client()
 '''Allows people to send messages to the channel without the bot replying to them'''
 def human(message):
 	if message.content.startswith('!Human'): 
-		return "RETUR"
+		return "RETUR" #This is recognised by Discord_Bot.py and returns
 	return
 		
 '''Allows people to use their own commands without this bot replying to them'''
 def ignore(message):
-	with open("ignore.txt",'rb') as rfp:
+	with open("ignore.txt",'rb') as rfp: #Opens ignore.txt as a list
 		ignore = pickle.load(rfp)
-	for i in ignore:	
+	for i in ignore: #Check to see if that command is in the ignore list
 		if message.content.startswith(i):
 			return "RETUR"
 	return
 		
 '''Checks to see if the message recieved is a greeting and then replies back with a random greeting back'''
 def greetings(message):
-	with open("greetings.txt",'rb') as rfp:
+	with open("greetings.txt",'rb') as rfp: #Open greetings.txt as a list
 		greetings = pickle.load(rfp)
 	for i in greetings:	
-		if message.content.startswith(i):
-			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)
-			if 100 > random.randint(0, 100):
-				msg = msg + "\n" + askQuestion()
+		if message.content.startswith(i): #Check to see if the message is within the list
+			msg = greetings[random.randint(0, len(greetings)-1)] + ' {0.author.mention}'.format(message)  #Sets the message with username
+			if 100 > random.randint(0, 100): #Sets the chance of the bot to ask a follow up question, currently set to 100%
+				msg = msg + "\n" + askQuestion() #Adds askQuestion() string to msg
 			return msg
 	return
 			
@@ -40,33 +40,33 @@ def greetings(message):
 
 '''Responds to a question with a random response stored in memory'''
 def fResponse(message):
-	response = str(message)
-	with open("fResponse.txt",'rb') as rfp:
+	response = str(message) #Sets the message as a string
+	with open("fResponse.txt",'rb') as rfp: #Open the friendly responses as a list
 		fresponse = pickle.load(rfp)
-	for i in fresponse:
-		if response in i:
-			msg = fresponse[random.randint(0, len(fresponse)-1)]
+	for i in fresponse: 
+		if response in i: #If the response matches an entry in the list
+			msg = fresponse[random.randint(0, len(fresponse)-1)] #Set a random response
 			return msg
 	return
 		
 '''Asks a random question to the user'''
 def fQuestion(message):
 	question = str(message)
-	with open("fQuestion.txt",'rb') as rfp:
+	with open("fQuestion.txt",'rb') as rfp:  #Open the friendly questions as a list
 		fquestion = pickle.load(rfp)
-	with open("fResponse.txt",'rb') as rfp:
+	with open("fResponse.txt",'rb') as rfp: #Open the friendly responses as a list
 		fresponse = pickle.load(rfp)
 	for i in fquestion:
-		if question in i:
-			msg = fresponse[random.randint(0, len(fresponse)-1)]
+		if question in i: #If the question matches an entry in the list
+			msg = fresponse[random.randint(0, len(fresponse)-1)] #Sends a random response from friendly response
 			return msg
 	return
 		
 '''Asks a random question from the user with prompt from the greetings function'''
 def askQuestion():
-	with open("fQuestion.txt",'rb') as rfp:
+	with open("fQuestion.txt",'rb') as rfp: #Open the friendly questions as a list
 		fquestion = pickle.load(rfp)
-	msg = fquestion[random.randint(0, len(fquestion)-1)]
+	msg = fquestion[random.randint(0, len(fquestion)-1)] #Asks a random question
 	return msg
 		
 '''Checks to see if the user is asking for the URL's and then displays all the stored URLs'''
