@@ -4,7 +4,8 @@ import requests
 from Key import Weather_key
 
 
-'''Input: Float(Lat,Lng), Output: Dictionary(Search_json)'''
+'''Function: Requests the Weather Dictionary from the Open Weather API via Latitude and Longitude.
+Input: Float(Lat,Lng), Output: Dictionary(Search_json)'''
 def Forecast(Lat,Lng):
 	Lat = str(Lat)
 	Lng = str(Lng)
