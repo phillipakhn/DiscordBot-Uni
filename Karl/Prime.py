@@ -18,8 +18,8 @@ def primeN(message):
             await client.send_message(message.channel, "This is a prime number.")#if the user has inputted 2 this message will be outputted to them on Discord.
             return True
         else:
-            for x in range(2,Primemsg):#This means 
-                if(Primemsg%x == 0):#This means
+            for x in range(2,Primemsg):#This just a search range which the program goes through when detecting and filtering through prime numbers value for the 
+                if(Primemsg%x == 0):#The modulus operator is used just to show that the number the user has inputted using Discord is not divisble by x.
                     print("This is not a prime number.")
                     await client.send_message(message.channel, "This is not a prime number.")#This message gets outputted to the user on Discord only if the number they have inputted can only be divide by itself or 1.
                     return False 
@@ -31,9 +31,10 @@ def primeN(message):
 async def on_message(message):
     print(message.content)
     await primeN(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+
 client.run(TOKEN)
+#This part of the code is not mine and will be referenced in the documentation.

@@ -89,7 +89,7 @@ def Square(message):
         print(Squaremsg)
         SquaredNum = int(message) * int(message)#This will just multiply the number by itself so that it can get the squared value of the number.
         return(Square)
-        await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))
+        await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))#This outputs the value that is squared for the user.
     
 @client.event
 async def on_message(message):
