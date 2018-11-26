@@ -90,7 +90,7 @@ async def on_ready():
 #This part of the code is not mine....
 client.run(TOKEN)
 
-asnyc def Square(message):
+def Square(message):
     if message.content.startswith('!Square'):
         Squaremsg = str(message.content)
         Squaremsg = Squaremsg.strip('!Square ')

@@ -1,4 +1,4 @@
-asnyc def Square(message):
+def Square(message):
     if message.content.startswith('!Square'):
         Squaremsg = str(message.content)
         Squaremsg = Squaremsg.strip('!Square ')
