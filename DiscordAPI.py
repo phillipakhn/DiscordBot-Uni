@@ -5,7 +5,8 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y' # The Disc
 
 client = discord.Client()
 
-'''Input: Object(message), Output: String(msg,Advice,content[0]),Embed(embed) '''
+'''Function: Takes the "message" object from the Discord channel and interprets it. 
+Input: Object(message), Output: String(msg,Advice,content[0]),Embed(embed) '''
 @client.event
 async def Server(message):
 	if message.author == client.user: # To prevent the bot from replying to itself.
@@ -37,13 +38,14 @@ async def Server(message):
 	elif not msg: # To prevent an empty message being sent
 		return
 	
-'''Input: Object(message), Output: Object(message)'''
+'''Function: Detects an input message in the discord channel and then sends the arugument to the "Server" function.
+Input: Object(message), Output: Object(message)'''
 @client.event
 async def on_message(message): # Must be called "on_message", detects a message in Discord.
 	print(message.content)
 	await Server(message) # "await" to allow print("message.content") to be executed.
 
-'''Prints to console'''
+'''Function prints to console to show program is running'''
 @client.event
 async def on_ready(): # Must be called "on_ready" 
 	print('Logged in as ' + client.user.name)

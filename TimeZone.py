@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import jsonify
 import requests
 from Key import key
 import time
@@ -6,7 +6,8 @@ import datetime
 
 Time_Api = "https://maps.googleapis.com/maps/api/timezone/json?"
 
-"""Input: integer(Lat,Lng), Output: String(Newtime,Time_Zone,Time_Name)"""
+"""Function: Requests the locations Timezone dictionary via Longitude and Latitude to then be manipulated.
+Input: integer(Lat,Lng), Output: String(Newtime,Time_Zone,Time_Name)"""
 def Tzone(Lat,Lng):
 	Timestamp = time.time() # Seconds since epoch 1st Jan 1970.
 	Search_Input = {'location': "%s,%s" % (Lat, Lng), "timestamp":Timestamp,"key":key,} # My API key, Timestamp and the location in longitude and latitude.
@@ -20,7 +21,8 @@ def Tzone(Lat,Lng):
 	Newtime = Clock(Time_Time,Time_Daylight)
 	return(Newtime,Time_Zone,Time_Name) # Returns to APIMaps.py
 
-'''Input:Integer (Time_Time,Time_Daylight), Output: String(Newtime)'''
+'''Function: Adjusts the current clock time to the correct time for the Timezone.  
+Input:Integer (Time_Time,Time_Daylight), Output: String(Newtime)'''
 def Clock(Time_Time,Time_Daylight): # Adjusting time
 	Now = datetime.datetime.now() # Sets "Now" to the current time. 
 	Hour = Now.hour + Time_Time + Time_Daylight  

@@ -2,7 +2,8 @@ import APIMaps as maps
 from PIL import Image
 import requests
 
-'''Input: Object(message),String(Run), Output: String(msg,Icon_url,Temp,Condition)'''
+'''Function: Extracts the location from the User's "message" input and also creates the msg to be sent to the Discord channel.
+Input: Object(message),String(Run), Output: String(msg,Icon_url,Temp,Condition)'''
 def Google(message,Run):
 		while True:
 			try:
@@ -35,7 +36,8 @@ def Google(message,Run):
 				msg = "That location doesn't exist or it is not specific enough!"
 				return msg # Returns to Discord.py
 
-"""Input: Boolean(Rain),Float(Celcsius), Output: (Condition)"""
+"""Fucntion: Creates a "Condition" string which depends on what value Temp is and if Rain is True or Flase.
+Input: Boolean(Rain),Float(Celcsius), Output: (Condition)"""
 def Advice(Celsius,Rain):
 	if -20 < Celsius < 0:
 		Condition = "It's FREEZING! Make sure to wrap up warm if you plan to go outside there!"

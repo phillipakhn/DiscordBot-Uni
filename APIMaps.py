@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import jsonify
 import requests
 from Key import key
 import TimeZone as timez
@@ -8,7 +8,8 @@ Search_Api = "https://maps.googleapis.com/maps/api/place/textsearch/json"
 Details_Api ="https://maps.googleapis.com/maps/api/place/details/json"
 
 
-"""Input: String(Location,Run), Output: String(url,timez.Tzone(Lat,Lng)) Dictionary:(weather.Forecast(Lat,Lng)),"""
+"""Function: Does Request operations to return specific values from the Google Places API.
+Input: String(Location,Run), Output: String(url,timez.Tzone(Lat,Lng)) Dictionary:(weather.Forecast(Lat,Lng)),"""
 def Results(Location,Run):
 	Search_Input = {"key":key, "query":Location} # My API key and the location.
 	Search_Req = requests.get(Search_Api,Search_Input) # Requests the Search dictionary with my key and the api url.
@@ -29,7 +30,8 @@ def Results(Location,Run):
 		else:
 			return(weather.Forecast(Lat,Lng)) # Returns to Location.py
 
-"""Input: String(Location), Output: String(Address)"""
+"""Function: Takes the user's "location" input and and sets "Addresss" to be the formal format of the location requested from the API dictionary.
+Input: String(Location), Output: String(Address)"""
 def Format_Adr(Location):
 	Search_Input = {"key":key, "query":Location}
 	Search_Req = requests.get(Search_Api,Search_Input) 
