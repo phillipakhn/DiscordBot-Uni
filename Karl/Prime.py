@@ -6,27 +6,27 @@ client = discord.Client()
 
 @client.event
 def primeN(message):
-    if message.content.startswith('!Primes'):
-        Primemsg = str(message.content)#
-        Primemsg = Primemsg.strip('!Primes ')#This is what the user will have to type in on discord so that it can detect whether the number is a prime or not
+    if message.content.startswith('!Primes'):#This is what the user will have to type in on discord so that it can start program
+        Primemsg = str(message.content)
+        Primemsg = Primemsg.strip('!Primes ')
         Primemsg = int(Primemsg)#Changes the user's inputted message which was string to a integer
         print(Primemsg)
         if (Primemsg==1):
-            await client.send_message(message.channel, "This is not a prime number.")#
+            await client.send_message(message.channel, "This is not a prime number.")# if the user has inputted 1 this will be outputted to them on Discord.
             return False
         elif (Primemsg==2):
-            await client.send_message(message.channel, "This is a prime number.")#this waits to check for what the user has enter on discord so that they
+            await client.send_message(message.channel, "This is a prime number.")#if the user has inputted 2 this message will be outputted to them on Discord.
             return True
         else:
-            for x in range(2,Primemsg):
-                if(Primemsg%x == 0):#The modulus here will be used to divide the user input from any random number to check whether the number they have entered is valid or not due to it returning and remainder.
+            for x in range(2,Primemsg):#This means 
+                if(Primemsg%x == 0):#This means
                     print("This is not a prime number.")
-                    await client.send_message(message.channel, "This is not a prime number.")#
+                    await client.send_message(message.channel, "This is not a prime number.")#This message gets outputted to the user on Discord only if the number they have inputted can only be divide by itself or 1.
                     return False 
             print("This is a prime number.") 
-            await client.send_message(message.channel, "This is a prime number.")#This message gets outputted by the computer science bot on discord
+            await client.send_message(message.channel, "This is a prime number.")#This message gets outputted to the user on Discord if the number they have inputted is divisible with some other number different than 1 and itself 
             return True 
-    
+        
 @client.event
 async def on_message(message):
     print(message.content)

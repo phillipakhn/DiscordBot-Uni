@@ -6,7 +6,7 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 client = discord.Client()
 @client.event
 async def Arithmetics(message):
-    if message.content.startswith('!Arithmetics'):
+    if message.content.startswith('!Arithmetics'):#This is what the user will have to input on Discord for the program to run.
         Arithmeticmsg = str(message.content)#
         Arithmeticmsg = Arithmeticmsg.strip('!Arithmetics ')
         Arithmeticmsg = str(Arithmeticmsg)
@@ -16,63 +16,54 @@ async def Arithmetics(message):
         if mathOperator == Add or add:
             Number1 = await client.send_message(message.channel,"What is the first number that you want to use for your addition calulation?")
             if Number1 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number1 = Number1.replace('None', '')
+                Number1 = "                 " + Number1 + " 
             Number2 = await client.send_message(message.channel,"What is the second number that you want to use for your addition calulation?")
             if Number2 == int:
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number2 = Number2.replace('None', '')
+                Number2 = "                 " + Number2 + " 
             ansAdd = Number1 + Number2 
             return ansAdd
         await client.send_message(message.channel,"The answer for your addition calulation is" + (ansAdd)) 
         
-        
-        
         if mathOperator == 'Subtraction' or 'subtraction':
             Number1 = await client.send_message(message.channel,"What is the first number that you want to use for your subtraction calulation?")
             if Number1 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number1 = Number1.replace('None', '')
+                Number1 = "                 " + Number1 + " 
             Number2 = await client.send_message(message.channel,"What is the second number that you want to use for your subtraction calulation?")
             if Number2 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number2 = Number2.replace('None', '')
+                Number2 = "                 " + Number2 + " 
             ansSub = Number1 - Number2 
             return ansSub 
         await client.send_message(message.channel,"The answer for your subtraction calulation is" + (ansSub))
         
-        
-        
         if mathOperator == 'Multiply' or 'multiply':
             Number1 = await client.send_message(message.channel,"What is the first number that you want to use for your multiply calulation?")
             if Number1 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number1 = Number1.replace('None', '')
+                Number1 = "                 " + Number1 + " 
             Number2 = await client.send_message(message.channel,"What is the second number that you want to use for your multiply calulation?")
             if Number2 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number2 = Number2.replace('None', '')
+                Number2 = "                 " + Number2 + " 
             ansMult = Number1 * Number2
             return ansMult
         await client.send_message(message.channel,"The answer for your multiplication calulation is" + (ansMult))
         
-        
-        
-        
         if mathOperator == 'Division' or 'divison':
             Number1 = await client.send_message(message.channel,"What is the first number that you want to use for your divison calulation?")
             if Number1 == int: 
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number1 = Number1.replace('None', '')
+                Number1 = "                 " + Number1 + "  
             Number2 = await client.send_message(message.channel,"What is the second number that you want to use for your divison calulation?")
             if Number2 == int:
-                Arithmeticmsg = Arithmeticmsg.replace('None', '')
-                Arithmeticmsg = "                 " + Arithmeticmsg + " 
+                Number2 = Number2.replace('None', '')
+                Number2 = "                 " + Number2 + " 
             ansDivide = Number1 + Number2 
             return ansDivide 
         await client.send_message(message.channel,"The answer for your divison calulation is" + (ansDivide))
-        
-        
         
         else:
             await client.send_message(message.channel,"Calculations are not valid.")
@@ -91,13 +82,13 @@ async def on_ready():
 client.run(TOKEN)
 
 def Square(message):
-    if message.content.startswith('!Square'):
+    if message.content.startswith('!Square'):#This is the message that the user will have to input on Discord for the program to start
         Squaremsg = str(message.content)
         Squaremsg = Squaremsg.strip('!Square ')
-        Squaremsg = int(Squaremsg)
+        Squaremsg = int(Squaremsg)# This turns the user input from string to a integer so that the numbers can get multiplied.
         print(Squaremsg)
-        SquaredNum = int(message) * int(message)
-        return True
+        SquaredNum = int(message) * int(message)#This will just multiply the number by itself so that it can get the squared value of the number.
+        return(Square)
         await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))
     
 @client.event

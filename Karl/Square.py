@@ -1,11 +1,11 @@
 def Square(message):
-    if message.content.startswith('!Square'):
+    if message.content.startswith('!SquareP'):
         Squaremsg = str(message.content)
-        Squaremsg = Squaremsg.strip('!Square ')
+        Squaremsg = Squaremsg.strip('!SquareP ')
         Squaremsg = int(Squaremsg)
         print(Squaremsg)
         SquaredNum = int(message) * int(message)
-        return True
+        return (SquaredNum)
         await client.send_message(message.channel,"The square number for the number" + str(message) "and the square value of the number is" + str(SquaredNum))
         
 @client.event
