@@ -43,7 +43,7 @@ Input: Object(message), Output: Object(message)'''
 @client.event
 async def on_message(message): # Must be called "on_message", detects a message in Discord.
 	print(message.content)
-	await Server(message) # "await" to allow print("message.content") to be executed.
+	await Server(message) # "await" is used to allow print("message.content") to be executed in time.
 
 '''Function prints to console to show program is running'''
 @client.event

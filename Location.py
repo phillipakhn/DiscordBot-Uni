@@ -1,6 +1,4 @@
 import APIMaps as maps
-from PIL import Image
-import requests
 
 '''Function: Extracts the location from the User's "message" input and also creates the msg to be sent to the Discord channel.
 Input: Object(message),String(Run), Output: String(msg,Icon_url,Temp,Condition)'''

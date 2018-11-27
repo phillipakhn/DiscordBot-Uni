@@ -28,7 +28,7 @@ def Clock(Time_Time,Time_Daylight): # Adjusting time
 	Hour = Now.hour + Time_Time + Time_Daylight  
 	if Hour>23: # Timezones infront  
 		Hour = Hour - 24
-	if Hour+Time_Time<0: # Timezones behind
+	if Hour<0: # Timezones behind
 		Hour = Hour + 24
 	Newtime = datetime.time(Hour, Now.minute, Now.second) # Sets "Nettime" to the correct time for the location.
 	Newtime = str(Newtime)
