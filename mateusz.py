@@ -437,7 +437,7 @@ async def on_message(message):
         best = sheet['C1'].value
         if msg < best:
             sheet['C1'].value = msg
-
+        wb.save('example1.xlsx')
         
     
 client.run(TOKEN)  # runs the bot
