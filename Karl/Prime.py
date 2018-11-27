@@ -5,7 +5,7 @@ TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
 client = discord.Client()
 
 @client.event
-def primeN(message):
+async def primeN(message):
     if message.content.startswith('!Primes'):#This is what the user will have to type in on discord so that it can start program
         Primemsg = str(message.content)
         Primemsg = Primemsg.strip('!Primes ')
