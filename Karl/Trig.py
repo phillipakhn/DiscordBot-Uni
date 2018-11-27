@@ -83,7 +83,7 @@ async def SineCalLength(message):
             Sine = Length1 * Angle1 / Angle2
             SineCalculation = (round(Sine, 3))#This line of code is to round the previous calculation to three decimal places to get the final answer.
             return(SineCalculation)
-            await client.send_message(message.channel, "The answer for your sine calculation to 3 signifcant figures is " + str(SineCalLength(0)) + " cm" )
+            await client.send_message(message.channel, "The answer for your sine calculation to 3 decimal places is " + str(SineCalLength(0)) + " cm" )
         else:
             await client.send_message(message.channel, "You have not inputted integers.")
             return False
@@ -94,13 +94,12 @@ async def SineCalLength(message):
 async def on_message(message):
     print(message.content)
     await SineCalLength(message)
-#This part of the code is not mine...    
+  
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
 client.run(TOKEN)
-
+#This part of the code is not mine and will be referenced.
 
 @client.event
 async def CosineCalLength(message):
@@ -243,7 +242,7 @@ async def TanCalLength(message):
         print(Length1)
         print(Angle)
         if type(Length1) and type(Angle) == int:
-            TanAngle = math.tan(math.radians(Angle))
+            TanAngle = math.tan(math.radians(Angle))#This gets
             Calculation = Length1 * TanAngle 
             TanCalculation = (round(Calculation, 2))#This line of code is to round the previous calculation to two decimal places to get the final answer.
             return (TanCalculation)
