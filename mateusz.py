@@ -315,8 +315,9 @@ async def on_message(message):
         karl_score = sheet['A6'].value
         karl_name = sheet['B6'].value + " "
         reaction = sheet['C1'].value
+        player = sheet['C2'].value
         
-        await client.send_message(message.channel, "COIN FLIP:\n" + tree_name + str(tree_score) + "\n" + alastair_name + str(alastair_score) + "\n" + kieran_name + str(kieran_score) + "\n" + tomas_name + str(tomas_score) + "\n" + mango_name + str(mango_score) + "\n" + karl_name + str(karl_score) + "\nREACTION:\n " + str(reaction) + "ms") # sending messages with scores to chat
+        await client.send_message(message.channel, "COIN FLIP:\n" + tree_name + str(tree_score) + "\n" + alastair_name + str(alastair_score) + "\n" + kieran_name + str(kieran_score) + "\n" + tomas_name + str(tomas_score) + "\n" + mango_name + str(mango_score) + "\n" + karl_name + str(karl_score) + "\nREACTION:\n " + str(reaction) + "ms - " + player) # sending messages with scores to chat
         #await client.send_message(message.channel, tree_name)
         #await client.send_message(message.channel, alastair_score)
         #await client.send_message(message.channel, alastair_name)
@@ -437,6 +438,7 @@ async def on_message(message):
         best = sheet['C1'].value
         if msg < best:
             sheet['C1'].value = msg
+            sheet['C2'].value = str(player)
         wb.save('example1.xlsx')
         
     
