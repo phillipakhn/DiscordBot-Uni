@@ -1,5 +1,5 @@
 async def sRoot(message):
-        if message.content.startswith('!SquareRoot'):#This is the message that the user will have to input on Discord for the program to start
+    if message.content.startswith('!SquareRoot'):#This is the message that the user will have to input on Discord for the program to start
         sRootmsg = str(message.content)
         sRootmsg = sRootmsg.strip('!SquareRoot ')
         sRootmsg = int(sRootmsg)# This changes the value of the variable so that it can get the square root of value
