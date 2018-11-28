@@ -5,9 +5,9 @@ async def sRoot(message):
         sRootmsg = int(sRootmsg)# This changes the value of the variable so that it can get the square root of value
         print(sRootmsg)
         ans = math.sqrt(sRootmsg)#This is the square root function which I am using from the math library so that it can be used for the calulation.
-        return(ans)
-        await client.send_message(message.channel,"The square root for the number" + str(sRootmsg) "is" + (ans))#This is the message that shows the user the answer for the value they have entered using the function
-
+        lineAnswer = "The square root for the number" + str(sRootmsg) "is" + (ans)#This is the message that shows the user the answer for the value they have entered using the function
+        await client.send_message(message.channel,(lineAnswer))
+                                  
 @client.event
 async def on_message(message):
     print(message.content)
