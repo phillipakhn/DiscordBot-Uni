@@ -14,7 +14,7 @@ async def primeN(message):
         if (Primemsg==1):
             await client.send_message(message.channel, "This is not a prime number.")# if the user has inputted 1 this will be outputted to them on Discord.
             return False
-        elif (Primemsg==2):
+        if (Primemsg==2):
             await client.send_message(message.channel, "This is a prime number.")#if the user has inputted 2 this message will be outputted to them on Discord.
             return True
         else:

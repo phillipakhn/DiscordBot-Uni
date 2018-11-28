@@ -11,7 +11,7 @@ async def sRoot(message):
         sRootmsg = sRootmsg.strip('!SquareRoot ')
         sRootmsg = int(sRootmsg)# This changes the value of the variable so that it can get the square root of value
         print(sRootmsg)
-        ans = math.sqrt(sRootmsg)#This is the square root function which I am using from the math library so that it can be used for the calulation.
+        ans = math.sqrt(sRootmsg)#This is the square root function which I am using from the math library so that it can be used for the calculation.
         lineAnswer = "The square root for the number" + str(sRootmsg) + "is" + (ans)#This is the message that shows the user the answer for the value they have entered using the function
         await client.send_message(message.channel,(lineAnswer))#This line allows the message to be seen to the user when accessing discord.
                                   
