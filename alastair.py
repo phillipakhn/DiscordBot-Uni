@@ -35,7 +35,7 @@ def greetings(message):
 #		fQuestion = pickle.load(rfp)
 #	for i in fQuestion:	
 #		if i in message.content:
-#			msg = 'How are you {0.author.mention}?'.format(message)
+#			msg = 'How are you {0.author.mention}?'.format(message) #Asks how the person is doing an mentions them
 #			return msg
 
 '''Responds to a question with a random response stored in memory'''
@@ -71,14 +71,16 @@ def askQuestion():
 		
 '''Checks to see if the user is asking for the URL's and then displays all the stored URLs'''
 def url(message):
-	if message.content.startswith('!URL'):
+	if message.content.startswith('!URL'): #If the user asks for all the URLs
 		i = 0
-		with open("url.txt",'rb') as rfp:
+		with open("url.txt",'rb') as rfp: #Load in all the stored URLs
 			url = pickle.load(rfp)
 		msg = ""
-		while i <= (len(url)-1):	
-			msg = msg + "\n" + url[i]
-			i = i + 1
+		for i in url:
+			msg = msg + "\n" + i #Adds all the URLs to a string
+		#while i <= (len(url)-1): #Add All urls to a string
+		#	msg = msg + "\n" + url[i]
+		#	i = i + 1
 		return msg
 	return
 	
@@ -92,20 +94,21 @@ def test(message):
 '''Starts a shell script stored on the Raspberry Pi that is running the bot'''
 def update(message):
 	if message.content.startswith('!Update'):
-		os.system('cd ~ \n ./update.sh')
-		exit()
+		os.system('cd ~ \n ./update.sh') #Starts a shell script
+		exit() #Closes the program before the update
 	return
 		
 '''Starts another program in the DiscordBot folder'''
 def pyStart(message):
 	if message.content.startswith('!PyStart'):
-		t = str(message.content) 
-		t = t.replace("!PyStart ", "")
-		#m = "python3 " + t
-		#os.system(m)
-		sys.argv = [t, 'arg']  # argv[0] should still be the script name
-		exec(compile(open(t, "rb").read(), t, 'exec'))
-		return "Started Program"
+		t = str(message.content) #Sets t to the message
+		try:
+			t = t.replace("!PyStart ", "") #Removes !PyStart
+			m = "python3 " + t #Makes OS command for Linux
+			os.system(m) #Starts the program
+			return "Started Program"
+		except OSError:
+			return "Program failed to start"
 	return
 		
 '''Stops the bot'''
@@ -115,40 +118,37 @@ def exitBot(message):
 		
 '''Adds the previous memory into storage'''
 def add(lstmsg, message):
-	if message.content.startswith('!addurl'):
+	if message.content.startswith('!addurl'): 
 		with open("url.txt",'rb') as rfp:
 			url = pickle.load(rfp)
-		url.append(lstmsg)
-		print(url)
-		pickle.dump(url, open("url.txt",'wb'))
+		url.append(lstmsg) #Adds URL
+		pickle.dump(url, open("url.txt",'wb')) #Write URL
 		return "Added URL    "
 	if message.content.startswith('!greeting'):
 		with open("greetings.txt",'rb') as rfp:
 			greetings = pickle.load(rfp)
 		greetings.append(lstmsg)
-		print(greetings)
 		pickle.dump(greetings, open("greetings.txt",'wb') )
 		return "Added Greeting    "
 	if message.content.startswith('!friendlyQuestion'):
 		with open("fQuestion.txt",'rb') as rfp:
 			fQuestion = pickle.load(rfp)
 		fQuestion.append(lstmsg)
-		print(fQuestion)
 		pickle.dump(fQuestion, open("fQuestion.txt",'wb') )
 		return "Added Friendly Question     "
 	if message.content.startswith('!friendlyResponse'):
 		with open("fResponse.txt",'rb') as rfp:
 			fresponse = pickle.load(rfp)
-		fresponse.append(lstmsg)
-		pickle.dump(fresponse, open("fResponse.txt",'wb') )
+		fresponse.append(lstmsg) #Adds the last message to the responses
+		pickle.dump(fresponse, open("fResponse.txt",'wb') ) #Writes to file 
 		return "Added Friendly Response     "
 	if message.content.startswith('!ignore'):
-		if lstmsg == "!ignore":
-			return "Can't add !ignore"
+		if lstmsg == "!ignore": #Stops the user adding !ignore to the ignore list
+			return "Can't add !ignore" #Returns an error message
 		with open("ignore.txt",'rb') as rfp:
 			ignore = pickle.load(rfp)
-		ignore.append(lstmsg)
-		pickle.dump(ignore, open("ignore.txt",'wb') )
+		ignore.append(lstmsg) #Adds the last message to the ignore list
+		pickle.dump(ignore, open("ignore.txt",'wb') ) #Writes to file 
 		msg = "Added '" + lstmsg + "' to ignore "
 		return msg
 	return
