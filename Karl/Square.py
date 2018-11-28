@@ -5,8 +5,8 @@ def Square(message):
         Squaremsg = int(Squaremsg)
         print(Squaremsg)
         SquaredNum = int(message) * int(message)
-        return (SquaredNum)
-        await client.send_message(message.channel,"The square number for the number" + str(message) + "and the square value of the number is" + str(SquaredNum))
+        SquareN = "The square number for the number" + str(message) + "and the square value of the number is" + str(SquaredNum)
+        await client.send_message(message.channel,(SquareN))
         
 @client.event
 async def on_message(message):
