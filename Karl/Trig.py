@@ -15,15 +15,15 @@ async def SineCalAngle(message):
         
         SinemsgH = await client.send_message(message.channel,"What is the length of the Hypotenuse?")#This message will be asked to the users for them to answer using Discord.
         SinemsgH = SinemsgH.replace('None', '')
-        SinemsgH = "                 " + SinemsgH + " 
+        SinemsgH = "                 " + SinemsgH + " "
         
         SinemsgO = await client.send_message(message.channel,"What is the length of the opposite?")#This message will be asked to the users for them to answer using Discord.
         SinemsgO = SinemsgO.replace('None', '')
-        SinemsgO = "                 " + SinemsgO + " 
+        SinemsgO = "                 " + SinemsgO + " "
         
         SinemsgA = await client.send_message(message.channel,"What is the size of the angle?")#This message will be asked to the users for them to answer using Discord.
         SinemsgA = SinemsgA.replace('None', '')
-        SinemsgA = "                 " + SinemsgA + " 
+        SinemsgA = "                 " + SinemsgA + " "
         print(Sinemsg)
         print(SinemsgH)
         print(SinemsgO)
@@ -46,15 +46,15 @@ async def SineCalAngle(message):
 async def on_message(message):
     print(message.content)
     await SineCalAngle(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+    
 client.run(TOKEN)
 
 
-pass
+
 @client.event
 async def SineCalLength(message): 
     if message.content.startswith('!SineCalLength'):#This is what the user will have to input onto Discord for the program to run. 
@@ -63,16 +63,16 @@ async def SineCalLength(message):
         Sinemsg = str(Sinemsg)
         Length1 = await client.send_message(message.channel,"What is the length of the first side?")#This message will be asked to the users for them to answer using Discord.
         Length1 = Length1.replace('None', '')
-        Length1 = "                 " + Length1 + " 
+        Length1 = "                 " + Length1 + " "
         
         SineAngle1 = await client.send_message(message.channel,"What is the angle size of the 1st angle?")#This message will be asked to the users for them to answer using Discord.
         
         SineAngle1 = SineAngle1.replace('None', '')
-        SineAngle1 = "                 " + SineAngle1 + " 
+        SineAngle1 = "                 " + SineAngle1 + " "
         
         SineAngle2 = await client.send_message(message.channel,"What is the angle size of the second angle?")#This message will be asked to the users for them to answer using Discord.  
         SineAngle2 = SineAngle2.replace('None', '')
-        SineAngle2 = "                 " + SineAngle2 + " 
+        SineAngle2 = "                 " + SineAngle2 + " "
         
         print(Length1)
         print(SineAngle1)
@@ -94,12 +94,12 @@ async def SineCalLength(message):
 async def on_message(message):
     print(message.content)
     await SineCalLength(message)
-  
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
 client.run(TOKEN)
-#This part of the code is not mine and will be referenced.
+
 
 @client.event
 async def CosineCalLength(message):
@@ -136,11 +136,11 @@ async def CosineCalLength(message):
 async def on_message(message):
     print(message.content)
     await CosineCalLength(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+
 client.run(TOKEN)                           
                            
                
@@ -178,11 +178,11 @@ async def CosineCalAngle(message):
 async def on_message(message):
     print(message.content)
     await CosineCalAngle(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+
 client.run(TOKEN)                           
 
 
@@ -216,11 +216,11 @@ async def TanCalAngle(message):
 async def on_message(message):
     print(message.content)
     await TanCalAngle(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+
 client.run(TOKEN)    
     
     
@@ -257,11 +257,11 @@ async def TanCalLength(message):
 async def on_message(message):
     print(message.content)
     await TanCalLength(message)
-#This part of the code is not mine...    
+    
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-#This part of the code is not mine....
+
 client.run(TOKEN)  
                            
                            

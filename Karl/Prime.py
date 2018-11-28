@@ -36,5 +36,4 @@ async def on_message(message):
 async def on_ready():
 	print('Logged in as ' + client.user.name)
 
-client.run(TOKEN)
-#This part of the code is not mine and will be referenced in the documentation. 
+client.run(TOKEN) 
