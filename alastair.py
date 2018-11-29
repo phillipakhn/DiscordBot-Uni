@@ -107,7 +107,7 @@ def pyStart(message):
 			m = "python3 " + t #Makes OS command for Linux
 			os.system(m) #Starts the program
 			return "Started Program"
-		except OSError:
+		except:
 			return "Program failed to start"
 	return
 		
@@ -269,37 +269,37 @@ def temperature(message):
 	import requests
 	if message.content.startswith('!TempInfo'):
 		page = requests.get('http://100.90.93.150/about')
-		tree = html.fromstring(page.content)
-		t = (tree.xpath('//p/text()'))
+		tree = html.fromstring(page.content) #Download the webpage
+		t = (tree.xpath('//p/text()')) #Pull the uptime from the webpage
 		t = str(t)
-		t = t.replace("[' ', ' ', ' ", "")
+		t = t.replace("[' ', ' ', ' ", "") #Remove useless data
 		t = t.replace(" ']", "")
 		return t
 	if message.content.startswith('!TempCode'):
 		import urllib
 		from urllib.request import urlopen
-		url = 'http://100.90.93.150/source'
+		url = 'http://100.90.93.150/source' #Downloads the source code
 		with urllib.request.urlopen(url) as url:
-			webContent = str(url.read())
-			webContent = webContent.strip("b'")
-			webContent = webContent[:-1]
-			webContent = webContent.replace("<br>", "")
-			webContent = webContent.replace("\\n", " <br> ")
+			webContent = str(url.read()) #Reads the file
+			webContent = webContent.strip("b'") #Remove all strings as 'b'
+			webContent = webContent[:-1] 
+			webContent = webContent.replace("<br>", "") #Replace all <br> with nothing
+			webContent = webContent.replace("\\n", " <br> ") #Replace all the enters with <br>
 			webContent = webContent.replace("\\t", "")
-		f = open('sourcecode.html', 'w')
+		f = open('sourcecode.html', 'w') #Writes the code to a file 
 		f.write(webContent)
 		f.close()
 		return
 	if message.content.startswith('!Temp'):
 		page = requests.get('http://100.90.93.150')
-		tree = html.fromstring(page.content)
+		tree = html.fromstring(page.content) #Download the webpage
 		t = (tree.xpath('//h1/text()'))
 		t = str(t)
-		if "°C" in t:
-			t = t.strip("[' ', '")
+		if "°C" in t: #Check to see if the webpage is displaying correctly
+			t = t.strip("[' ', '") #Remove useless data
 			t = t.replace("Â", "")
 			t = t.strip("', ' ']")
-			if message.content.startswith('!TempF'):
+			if message.content.startswith('!TempF'): #If the user asks for t
 				import re
 				c = t
 				t = re.findall(r'\b\d+\b', t)
