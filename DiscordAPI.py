@@ -19,13 +19,13 @@ async def Server(message):
 	elif message.content.startswith('!Timezone'):
 		Run = "Time"
 		msg = msg + str(location.Google(message,Run))
-		await client.send_message(message.channel, msg)
+		await client.send_message(message.channel, msg) # Suspends until the task is complete. If await is not used it will not return anything.
 	elif message.content.startswith('!Weather'):
 		Run = "Weather"
 		Content = location.Google(message,Run)
-		Advice = str(Content[2]) +"\n" + str(Content[3]) # Concatenates the Temp and Condition varibles that are returned. 	
+		Advice = str(Content[2]) +"\n" + str(Content[3]) # Concatenates the Temp and Condition variables that are returned. 	
 		embed = discord.Embed() # This allows for the icon image to be inputted into discord.
-		embed.set_image(url=Content[1]) # Sets the embed image to the url of the  Icon_Url variable returned.
+		embed.set_image(url=Content[1]) # Sets the embed image to the URL of the  Icon_Url variable returned.
 		while True:
 			try:
 				await client.send_message(message.channel,Content[0],embed=embed) # Sends the msg variable that is returned (current weather) and the icon.
@@ -38,7 +38,7 @@ async def Server(message):
 	elif not msg: # To prevent an empty message being sent
 		return
 	
-'''Function: Detects an input message in the discord channel and then sends the arugument to the "Server" function.
+'''Function: Detects an input message in the discord channel and then sends the argument to the "Server" function.
 Input: Object(message), Output: Object(message)'''
 @client.event
 async def on_message(message): # Must be called "on_message", detects a message in Discord.

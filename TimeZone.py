@@ -6,13 +6,13 @@ import datetime
 
 Time_Api = "https://maps.googleapis.com/maps/api/timezone/json?"
 
-"""Function: Requests the locations Timezone dictionary via Longitude and Latitude to then be manipulated.
+"""Function: Requests the locations time zone dictionary via Longitude and Latitude to then be manipulated.
 Input: integer(Lat,Lng), Output: String(Newtime,Time_Zone,Time_Name)"""
 def Tzone(Lat,Lng):
 	Timestamp = time.time() # Seconds since epoch 1st Jan 1970.
 	Search_Input = {'location': "%s,%s" % (Lat, Lng), "timestamp":Timestamp,"key":key,} # My API key, Timestamp and the location in longitude and latitude.
 	Search_Req = requests.get(Time_Api,Search_Input) # Requests the dictionary for specific location using my key and the Search_Input.
-	Search_Json = Search_Req.json() # Json representaion of dictionary returned. 
+	Search_Json = Search_Req.json() # Json representation of dictionary returned. 
 	print("\n",Search_Json)
 	Time_Zone = Search_Json["timeZoneId"] # Sets "Time_Zone" to be the value of "timeZoneId" key in the specific api dictionary requested.
 	Time_Name = Search_Json["timeZoneName"]
@@ -21,8 +21,8 @@ def Tzone(Lat,Lng):
 	Newtime = Clock(Time_Time,Time_Daylight)
 	return(Newtime,Time_Zone,Time_Name) # Returns to APIMaps.py
 
-'''Function: Adjusts the current clock time to the correct time for the Timezone.  
-Input:Integer (Time_Time,Time_Daylight), Output: String(Newtime)'''
+'''Function: Adjusts the current clock time to the correct time for the time zone.  
+Input: Integer(Time_Time,Time_Daylight), Output: String(Newtime)'''
 def Clock(Time_Time,Time_Daylight): # Adjusting time
 	Now = datetime.datetime.now() # Sets "Now" to the current time. 
 	Hour = Now.hour + Time_Time + Time_Daylight  
