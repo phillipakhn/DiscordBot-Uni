@@ -32,7 +32,7 @@ async def SineCalAngle(message):#Function for calculating the missing angle usin
         print(SinemsgO)
         print(SinemsgA)
         
-        if type(SinemsgH) and type(SinemsgO) and type(SinemsgA)== int:
+        if type(SinemsgH) and type(SinemsgO) and type(SinemsgA)== int:#This is to check the user has inputted values that has the correct data type.
             AngleWithS = math.sin(math.radians(SineAngle))#Here I have used sin from the math libary using math.radians so that I can use it to get the sin of the angle the user has inputted.
             Sine = SinemsgA * SinemsgO / SinemsgH 
             SineCalculation = math.degrees(math.asin(Sine)) #This then does inverse sin of the previous calculation above so that the angle can be made. 
@@ -77,7 +77,7 @@ async def SineCalLength(message):#This is to find out the missing side for a que
         print(SineAngle1)
         print(SineAngle2)
         
-        if type(Length1) or type(SineAngle1) or type(SineAngle2)==int:
+        if type(Length1) or type(SineAngle1) or type(SineAngle2)==int:#This is to check the user has inputted values that has the correct data type.
             Angle1 = math.sin(math.radians(SineAngle1))#This gets inverse sine of the 1st angle.
             Angle2 = math.sin(math.radians(SineAngle2))#This gets inverse sine of the 2nd angle.
             Sine = Length1 * Angle1 / Angle2
@@ -120,7 +120,7 @@ async def CosineCalLength(message):#This is for finding out the missing length u
         print(Side2)
         print(Angle)
         
-        if type(Side1) or type(Side2) or (Angle) == int:
+        if type(Side1) or type(Side2) or (Angle) == int:#This is to check the user has inputted values that has the correct data type.
             Powers = (Side1**2) + (Side2**2)
             CosineAngle = math.cos(math.radians(Angle))
             Cosine = (2 * Side1 * Side2) * CosineAngle
@@ -171,7 +171,7 @@ async def CosineCalAngle(message):#Function for working out the missing angle us
         print(Side2)
         print(Side3)
         
-        if type(Side1) and type(Side2) and type(Side3) == float:
+        if type(Side1) and type(Side2) and type(Side3) == float:#This is to check the user has inputted values that has the correct data type.
             Powers = ((Side1**2) + (Side2**2)) - (Side3**2) 
             Angle = 2 * (Side1) * (Side2) 
             Cosine = Powers / Angle
@@ -212,12 +212,12 @@ async def TanCalAngle(message):#Function for working out the missing angle using
         print(TanOpp)
         print(TanAdj)
         
-    if type(TanOpp) and type(TanAdj) == int:
-        Angle = TanOpp / TanAdj
-        TanAngleCalc= math.degrees(math.atan(Angle))#This is where the inverse tangent built in function from math is used for the calculation to find the length.
-        TanAngleCalcR = (round(TanAngleCalc, 1))#This line of code is to round the previous calculation to one decimal places to get the final answer.
-        TanAngleCalcRSent = "The answer for your Tan calculation to one decimal place is " + str(TanAngleCalcR) + "°"
-        await client.send_message(message.channel,(TanAngleCalcRSent))#This is the message that will be outputted to the user from the chatbot that is containing the calculation. 
+        if type(TanOpp) and type(TanAdj) == int:#This is to check the user has inputted values that has the correct data type.
+            Angle = TanOpp / TanAdj
+            TanAngleCalc= math.degrees(math.atan(Angle))#This is where the inverse tangent built in function from math is used for the calculation to find the length.
+            TanAngleCalcR = (round(TanAngleCalc, 1))#This line of code is to round the previous calculation to one decimal places to get the final answer.
+            TanAngleCalcRSent = "The answer for your Tan calculation to one decimal place is " + str(TanAngleCalcR) + "°"
+            await client.send_message(message.channel,(TanAngleCalcRSent))#This is the message that will be outputted to the user from the chatbot that is containing the calculation. 
 
 
 
