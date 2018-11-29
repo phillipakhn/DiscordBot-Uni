@@ -13,16 +13,16 @@ async def Arithmetics(message):
         Arithmeticmsg = Arithmeticmsg.strip('!Arithmetics ')
         Arithmeticmsg = str(Arithmeticmsg)
         print(Arithmeticmsg)
-        mathOperator = "Which operator would you like to use to work out your calulation with?: Add, Sub, Mult or Div?"        
+        mathOperator = "Which operator would you like to use to work out your calculation with?: Add, Sub, Mult or Div?"        
         await client.send_message(message.channel,(mathOperator))#This will output a message asking the user to pick which maths operator they want to use.
                                   
         if mathOperator == Add or add:#This is what the user must enter in order for the function to work for adding the numbers.
-            Number1 = "What is the first number that you want to use for your addition calulation?"
+            Number1 = "What is the first number that you want to use for your addition calculation?"
             await client.send_message(message.channel,(Number1))#This will output a message asking the user for the first number.
             if Number1 == int:#This is to check that the Number1 is an integer instead of a string so that the numbers can be added together.
                 Number1 = Number1.replace('None', '')
                 Number1 = "                 " + Number1 + " "            
-            Number2 = "What is the second number that you want to use for your addition calulation?"
+            Number2 = "What is the second number that you want to use for your addition calculation?"
             await client.send_message(message.channel,(Number2))#This will output a message asking the user for the second number.
             if Number2 == int:#This is to check that the Number2 is an integer instead of a string so that the numbers can be added.
                 Number2 = Number2.replace('None', '')
@@ -32,18 +32,18 @@ async def Arithmetics(message):
             await client.send_message(message.channel,(ansAddSent))#This will output a message that will have the answer for the addition calculation to the user.
             
         if mathOperator == 'Subtraction' or 'subtraction':#This is what the user must enter in order for the function to work for subtracting the numbers.
-            Number1 = "What is the first number that you want to use for your subtraction calulation?"
+            Number1 = "What is the first number that you want to use for your subtraction calculation?"
             await client.send_message(message.channel,(Number1))#This will output a message asking the user for the first number.
             if Number1 == int:#This is to check that the Number1 is an integer instead of a string so that the number can be used in the subtraction calculation.
                 Number1 = Number1.replace('None', '')
                 Number1 = "                 " + Number1 + " "
-            Number2 = "What is the second number that you want to use for your subtraction calulation?"
+            Number2 = "What is the second number that you want to use for your subtraction calculation?"
             await client.send_message(message.channel,(Number2))#This will output a message asking the user for the second number.
             if Number2 == int:#This is to check that the Number2 is an integer instead of a string so that the number can be used in the subtraction calculation.
                 Number2 = Number2.replace('None', '')
                 Number2 = "                 " + Number2 + " "
             ansSub = Number1 - Number2 
-            ansSubSent = "The answer for your subtraction calulation is" + str(ansSub)
+            ansSubSent = "The answer for your subtraction calculation is" + str(ansSub)
             await client.send_message(message.channel,(ansSubSent))#This will output a message that will have the answer for the subtraction calculation to the user.       
         
         if mathOperator == 'Multiply' or 'multiply':#This is what the user must enter in order for the function to work for multiplying the numbers.
@@ -52,7 +52,7 @@ async def Arithmetics(message):
             if Number1 == int:#This is to check that the Number1 is an integer instead of a string so that the number can be used in the multiplication calculation.
                 Number1 = Number1.replace('None', '')
                 Number1 = "                 " + Number1 + " "
-            Number2 = "What is the second number that you want to use for your multiplication calulation?"
+            Number2 = "What is the second number that you want to use for your multiplication calculation?"
             await client.send_message(message.channel,(Number2))#This will output a message asking the user for the second number.
             if Number2 == int:#This is to check that the Number2 is an integer instead of a string so that the number can be used in the multiplication calculation.
                 Number2 = Number2.replace('None', '')
@@ -61,20 +61,20 @@ async def Arithmetics(message):
             ansMultSent = "The answer for your multiplication calulation is" + str(ansMult)
             await client.send_message(message.channel,(ansMultSent))#This will output a message that will have the answer for the multiplication calculation to the user.
         
-        if mathOperator == 'Division' or 'divison':#This is what the user must enter in order for the function to work for dividing the numbers.
-            Number1 = "What is the first number that you want to use for your divison calulation?"
+        if mathOperator == 'Division' or 'division':#This is what the user must enter in order for the function to work for dividing the numbers.
+            Number1 = "What is the first number that you want to use for your division calculation?"
             await client.send_message(message.channel,(Number1))#This will output a message asking the user for the first number.
             if Number1 == int:#This is to check that the Number1 is an integer instead of a string so that the number can be used in the divison calculation.
                 Number1 = Number1.replace('None', '')
                 Number1 = "                 " + Number1 + "  "
-            Number2 = "What is the second number that you want to use for your divison calulation?"
+            Number2 = "What is the second number that you want to use for your division calculation?"
             await client.send_message(message.channel,(Number2))#This will output a message asking the user for the second number.
             if Number2 == int:#This is to check that the Number2 is an integer instead of a string so that the number can be used in the divison calculation.
                 Number2 = Number2.replace('None', '')
                 Number2 = "                 " + Number2 + " "
             ansDivide = Number1 / Number2 
-            ansDivideSent = "The answer for your divison calulation is" + str(ansDivide)
-            await client.send_message(message.channel,(ansDivideSent))#This will output a message that will have the answer for the divison calculation to the user.
+            ansDivideSent = "The answer for your division calulation is" + str(ansDivide)
+            await client.send_message(message.channel,(ansDivideSent))#This will output a message that will have the answer for the division calculation to the user.
           
         
 @client.event
