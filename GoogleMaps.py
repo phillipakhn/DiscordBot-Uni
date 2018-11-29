@@ -26,7 +26,7 @@ def Validate(Postcode):
 		print("Invalid postcode")		
 	elif Postcode[0].isalpha() == False: # Checking if the first index is a letter.
 		return False
-	elif Postcode[length-1].isalpha() == False: # must be length-1 becuase length does'nt include index 0
+	elif Postcode[length-1].isalpha() == False: # must be length-1 because length doesn't include index 0
 		return False
 	else:
 		return True	 	

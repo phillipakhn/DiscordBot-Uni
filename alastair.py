@@ -158,13 +158,13 @@ def remove(message):
 	if message.content.startswith('!Remove'):
 		msg = str(message.content)
 		msg = msg.replace("!Remove ", "")
-		if msg.lower() == "help":
+		if msg.lower() == "help": #Check to see if the user is asking for help 
 			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
 			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
 			return msg
 		wordList = msg.split(" from ")
-		toRemove = wordList[0]
-		removeFrom = wordList[1]
+		toRemove = wordList[0] #Gets word to remove
+		removeFrom = wordList[1] #Gets lit t remove from
 		print(toRemove)
 		print(removeFrom)
 		if removeFrom == "greeting":
@@ -188,11 +188,11 @@ def remove(message):
 			with open(fileName,'rb') as rfp:
 				listRemove = pickle.load(rfp)
 		else:
-			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n"
+			msg = "Syntax: !Remove [value_to_remove] from [list_to_remove_from] \n" #Displays the help 
 			msg = msg + "Lists: greeting, ignore, url, fResponse, fQuestion"
 			return msg
-		if toRemove in listRemove:
-			while toRemove in listRemove:
+		if toRemove in listRemove: #Remove the entry so long as it exists within the list
+			while toRemove in listRemove: #This is from when a bug created multiple entries in the list 
 				listRemove.remove(toRemove)
 			pickle.dump(listRemove, open(fileName,'wb'))
 			msg = "Removed '" + toRemove + "' from " + removeFrom
@@ -206,22 +206,22 @@ def display(message):
 	if message.content.startswith('!Display'):
 		fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
 		msg = ""
-		for files in fileNames:
+		for files in fileNames: #Opens the file names in order
 			with open(files,'rb') as rfp:
 				listDisplay = pickle.load(rfp)
-			msg = msg + files.replace(".txt", " - ")
+			msg = msg + files.replace(".txt", " - ") #Replaces the extention 
 			msg = msg + str(listDisplay)
 			msg = msg + "\n"
 		return msg
 		
 '''Display commands stored in memory and can add and remove'''
 def displayCommands(message):
-	if message.content.startswith('!displayCommands'):
+	if message.content.startswith('!displayCommands'): #Returns all the commands on the bot
 		commands = open("commands.txt", "r")
 		msg = commands.read()
 		commands.close()
 		return msg
-	if message.content.startswith('!addCommand'):
+	if message.content.startswith('!addCommand'): #Adds a command along with details about the command
 		commandToAdd = str(message.content)
 		commandToAdd = commandToAdd.replace("!addCommand ", "")
 		commands = open("commands.txt", "a")
@@ -231,19 +231,19 @@ def displayCommands(message):
 		commandToAdd = commandToAdd.replace("\n", "")
 		msg = "'" + commandToAdd + "' was added to commands"
 		return msg
-	if message.content.startswith('!removeCommand'):
+	if message.content.startswith('!removeCommand'): #Removed the command
 		commandToRemove = str(message.content)
 		commandToRemove = commandToRemove.replace("!removeCommand ", "")
 		commands = open("commands.txt", "r")
 		commandFile = commands.read()
-		if commandToRemove in commandFile:
+		if commandToRemove in commandFile: #Checks to see if it exists
 			#commandToRemove = commandToRemove + "\n"
 			commandFile.replace(commandToRemove, "")
 			commands.close()
 			commands = open("commands.txt", "w")
 			commands.write(commandFile)
 			commands.close()
-			if commandToRemove not in commandFile:
+			if commandToRemove not in commandFile: #Checks to see if the entry had been removed
 				msg = "Removed '" + commandToRemove + "' from the commands"
 				return msg
 			else:
@@ -257,10 +257,10 @@ def displayCommands(message):
 def removeDuplicates():
 	fileNames = ("greetings.txt", "ignore.txt", "url.txt", "fResponse.txt", "fQuestion.txt")
 	msg = ""
-	for files in fileNames:
-		with open(files,'rb') as rfp:
+	for files in fileNames: #Opens the files
+		with open(files,'rb') as rfp: #Assigns to list
 			listDisplay = pickle.load(rfp)
-		listDisplay = list(set(listDisplay))
+		listDisplay = list(set(listDisplay)) #Sets it to a list to remove duplicates
 		pickle.dump(listDisplay, open(files,'wb'))
 		
 '''Gets the temperature from a seperate Raspberry Pi on the local network'''
@@ -303,9 +303,9 @@ def temperature(message):
 				import re
 				c = t
 				t = re.findall(r'\b\d+\b', t)
-				t = float(t[0])
-				t = (t*(9/5)) + 32
-				t = str(t) + "°F (" + c + ")"
+				t = float(t[0]) #Assigns the number to a float
+				t = (t*(9/5)) + 32 #Converts to farenheit
+				t = str(t) + "°F (" + c + ")" #Creates the string
 			t = "The Current Temperature at Godiva Place is " + t
 			t = t + " \nIf you want to see a live image of the weather use !Webcam Godiva"
 		else:
@@ -319,36 +319,36 @@ def webcam(message):
 		import datetime
 		msg = message.content
 		if "godiva" in msg.lower():
-			try:
-    				r = requests.get("http://100.90.113.111:8080/photoaf.jpg", timeout=10.0)
+			try: #Checks to see if the webcam is working
+    				r = requests.get("http://100.90.113.111:8080/photoaf.jpg", timeout=10.0) 
 			except requests.Timeout as err:
 				return "This webcam appears to be down"
 			import urllib.request
-			urllib.request.urlretrieve("http://100.90.113.111:8080/photoaf.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("http://100.90.113.111:8080/photoaf.jpg", "webcam.jpg") #Downloads the image and saves it 
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Godiva Place"
-			f = open("OldWebcam.txt", "w")
+			f = open("OldWebcam.txt", "w") #Writes the old message for later use
 			f.write(msg)
 			f.close()
 			return msg
 		if "ullswater" in msg.lower():
 			import urllib.request
-			urllib.request.urlretrieve("https://www.ullswater-steamers.co.uk/images/webcam/ispy.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("https://www.ullswater-steamers.co.uk/images/webcam/ispy.jpg", "webcam.jpg") #Downloads the image and saves it 
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " at Ullswater"
-			f = open("OldWebcam.txt", "w")
+			f = open("OldWebcam.txt", "w") #Writes the old message for later use
 			f.write(msg)
 			f.close()
 			return msg
 		if "warwick" in msg.lower():
 			import urllib.request
-			urllib.request.urlretrieve("https://images.webcams.travel/preview/1349463611.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("https://images.webcams.travel/preview/1349463611.jpg", "webcam.jpg") #Downloads the image and saves it 
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " in Warwick"
-			f = open("OldWebcam.txt", "w")
+			f = open("OldWebcam.txt", "w") #Writes the old message for later use
 			f.write(msg)
 			f.close()
 			return msg
 		if "california" in msg.lower():
 			import urllib.request
-			urllib.request.urlretrieve("http://mk-webcam.net/MKB/mk-camB.jpg", "webcam.jpg")
+			urllib.request.urlretrieve("http://mk-webcam.net/MKB/mk-camB.jpg", "webcam.jpg") 
 			msg = "This photo was taken on " + datetime.datetime.now().strftime("%Y-%m-%d at %H:%M:%S") + " in Sequoia national park"
 			f = open("OldWebcam.txt", "w")
 			f.write(msg)
@@ -357,8 +357,8 @@ def webcam(message):
 		if "save" in msg.lower():
 			import sys
 			time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-			comm = "cp webcam.jpg Photos/" + time + ".jpg"
-			os.system(comm)
+			comm = "cp webcam.jpg Photos/" + time + ".jpg" #Saves the image along as the current time
+			os.system(comm) #Excecutes the command
 			return "The following image has been saved to " + time + ".jpg"
 		f = open("OldWebcam.txt", "r")
 		msg = "Please specify a location; you will now be shown the last photo taken on this bot \n" + f.read()
@@ -367,7 +367,7 @@ def webcam(message):
 
 '''Displays the code for Discord_Bot.py'''
 def code(message):
-	if message.content.startswith('!Code'):
+	if message.content.startswith('!Code'): #This code broke as Discord can only allow 2000 characters for the bot
 		C = open("/home/pi/DiscordBot/Discord_Bot.py", "r")
 		msg = ('{0.author.mention}'.format(message) + " - Here is the code: \n" + C.read())
 		C.close()
@@ -375,7 +375,7 @@ def code(message):
 	return
 		
 #def dab(message):
-#	if message.content.startswith('!dab4eva'):
+#	if message.content.startswith('!dab4eva'): #A piece of code that I added for fun
 #		while True:
 #			msg = 'Dab'
 #			await client.send_message(message.channel, msg)

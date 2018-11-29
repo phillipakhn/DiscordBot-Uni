@@ -28,7 +28,7 @@ async def Arithmetics(message):
                 Number2 = Number2.replace('None', '')
                 Number2 = "                 " + Number2 + " "
             ansAdd = Number1 + Number2 
-            ansAddSent = "The answer for your addition calulation is" + str(ansAdd)
+            ansAddSent = "The answer for your addition calculation is" + str(ansAdd)
             await client.send_message(message.channel,(ansAddSent))#This will output a message that will have the answer for the addition calculation to the user.
             
         if mathOperator == 'Subtraction' or 'subtraction':#This is what the user must enter in order for the function to work for subtracting the numbers.
@@ -47,7 +47,7 @@ async def Arithmetics(message):
             await client.send_message(message.channel,(ansSubSent))#This will output a message that will have the answer for the subtraction calculation to the user.       
         
         if mathOperator == 'Multiply' or 'multiply':#This is what the user must enter in order for the function to work for multiplying the numbers.
-            Number1 = "What is the first number that you want to use for your multiplication calulation?"
+            Number1 = "What is the first number that you want to use for your multiplication calculation?"
             await client.send_message(message.channel,(Number1))#This will output a message asking the user for the first number.
             if Number1 == int:#This is to check that the Number1 is an integer instead of a string so that the number can be used in the multiplication calculation.
                 Number1 = Number1.replace('None', '')
@@ -58,7 +58,7 @@ async def Arithmetics(message):
                 Number2 = Number2.replace('None', '')
                 Number2 = "                 " + Number2 + " "
             ansMult = Number1 * Number2
-            ansMultSent = "The answer for your multiplication calulation is" + str(ansMult)
+            ansMultSent = "The answer for your multiplication calculation is" + str(ansMult)
             await client.send_message(message.channel,(ansMultSent))#This will output a message that will have the answer for the multiplication calculation to the user.
         
         if mathOperator == 'Division' or 'division':#This is what the user must enter in order for the function to work for dividing the numbers.
@@ -73,7 +73,7 @@ async def Arithmetics(message):
                 Number2 = Number2.replace('None', '')
                 Number2 = "                 " + Number2 + " "
             ansDivide = Number1 / Number2 
-            ansDivideSent = "The answer for your division calulation is" + str(ansDivide)
+            ansDivideSent = "The answer for your division calculation is" + str(ansDivide)
             await client.send_message(message.channel,(ansDivideSent))#This will output a message that will have the answer for the division calculation to the user.
           
         
