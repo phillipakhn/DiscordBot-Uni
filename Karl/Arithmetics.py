@@ -88,7 +88,6 @@ async def on_ready():
 
 client.run(TOKEN)
 
-#This part of the code is not mine.
   
         
       
