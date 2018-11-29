@@ -23,7 +23,7 @@ async def modules(message):
 	#msg = msg + str(a.pyStart(message))
 	msg = msg + str(a.human(message))
 	msg = msg + str(a.ignore(message))
-	if "RETUR" in msg:
+	if "RETUR" in msg: #Stops the function if the message is 'RETUR' as these are not supposed to be run
 		return
 	msg = msg + str(a.greetings(message))
 	msg = msg + str(a.url(message))
@@ -45,17 +45,17 @@ async def modules(message):
 	msg = msg.replace('None', '')
 	if message.content.startswith("!Webcam"):
 		msgcont = message.content
-		if "displayall" in msgcont:
+		if "displayall" in msgcont: #Displays all the saved images 
 			from os import listdir
-			allImages = os.listdir("Photos")
+			allImages = os.listdir("Photos") #Makes a list of all the file names
 			await client.send_message(message.channel, "Here are all saved images:")
 			for i in allImages: #Goes through all images from the webcam and sends them to the channel
 				dir = "Photos/" + i 
-				await client.send_file(message.channel, dir)
+				await client.send_file(message.channel, dir) #Sends the file to the channel
 			return
 		else:
-			await client.send_message(message.channel, msg)
-			await client.send_file(message.channel, "webcam.jpg")
+			await client.send_message(message.channel, msg) #Displays the old message
+			await client.send_file(message.channel, "webcam.jpg") #Displays the previous photo
 			return
 	if not msg:
 		msg = str(a.notInMem(message)) #If there isn't any content in the msg 
@@ -73,7 +73,7 @@ async def modules(message):
 	else:
 		await client.send_message(message.channel, msg)
 		if message.content.startswith("!TempF"):
-			await client.send_file(message.channel, "celcius.png")
+			await client.send_file(message.channel, "celcius.png") #Displays a map of the world of who uses celcius vs farenheit
 	
 @client.event
 async def on_message(message):
@@ -84,7 +84,7 @@ async def on_message(message):
 @client.event
 async def on_ready():
 	print('Logged in as ' + client.user.name)
-	msg = "Bot Started at " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " on " + str(get('https://api.ipify.org').text)
+	msg = "Bot Started at " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " on " + str(get('https://api.ipify.org').text) #Displays the IP that the bot is running on
 	await client.send_message(client.get_channel('502223039912476694'), msg)
 
 client.run(TOKEN)
