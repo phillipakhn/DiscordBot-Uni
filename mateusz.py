@@ -53,247 +53,99 @@ async def on_message(message):
         #cointossheads("A1")  - tried calling a function but kept getting errors.
 
         author = message.author
-        if author.id == "182146954384506880": #Tree 
+        #if author.id == "182146954384506880": #Tree 
             
         
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg) # sending message to discord server
+        x = random.randint(0,1)
+        if x == 0:
+            msg = ("You flipped a coin, it's tails. You lose")
+            await client.send_message(message.channel, msg) # sending message to discord server
             
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+        elif x == 1:
+            
+            msg = ("You flipped a coin, it's heads. You win")
+            await client.send_message(message.channel, msg)
+            
+            if author.id == "182146954384506880": #Tree
                 sheet['A1'].value = int(sheet['A1'].value) + 1 #after winning a bet, add 1 to leaderboards
                 score = sheet['A1'].value
-                player =  ' {0.author.mention}'.format(message) #bot mentions the winner in a message
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx') #saving excel file in the end of each game
-                
-        if author.id == "326831993520390154": #Alastair
 
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg)
-            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "326831993520390154": #Alastair
                 sheet['A2'].value = int(sheet['A2'].value) + 1
                 score = sheet['A2'].value
-                player =  ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
 
-
-        if author.id == "187259473050599424": #Kieran
-            
-        
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg)
-            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "187259473050599424": #Kieran
                 sheet['A3'].value = int(sheet['A3'].value) + 1
                 score = sheet['A3'].value
-                player =  ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-                
-        if author.id == "497343538242125834": #Tomas
 
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg)
-            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497343538242125834": #Tomas
                 sheet['A4'].value = int(sheet['A4'].value) + 1
                 score = sheet['A4'].value
-                player =  ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
 
-
-        if author.id == "497343197429628941": #Mango
-            
-        
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg)
-            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497343197429628941": #Mango
                 sheet['A5'].value = int(sheet['A5'].value) + 1
                 score = sheet['A5'].value
-                player =  ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-                
-        if author.id == "497345883437006849": #Karl
 
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You lose")
-                await client.send_message(message.channel, msg)
-            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497345883437006849": #Karl
                 sheet['A6'].value = int(sheet['A6'].value) + 1
                 score = sheet['A6'].value
-                player =  ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-        
-            
-            
 
+                
+
+            player =  ' {0.author.mention}'.format(message) #bot mentions the winner in a message
+            await client.send_message(message.channel, player)
+            await client.send_message(message.channel, score)
+            wb.save('example1.xlsx') #saving excel file in the end of each game
+                
 
 
 
 
     if message.content.startswith('!coin tails'):
         author = message.author
-        if author.id == "182146954384506880": #Tree
+        
 
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
+        x = random.randint(0,1)
+        if x == 0:
+            msg = ("You flipped a coin, it's tails. You win")
+            await client.send_message(message.channel, msg)
 
-                sheet['A1'].value = int(sheet['A1'].value) + 1
+            if author.id == "182146954384506880": #Tree
+                sheet['A1'].value = int(sheet['A1'].value) + 1 
                 score = sheet['A1'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-            
-           
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
 
-        if author.id == "326831993520390154": #Alastair
-
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "326831993520390154": #Alastair
                 sheet['A2'].value = int(sheet['A2'].value) + 1
                 score = sheet['A2'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-            
-           
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
 
-
-
-        if author.id == "187259473050599424": #Kieran
-
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "187259473050599424": #Kieran
                 sheet['A3'].value = int(sheet['A3'].value) + 1
                 score = sheet['A3'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-            
-           
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
 
-
-        if author.id == "497343538242125834": #Tomas
-
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497343538242125834": #Tomas
                 sheet['A4'].value = int(sheet['A4'].value) + 1
                 score = sheet['A4'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-            
-           
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
 
-
-        if author.id == "497343197429628941": #Mango
-
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497343197429628941": #Mango
                 sheet['A5'].value = int(sheet['A5'].value) + 1
                 score = sheet['A5'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
-            
-           
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
 
-
-        if author.id == "497345883437006849": #Karl
-
-            x = random.randint(0,1)
-            if x == 0:
-                msg = ("You flipped a coin, it's tails. You win")
-                await client.send_message(message.channel, msg)
-
+            elif author.id == "497345883437006849": #Karl
                 sheet['A6'].value = int(sheet['A6'].value) + 1
                 score = sheet['A6'].value
-                player = ' {0.author.mention}'.format(message)
-                await client.send_message(message.channel, player)
-                await client.send_message(message.channel, score)
-                wb.save('example1.xlsx')
+                
+            player = ' {0.author.mention}'.format(message)
+            await client.send_message(message.channel, player)
+            await client.send_message(message.channel, score)
+            wb.save('example1.xlsx')
             
            
-            elif x == 1:
-                msg = ("You flipped a coin, it's heads. You lose")
-                await client.send_message(message.channel, msg)
+        elif x == 1:
+            msg = ("You flipped a coin, it's heads. You lose")
+            await client.send_message(message.channel, msg)
 
+
+ 
         
 
 
