@@ -78,9 +78,9 @@ def url(message):
 		msg = ""
 		for i in url:
 			msg = msg + "\n" + i #Adds all the URLs to a string
-		#while i <= (len(url)-1): #Add All urls to a string
-		#	msg = msg + "\n" + url[i]
-		#	i = i + 1
+		while i <= (len(url)-1): #Add All urls to a string
+			msg = msg + "\n" + url[i]
+			i = i + 1
 		return msg
 	return
 	
