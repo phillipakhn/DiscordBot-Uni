@@ -71,6 +71,7 @@ def askQuestion():
 		
 '''Checks to see if the user is asking for the URL's and then displays all the stored URLs'''
 def url(message):
+	print("T0")
 	if message.content.startswith('!URL'): #If the user asks for all the URLs
 		i = 0
 		print("T1")
