@@ -73,6 +73,7 @@ def askQuestion():
 def url(message):
 	if message.content.startswith('!URL'): #If the user asks for all the URLs
 		i = 0
+		print("T1")
 		with open("url.txt",'rb') as rfp: #Load in all the stored URLs
 			url = pickle.load(rfp)
 		msg = ""
@@ -81,6 +82,8 @@ def url(message):
 		while i <= (len(url)-1): #Add All urls to a string
 			msg = msg + "\n" + url[i]
 			i = i + 1
+			print(i)
+		print("T2")
 		return msg
 	return
 	
