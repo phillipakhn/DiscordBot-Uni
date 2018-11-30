@@ -76,8 +76,8 @@ def url(message):
 		with open("url.txt",'rb') as rfp: #Load in all the stored URLs
 			url = pickle.load(rfp)
 		msg = ""
-		for i in url:
-			msg = msg + "\n" + i #Adds all the URLs to a string
+		#for i in url:
+		#	msg = msg + "\n" + i #Adds all the URLs to a string
 		while i <= (len(url)-1): #Add All urls to a string
 			msg = msg + "\n" + url[i]
 			i = i + 1
