@@ -88,7 +88,7 @@ def url(message):
 '''Tests to see if the bot is running'''			
 def test(message):
 	if message.content.startswith('!Test'):
-		msg = 'This is proof that it is working 2'
+		msg = 'TEST LOL'
 		return msg
 	return
 		
