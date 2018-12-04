@@ -321,7 +321,7 @@ def webcam(message):
 		msg = message.content
 		if "godiva" in msg.lower():
 			try: #Checks to see if the webcam is working
-    				r = requests.get("http://100.90.113.111:8080/photoaf.jpg", timeout=10.0) 
+    				r = requests.get("http://100.90.113.255:8080/photoaf.jpg", timeout=10.0) 
 			except requests.Timeout as err:
 				return "This webcam appears to be down"
 			import urllib.request
