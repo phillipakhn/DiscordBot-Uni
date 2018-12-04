@@ -81,13 +81,14 @@ def url(message):
 		#while i <= (len(url)-1): #Add All urls to a string
 		#	msg = msg + "\n" + url[i]
 		#	i = i + 1
+		#	print(i)
 		return msg
 	return
 	
 '''Tests to see if the bot is running'''			
 def test(message):
 	if message.content.startswith('!Test'):
-		msg = 'This is proof that it is working'
+		msg = 'TEST LOL'
 		return msg
 	return
 		
@@ -320,7 +321,7 @@ def webcam(message):
 		msg = message.content
 		if "godiva" in msg.lower():
 			try: #Checks to see if the webcam is working
-    				r = requests.get("http://100.90.113.111:8080/photoaf.jpg", timeout=10.0) 
+    				r = requests.get("http://100.90.113.255:8080/photoaf.jpg", timeout=10.0) 
 			except requests.Timeout as err:
 				return "This webcam appears to be down"
 			import urllib.request
