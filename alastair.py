@@ -87,6 +87,9 @@ def url(message):
 	
 '''Tests to see if the bot is running'''			
 def test(message):
+	if message.content.startswith('!Mafs'):
+		msg = "2+2=4 \n -1 that's 3 \n quik mafs"
+		return msg
 	if message.content.startswith('!Test'):
 		msg = 'TEST LOL'
 		return msg
