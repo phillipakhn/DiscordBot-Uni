@@ -2,7 +2,7 @@ import discord, logging, time, random, pickle, os, datetime
 from requests import get
 import alastair as a #Import custom library
 
-TOKEN = 'NTAyMjI2MDYzNzYyMzkxMDUw.Dqk38g.KFDtyaHwMfRNK6RRUKYfpDj9L9Y'
+TOKEN = #TOKEN HERE
 
 a.removeDuplicates() #Remove duplicates from the stored lists
 
